@@ -1,0 +1,165 @@
+// Skema database - lihat juga references/architecture.md di skill untuk penjelasan desain
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  ADMIN
+  PESERTA
+  SUPERVISOR
+}
+
+// 4 disiplin teknik sesuai kebutuhan: Instrumentasi, Electrical, Stationary, Rotating
+enum Discipline {
+  INSTRUMENTASI
+  ELECTRICAL
+  STATIONARY
+  ROTATING
+}
+
+// Jabatan/level kompetensi - soal & exam difilter berdasarkan ini + disiplin
+enum Position {
+  TEKNISI_JUNIOR
+  TEKNISI_SENIOR
+  SUPERVISOR_LAPANGAN
+  ENGINEER
+}
+
+enum ExamStatus {
+  DRAFT
+  PUBLISHED
+  CLOSED
+}
+
+enum AttemptStatus {
+  IN_PROGRESS
+  SUBMITTED
+  AUTO_SUBMITTED
+  REVIEWED
+}
+
+enum ViolationType {
+  TAB_SWITCH
+  FULLSCREEN_EXIT
+  COPY_PASTE
+}
+
+model User {
+  id           String     @id @default(cuid())
+  name         String
+  email        String     @unique
+  passwordHash String
+  role         Role       @default(PESERTA)
+  // Discipline & position menentukan exam mana yang muncul untuk peserta ini.
+  // Admin/Supervisor boleh null karena mereka tidak "mengambil" exam.
+  discipline   Discipline?
+  position     Position?
+  department   String?
+  createdAt    DateTime   @default(now())
+
+  attempts         ExamAttempt[] @relation("PesertaAttempts")
+  reviewedAttempts ExamAttempt[] @relation("SupervisorReviews")
+}
+
+model QuestionBank {
+  id         String     @id @default(cuid())
+  name       String
+  discipline Discipline
+  position   Position
+  createdAt  DateTime   @default(now())
+
+  questions Question[]
+  exams     Exam[]
+
+  @@index([discipline, position])
+}
+
+model Question {
+  id             String       @id @default(cuid())
+  questionBankId String
+  questionBank   QuestionBank @relation(fields: [questionBankId], references: [id], onDelete: Cascade)
+  text           String
+  optionA        String
+  optionB        String
+  optionC        String
+  optionD        String
+  correctOption  String // "A" | "B" | "C" | "D"
+  points         Int    @default(1)
+  imageUrl       String?
+  createdAt      DateTime @default(now())
+
+  @@index([questionBankId])
+}
+
+model Exam {
+  id             String     @id @default(cuid())
+  title          String
+  questionBankId String
+  questionBank   QuestionBank @relation(fields: [questionBankId], references: [id])
+  // Disalin dari questionBank saat dibuat supaya tetap konsisten walau bank soal berubah nanti.
+  discipline     Discipline
+  position       Position
+  questionCount  Int        // berapa soal diambil random dari bank per attempt
+  durationMin    Int
+  passingScore   Int
+  opensAt        DateTime
+  closesAt       DateTime
+  status         ExamStatus @default(DRAFT)
+  createdAt      DateTime   @default(now())
+
+  attempts ExamAttempt[]
+
+  @@index([discipline, position, status])
+}
+
+model ExamAttempt {
+  id            String        @id @default(cuid())
+  examId        String
+  exam          Exam          @relation(fields: [examId], references: [id])
+  userId        String
+  user          User          @relation("PesertaAttempts", fields: [userId], references: [id])
+  questionOrder Json // array of question IDs, urutan sudah dirandomize khusus attempt ini
+  startedAt     DateTime      @default(now()) // SERVER timestamp - source of truth untuk timer
+  submittedAt   DateTime?
+  status        AttemptStatus @default(IN_PROGRESS)
+  score         Int?
+  passed        Boolean?
+
+  reviewedById String?
+  reviewedBy   User?     @relation("SupervisorReviews", fields: [reviewedById], references: [id])
+  reviewedAt   DateTime?
+  reviewNote   String?
+
+  answers    AttemptAnswer[]
+  violations ViolationLog[]
+
+  @@index([examId, userId])
+  @@index([status])
+}
+
+model AttemptAnswer {
+  id             String      @id @default(cuid())
+  attemptId      String
+  attempt        ExamAttempt @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  questionId     String
+  selectedOption String? // null kalau belum dijawab
+  optionOrder    Json // urutan A/B/C/D yang ditampilkan ke peserta ini (dirandomize per attempt)
+  answeredAt     DateTime?
+
+  @@unique([attemptId, questionId])
+}
+
+model ViolationLog {
+  id         String        @id @default(cuid())
+  attemptId  String
+  attempt    ExamAttempt   @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+  type       ViolationType
+  occurredAt DateTime      @default(now())
+
+  @@index([attemptId])
+}
