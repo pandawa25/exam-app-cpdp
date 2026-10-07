@@ -2,6 +2,7 @@ import { type NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
 import { prisma } from "@/lib/prisma";
+import { SESSION_COOKIE_NAME, USE_SECURE_COOKIES } from "@/lib/session-cookie";
 
 // Auth internal perusahaan: email + password, tanpa social login.
 // Role (ADMIN/PESERTA/SUPERVISOR) disimpan di token supaya middleware bisa
@@ -11,6 +12,14 @@ export const authOptions: NextAuthOptions = {
   // yang sudah terbit, jadi masa berlaku sesi dibatasi supaya aksesnya cepat berakhir sendiri.
   session: { strategy: "jwt", maxAge: 12 * 60 * 60 },
   pages: { signIn: "/login" },
+  // Nama cookie eksplisit, sama persis dengan yang dibaca middleware (lihat session-cookie.ts).
+  useSecureCookies: USE_SECURE_COOKIES,
+  cookies: {
+    sessionToken: {
+      name: SESSION_COOKIE_NAME,
+      options: { httpOnly: true, sameSite: "lax", path: "/", secure: USE_SECURE_COOKIES },
+    },
+  },
   providers: [
     CredentialsProvider({
       name: "credentials",

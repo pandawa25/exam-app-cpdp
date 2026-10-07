@@ -1,5 +1,6 @@
 import { withAuth } from "next-auth/middleware";
 import { NextResponse } from "next/server";
+import { SESSION_COOKIE_NAME } from "@/lib/session-cookie";
 
 // Proteksi route berdasarkan role. Satu peserta tidak bisa buka /admin,
 // satu admin tidak otomatis bisa buka /supervisor/review, dst.
@@ -27,6 +28,8 @@ export default withAuth(
     // Tanpa ini, user belum login dilempar ke halaman sign-in bawaan NextAuth (/api/auth/signin),
     // bukan ke halaman /login aplikasi.
     pages: { signIn: "/login" },
+    // Baca cookie dengan nama eksplisit, jangan bergantung pada NEXTAUTH_URL di Edge runtime.
+    cookies: { sessionToken: { name: SESSION_COOKIE_NAME } },
     callbacks: {
       authorized: ({ token }) => !!token,
     },
