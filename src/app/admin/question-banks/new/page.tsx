@@ -43,7 +43,7 @@ export default function NewQuestionBankPage() {
             required
             value={name}
             onChange={(e) => setName(e.target.value)}
-            placeholder='Misal: "Instrumentasi - Teknisi Senior"'
+            placeholder='Misal: "Instrumentasi - Jr. Technician I"'
             className="input"
           />
         </div>

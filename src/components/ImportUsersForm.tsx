@@ -4,8 +4,8 @@ import { useState } from "react";
 import Link from "next/link";
 
 const EXAMPLE = `nama,email,role,disiplin,jabatan,departemen,password
-Andi Pratama,andi@perusahaan.com,PESERTA,Instrumentasi,Teknisi Senior,Maintenance,
-Citra Lestari,citra@perusahaan.com,PESERTA,Electrical,Teknisi Junior,Maintenance,
+Andi Pratama,andi@perusahaan.com,PESERTA,Instrumentasi,Sr. Technician I,Maintenance,
+Citra Lestari,citra@perusahaan.com,PESERTA,Electrical,Jr. Technician II,Maintenance,
 Budi Santoso,budi@perusahaan.com,SUPERVISOR,,,Operasi,`;
 
 type RowError = { row: number; email?: string; error: string };
@@ -143,8 +143,8 @@ export function ImportUsersForm() {
         </p>
         <p className="text-xs text-ink-mute">
           Delimiter koma, titik koma, atau tab (hasil copy dari Excel) dikenali otomatis. Nilai disiplin:
-          Instrumentasi, Electrical, Stationary, Rotating. Jabatan: Teknisi Junior, Teknisi Senior, Supervisor
-          Lapangan, Engineer. Maksimal 300 baris. Jika ada satu baris bermasalah, tidak ada user yang dibuat.
+          Instrumentasi, Electrical, Stationary, Rotating, Civil. Jabatan: Jr. Technician I, Jr. Technician II,
+          Technician I, Technician II, Sr. Technician I. Maksimal 300 baris. Jika ada satu baris bermasalah, tidak ada user yang dibuat.
         </p>
       </div>
 

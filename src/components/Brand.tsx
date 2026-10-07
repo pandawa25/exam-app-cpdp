@@ -1,53 +1,37 @@
-// Identitas visual: simbol "instrument balloon" dari diagram P&ID/ISA
-// (lingkaran dengan garis tengah = instrumen yang dipasang di panel ruang kontrol).
-// Teks atas = fungsi (UK = Ujian Kompetensi), teks bawah = nomor loop.
-// Ganti file ini bila perusahaan sudah punya logo resmi.
+import { PROGRAM_MODULE, PROGRAM_SHORT, PROGRAM_TITLE } from "@/lib/program";
+
+// Logo program CPDP Maintenance Execution II. Berkas gambar ada di /public:
+// logo-mark.png (emblem saja) dan logo-full.png (emblem + tulisan), keduanya putih transparan
+// supaya cocok di latar gelap aplikasi.
 
 export function BrandMark({ size = 36 }: { size?: number }) {
+  // eslint-disable-next-line @next/next/no-img-element
+  return <img src="/logo-mark.png" width={size} height={size} alt="" className="shrink-0" />;
+}
+
+/** Logo lengkap (emblem + tulisan Maintenance Execution II). Rasio asli sekitar 1 : 1. */
+export function BrandLogoFull({ width = 160, className = "" }: { width?: number; className?: string }) {
+  // eslint-disable-next-line @next/next/no-img-element
   return (
-    <svg
-      width={size}
-      height={size}
-      viewBox="0 0 40 40"
-      fill="none"
-      role="img"
-      aria-label="Ujian Kompetensi"
-      className="shrink-0"
-    >
-      <circle cx="20" cy="20" r="17.5" stroke="currentColor" strokeWidth="2.5" />
-      <line x1="2.5" y1="20" x2="37.5" y2="20" stroke="currentColor" strokeWidth="2.5" />
-      <text
-        x="20"
-        y="16.2"
-        textAnchor="middle"
-        fontSize="11.5"
-        fontWeight="700"
-        fill="currentColor"
-        fontFamily='"Barlow Condensed", "Barlow", sans-serif'
-      >
-        UK
-      </text>
-      <text
-        x="20"
-        y="31.6"
-        textAnchor="middle"
-        fontSize="11.5"
-        fontWeight="600"
-        fill="currentColor"
-        fontFamily='"Barlow Condensed", "Barlow", sans-serif'
-      >
-        01
-      </text>
-    </svg>
+    <img
+      src="/logo-full.png"
+      width={width}
+      height={Math.round(width * (540 / 543))}
+      alt={PROGRAM_TITLE}
+      className={className}
+    />
   );
 }
 
 export function Brand({ size = 36 }: { size?: number }) {
   return (
-    <span className="flex items-center gap-3 text-brand">
+    <span className="flex items-center gap-3">
       <BrandMark size={size} />
-      <span className="font-display text-xl font-semibold leading-none text-ink">
-        Ujian Kompetensi
+      <span className="flex flex-col gap-1">
+        <span className="font-display text-xl font-semibold leading-none text-ink">{PROGRAM_SHORT}</span>
+        <span className="text-[0.7rem] font-medium uppercase leading-none tracking-wider text-ink-mute">
+          {PROGRAM_MODULE}
+        </span>
       </span>
     </span>
   );

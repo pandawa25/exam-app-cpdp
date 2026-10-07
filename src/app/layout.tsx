@@ -8,8 +8,8 @@ import "@fontsource/barlow-condensed/latin-700.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Ujian Kompetensi Teknisi",
-  description: "Aplikasi ujian kompetensi teknisi - Instrumentasi, Electrical, Stationary, Rotating",
+  title: "CPDP Maintenance Execution II",
+  description: "Craft Profesional Development Program (CPDP) Maintenance Execution II (ME II) - ujian kompetensi per disiplin dan jabatan",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

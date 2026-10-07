@@ -1,6 +1,6 @@
-# Sistem Ujian Kompetensi Internal
+# CPDP Maintenance Execution II (ME II)
 
-Aplikasi web ujian kompetensi untuk teknisi 5 disiplin — **Instrumentasi, Electrical, Stationary, Rotating, Civil** — dengan bank soal, exam difilter otomatis sesuai disiplin & jabatan peserta, timer server-side, anti-cheat (randomize soal/opsi, deteksi tab-switch, fullscreen lock, auto-submit), dan review supervisor.
+Aplikasi web ujian kompetensi untuk Craft Profesional Development Program (CPDP) Maintenance Execution II (ME II), untuk teknisi 5 disiplin — **Instrumentasi, Electrical, Stationary, Rotating, Civil** — dengan bank soal, exam difilter otomatis sesuai disiplin & jabatan peserta, timer server-side, anti-cheat (randomize soal/opsi, deteksi tab-switch, fullscreen lock, auto-submit), dan review supervisor.
 
 Dibangun mengikuti skill `online-exam-system-builder` (lihat `references/` di skill tersebut untuk penjelasan desain lengkap).
 

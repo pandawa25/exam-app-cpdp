@@ -72,7 +72,7 @@ export function NewExamForm({ banks }: { banks: Bank[] }) {
           required
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          placeholder='Misal: "Ujian Kompetensi Instrumentasi - Teknisi Senior Q4 2026"'
+          placeholder='Misal: "CPDP ME II - Instrumentasi Jr. Technician I - Q4 2026"'
           className="input"
         />
       </div>
