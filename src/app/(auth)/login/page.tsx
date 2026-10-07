@@ -6,8 +6,6 @@ import { useRouter } from "next/navigation";
 import { BrandLogoFull } from "@/components/Brand";
 import { PROGRAM_MODULE, PROGRAM_MODULE_SHORT, PROGRAM_NAME, PROGRAM_SHORT } from "@/lib/program";
 
-const DISCIPLINES = ["Instrumentasi", "Electrical", "Stationary", "Rotating", "Civil"];
-
 export default function LoginPage() {
   const router = useRouter();
   const [email, setEmail] = useState("");
@@ -47,7 +45,7 @@ export default function LoginPage() {
       {/* Panel identitas: hanya di layar lebar. Grid tipis meniru kertas gambar P&ID. */}
       <section
         aria-hidden="true"
-        className="relative hidden flex-col justify-between gap-10 overflow-hidden border-r border-panel-line bg-panel-raised p-12 lg:flex"
+        className="relative hidden flex-col justify-center gap-12 overflow-hidden border-r border-panel-line bg-panel-raised p-12 lg:flex"
         style={{
           backgroundImage:
             "linear-gradient(to right, rgba(147,160,172,.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(147,160,172,.08) 1px, transparent 1px)",
@@ -61,17 +59,6 @@ export default function LoginPage() {
             {PROGRAM_SHORT} &middot; {PROGRAM_MODULE} ({PROGRAM_MODULE_SHORT})
           </p>
           <h2 className="font-display text-5xl font-semibold leading-[1] text-ink">{PROGRAM_NAME}</h2>
-          <p className="mt-5 max-w-md text-base text-ink-soft">
-            Soal disesuaikan dengan disiplin dan jabatan Anda. Waktu ujian dan pelanggaran dicatat oleh server.
-          </p>
-
-          <ul className="mt-8 max-w-sm divide-y divide-panel-line border-y border-panel-line">
-            {DISCIPLINES.map((d) => (
-              <li key={d} className="py-2.5 font-display text-xl font-medium text-ink">
-                {d}
-              </li>
-            ))}
-          </ul>
         </div>
       </section>
 
