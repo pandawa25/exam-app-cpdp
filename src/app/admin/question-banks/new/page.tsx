@@ -7,8 +7,8 @@ import { DISCIPLINES, POSITIONS } from "@/lib/constants";
 export default function NewQuestionBankPage() {
   const router = useRouter();
   const [name, setName] = useState("");
-  const [discipline, setDiscipline] = useState(DISCIPLINES[0].value);
-  const [position, setPosition] = useState(POSITIONS[0].value);
+  const [discipline, setDiscipline] = useState<string>(DISCIPLINES[0].value);
+  const [position, setPosition] = useState<string>(POSITIONS[0].value);
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
