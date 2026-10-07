@@ -2,6 +2,7 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { disciplineLabel, positionLabel } from "@/lib/constants";
 import { ExamStatusActions } from "@/components/ExamStatusActions";
+import { DeleteButton } from "@/components/DeleteButton";
 
 export const dynamic = "force-dynamic";
 
@@ -51,7 +52,17 @@ export default async function AdminExamsPage() {
                 {exam.closesAt.toLocaleString("id-ID", { timeZone: "Asia/Jakarta" })} WIB
               </p>
             </div>
-            <ExamStatusActions examId={exam.id} status={exam.status} />
+            <div className="flex shrink-0 items-start gap-5">
+              <ExamStatusActions examId={exam.id} status={exam.status} />
+              <DeleteButton
+                url={`/api/exams/${exam.id}${exam._count.attempts > 0 ? "?force=1" : ""}`}
+                confirmText={
+                  exam._count.attempts > 0
+                    ? `Hapus exam "${exam.title}" BESERTA ${exam._count.attempts} hasil ujian peserta? Tidak bisa dibatalkan.`
+                    : `Hapus exam "${exam.title}"? Tidak bisa dibatalkan.`
+                }
+              />
+            </div>
           </div>
         ))}
       </div>

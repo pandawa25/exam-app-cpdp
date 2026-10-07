@@ -2,24 +2,40 @@ import { prisma } from "@/lib/prisma";
 import { notFound } from "next/navigation";
 import { disciplineLabel, positionLabel } from "@/lib/constants";
 import { AddQuestionForm } from "@/components/AddQuestionForm";
+import { DeleteButton } from "@/components/DeleteButton";
 
 export const dynamic = "force-dynamic";
 
 export default async function QuestionBankDetailPage({ params }: { params: { id: string } }) {
   const bank = await prisma.questionBank.findUnique({
     where: { id: params.id },
-    include: { questions: { orderBy: { createdAt: "asc" } } },
+    include: { questions: { orderBy: { createdAt: "asc" } }, _count: { select: { exams: true } } },
   });
   if (!bank) notFound();
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="page-title">{bank.name}</h1>
-        <p className="text-sm text-ink-mute">
-          {disciplineLabel(bank.discipline)} &middot; {positionLabel(bank.position)} &middot; {bank.questions.length} soal
-        </p>
+      <div className="flex items-start justify-between gap-4">
+        <div>
+          <h1 className="page-title">{bank.name}</h1>
+          <p className="text-sm text-ink-mute">
+            {disciplineLabel(bank.discipline)} &middot; {positionLabel(bank.position)} &middot; {bank.questions.length} soal
+          </p>
+        </div>
+        <DeleteButton
+          url={`/api/question-banks/${bank.id}`}
+          label="Hapus bank soal"
+          confirmText={`Hapus bank soal "${bank.name}" beserta ${bank.questions.length} soalnya? Tidak bisa dibatalkan.`}
+          redirectTo="/admin/question-banks"
+          disabled={bank._count.exams > 0}
+          disabledReason={`Dipakai ${bank._count.exams} exam - hapus exam-nya dulu`}
+        />
       </div>
+      {bank._count.exams > 0 && (
+        <p className="-mt-3 text-xs text-ink-mute">
+          Bank ini dipakai {bank._count.exams} exam, jadi belum bisa dihapus. Hapus exam-nya dulu di menu Exam.
+        </p>
+      )}
 
       <AddQuestionForm bankId={bank.id} />
 

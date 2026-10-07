@@ -21,3 +21,31 @@ export async function PATCH(req: Request, { params }: { params: { id: string } }
 
   return NextResponse.json(exam);
 }
+
+// DELETE: hapus exam. Exam yang sudah punya hasil ujian hanya dihapus kalau ?force=1
+// (hasil ujian ikut terhapus permanen) - UI selalu menampilkan jumlahnya di konfirmasi.
+export async function DELETE(req: Request, { params }: { params: { id: string } }) {
+  const session = await requireRole(["ADMIN"]);
+  if (!session) return NextResponse.json({ error: "Forbidden" }, { status: 403 });
+
+  const exam = await prisma.exam.findUnique({
+    where: { id: params.id },
+    include: { _count: { select: { attempts: true } } },
+  });
+  if (!exam) return NextResponse.json({ error: "Exam tidak ditemukan" }, { status: 404 });
+
+  const force = new URL(req.url).searchParams.get("force") === "1";
+  if (exam._count.attempts > 0 && !force) {
+    return NextResponse.json(
+      { error: `Exam ini punya ${exam._count.attempts} hasil ujian. Konfirmasi ulang untuk menghapusnya beserta hasil.` },
+      { status: 409 }
+    );
+  }
+
+  // Jawaban dan log pelanggaran ikut terhapus lewat cascade dari attempt.
+  await prisma.$transaction([
+    prisma.examAttempt.deleteMany({ where: { examId: params.id } }),
+    prisma.exam.delete({ where: { id: params.id } }),
+  ]);
+  return NextResponse.json({ ok: true });
+}
