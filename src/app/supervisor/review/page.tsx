@@ -3,7 +3,7 @@ import { redirect } from "next/navigation";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { SupervisorReviewCard } from "@/components/SupervisorReviewCard";
-import { LogoutButton } from "@/components/LogoutButton";
+import { AccountLinks } from "@/components/AccountLinks";
 import { finalizeExpiredAttempts } from "@/lib/scoring";
 
 export const dynamic = "force-dynamic";
@@ -32,7 +32,7 @@ export default async function SupervisorReviewPage() {
     <div className="max-w-2xl mx-auto px-4 py-8">
       <div className="flex items-center justify-between mb-1">
         <h1 className="text-xl font-semibold">Review Hasil Ujian</h1>
-        <LogoutButton />
+        <AccountLinks />
       </div>
       <p className="text-sm text-slate-500 mb-6">
         {sorted.length} attempt menunggu review.

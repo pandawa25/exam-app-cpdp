@@ -60,6 +60,8 @@ model User {
   discipline   Discipline?
   position     Position?
   department   String?
+  // false = akun dinonaktifkan (karyawan resign/pindah): tidak bisa login, tapi riwayat ujiannya tetap utuh.
+  isActive     Boolean    @default(true)
   createdAt    DateTime   @default(now())
 
   attempts         ExamAttempt[] @relation("PesertaAttempts")

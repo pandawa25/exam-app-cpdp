@@ -42,12 +42,18 @@ Login sebagai peserta Instrumentasi langsung bisa coba exam contoh yang sudah di
 3. Peserta mulai ujian → wajib masuk fullscreen dulu → timer jalan dari server → jawaban auto-save tiap pilih opsi → keluar fullscreen/pindah tab tercatat sebagai pelanggaran (auto-submit di pelanggaran ke-3, bisa diubah lewat env `VIOLATION_THRESHOLD`).
 4. **Supervisor** login → `Review Hasil Ujian` → attempt dengan pelanggaran terbanyak muncul duluan → approve skor (bisa override) + catatan.
 
+## Manajemen user & password
+
+- **Admin → menu User**: cari/filter, tambah satu user, edit (nama, role, disiplin, jabatan, departemen), reset password, nonaktifkan/aktifkan, hapus (hanya untuk user tanpa riwayat ujian).
+- **Import CSV** (Admin → User → Import CSV): kolom wajib `nama,email,role`; role PESERTA wajib juga `disiplin,jabatan`; `departemen` dan `password` opsional. Delimiter koma/titik koma/tab dikenali otomatis, jadi hasil copy dari Excel bisa langsung ditempel. Password yang dikosongkan dibuatkan acak dan ditampilkan **sekali** (bisa diunduh sebagai CSV). Import bersifat all-or-nothing: satu baris salah = tidak ada user yang dibuat, semua error ditampilkan per baris.
+- **Ganti password mandiri**: semua role, menu "Ganti Password" (`/akun/password`), wajib memasukkan password lama.
+- User yang dinonaktifkan tidak bisa login baru; sesi yang sudah berjalan berakhir maksimal 12 jam. Admin tidak bisa menonaktifkan/menghapus akunnya sendiri atau admin aktif terakhir.
+- Belum ada "lupa password" mandiri (via email); reset dilakukan admin lewat halaman Edit User.
+
 ## Yang masih perlu ditambahkan admin secara manual sebelum pakai produksi
 
 Aplikasi ini scaffold inti yang sudah jalan end-to-end, tapi beberapa hal ini belum dibuatkan karena butuh keputusan dari pihak perusahaan:
 
-- **Manajemen user** belum ada UI-nya (saat ini lewat seed script / Prisma Studio). Tambahkan halaman admin untuk create/import user (termasuk assign disiplin+jabatan) kalau jumlah karyawan banyak — bisa pakai `npm run prisma:studio` untuk sementara, atau minta dibuatkan fitur import CSV.
-- **Reset password** belum ada flow self-service — admin reset manual lewat Prisma Studio untuk sekarang.
 - **Export laporan hasil** (ke Excel/PDF) belum ada — bisa ditambahkan di halaman admin/supervisor kalau diperlukan.
 - **Multiple attempts / retake** sengaja dibuat satu kali submit = selesai (lihat `startAttempt.ts`) — ubah logicnya kalau perusahaan mau izinkan retake.
 

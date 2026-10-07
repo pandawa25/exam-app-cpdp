@@ -12,6 +12,18 @@ export const POSITIONS = [
   { value: "ENGINEER", label: "Engineer" },
 ] as const;
 
+export const ROLES = [
+  { value: "ADMIN", label: "Admin" },
+  { value: "SUPERVISOR", label: "Supervisor" },
+  { value: "PESERTA", label: "Peserta" },
+] as const;
+
+export const MIN_PASSWORD_LENGTH = 8;
+
+export function roleLabel(value: string) {
+  return ROLES.find((r) => r.value === value)?.label ?? value;
+}
+
 export function disciplineLabel(value: string) {
   return DISCIPLINES.find((d) => d.value === value)?.label ?? value;
 }

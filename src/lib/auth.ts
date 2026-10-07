@@ -7,7 +7,9 @@ import { prisma } from "@/lib/prisma";
 // Role (ADMIN/PESERTA/SUPERVISOR) disimpan di token supaya middleware bisa
 // proteksi route tanpa query ulang ke DB di tiap request.
 export const authOptions: NextAuthOptions = {
-  session: { strategy: "jwt" },
+  // 12 jam (default NextAuth 30 hari): akun yang dinonaktifkan admin tidak bisa dicabut dari JWT
+  // yang sudah terbit, jadi masa berlaku sesi dibatasi supaya aksesnya cepat berakhir sendiri.
+  session: { strategy: "jwt", maxAge: 12 * 60 * 60 },
   pages: { signIn: "/login" },
   providers: [
     CredentialsProvider({
@@ -19,10 +21,11 @@ export const authOptions: NextAuthOptions = {
       async authorize(credentials) {
         if (!credentials?.email || !credentials?.password) return null;
 
+        // Email disimpan lowercase; normalisasi input supaya "Budi@Perusahaan.com" tetap bisa login.
         const user = await prisma.user.findUnique({
-          where: { email: credentials.email },
+          where: { email: credentials.email.trim().toLowerCase() },
         });
-        if (!user) return null;
+        if (!user || !user.isActive) return null;
 
         const valid = await bcrypt.compare(credentials.password, user.passwordHash);
         if (!valid) return null;

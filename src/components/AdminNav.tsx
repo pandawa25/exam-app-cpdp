@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { LogoutButton } from "@/components/LogoutButton";
+import { AccountLinks } from "@/components/AccountLinks";
 
 export function AdminNav() {
   return (
@@ -11,8 +11,11 @@ export function AdminNav() {
       <Link href="/admin/exams" className="text-slate-600 hover:text-brand-700">
         Exam
       </Link>
+      <Link href="/admin/users" className="text-slate-600 hover:text-brand-700">
+        User
+      </Link>
       <span className="ml-auto">
-        <LogoutButton />
+        <AccountLinks />
       </span>
     </nav>
   );

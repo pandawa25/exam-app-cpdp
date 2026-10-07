@@ -3,7 +3,7 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
-import { LogoutButton } from "@/components/LogoutButton";
+import { AccountLinks } from "@/components/AccountLinks";
 
 export const dynamic = "force-dynamic";
 
@@ -34,7 +34,7 @@ export default async function PesertaExamsPage() {
     <div>
       <div className="flex items-center justify-between mb-1">
         <h1 className="text-xl font-semibold">Exam Tersedia</h1>
-        <LogoutButton />
+        <AccountLinks />
       </div>
       <p className="text-sm text-slate-500 mb-6">
         Halo {session.user.name} - menampilkan exam untuk disiplin & jabatan Anda.

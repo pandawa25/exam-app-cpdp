@@ -16,12 +16,17 @@ export default withAuth(
 
     for (const guard of roleGuards) {
       if (pathname.startsWith(guard.prefix) && !guard.allow.includes(role as string)) {
-        return NextResponse.redirect(new URL("/login", req.url));
+        // Sudah login tapi salah area: kembalikan ke dashboard role-nya sendiri (/post-login),
+        // bukan ke form login yang membingungkan.
+        return NextResponse.redirect(new URL("/post-login", req.url));
       }
     }
     return NextResponse.next();
   },
   {
+    // Tanpa ini, user belum login dilempar ke halaman sign-in bawaan NextAuth (/api/auth/signin),
+    // bukan ke halaman /login aplikasi.
+    pages: { signIn: "/login" },
     callbacks: {
       authorized: ({ token }) => !!token,
     },
@@ -29,5 +34,5 @@ export default withAuth(
 );
 
 export const config = {
-  matcher: ["/admin/:path*", "/peserta/:path*", "/supervisor/:path*"],
+  matcher: ["/admin/:path*", "/peserta/:path*", "/supervisor/:path*", "/akun/:path*"],
 };
