@@ -57,6 +57,21 @@ export const authOptions: NextAuthOptions = {
         token.discipline = user.discipline;
         token.position = user.position;
         token.id = user.id;
+        return token;
+      }
+      // Muat ulang disiplin/jabatan/role dari DB di tiap pembacaan sesi. Tanpa ini perubahan jabatan oleh
+      // admin (atau migrasi data) baru berlaku setelah peserta login ulang, dan exam yang tampil bisa
+      // tidak sesuai jabatan terbaru. Satu query ringan per request, wajar untuk skala aplikasi internal.
+      if (token.id) {
+        const fresh = await prisma.user.findUnique({
+          where: { id: token.id },
+          select: { role: true, discipline: true, position: true },
+        });
+        if (fresh) {
+          token.role = fresh.role;
+          token.discipline = fresh.discipline;
+          token.position = fresh.position;
+        }
       }
       return token;
     },

@@ -5,6 +5,7 @@ import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { disciplineLabel, positionLabel } from "@/lib/constants";
 import { AppHeader } from "@/components/AppHeader";
+import { visibleExamsWhere } from "@/lib/examAccess";
 
 export const dynamic = "force-dynamic";
 
@@ -26,17 +27,14 @@ export default async function PesertaExamsPage() {
   if (!session) redirect("/login");
 
   const now = new Date();
-  const exams = await prisma.exam.findMany({
-    where: {
-      status: "PUBLISHED",
-      discipline: session.user.discipline as any,
-      position: session.user.position as any,
-      opensAt: { lte: now },
-      closesAt: { gte: now },
-    },
-    include: { attempts: { where: { userId: session.user.id } } },
-    orderBy: { opensAt: "asc" },
-  });
+  const where = visibleExamsWhere(session.user, now);
+  const exams = where
+    ? await prisma.exam.findMany({
+        where,
+        include: { attempts: { where: { userId: session.user.id } } },
+        orderBy: { opensAt: "asc" },
+      })
+    : [];
 
   const profile =
     session.user.discipline && session.user.position

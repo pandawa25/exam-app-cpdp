@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/lib/auth";
+import { visibleExamsWhere } from "@/lib/examAccess";
 
 // GET: daftar exam.
 // - ADMIN: semua exam (untuk dashboard kelola).
@@ -22,14 +23,10 @@ export async function GET() {
 
   if (session.user.role === "PESERTA") {
     const now = new Date();
+    const where = visibleExamsWhere(session.user, now);
+    if (!where) return NextResponse.json([]);
     const exams = await prisma.exam.findMany({
-      where: {
-        status: "PUBLISHED",
-        discipline: session.user.discipline as any,
-        position: session.user.position as any,
-        opensAt: { lte: now },
-        closesAt: { gte: now },
-      },
+      where,
       include: {
         attempts: { where: { userId: session.user.id } },
       },

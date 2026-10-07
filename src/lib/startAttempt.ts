@@ -1,5 +1,6 @@
 import { prisma } from "@/lib/prisma";
 import { shuffle } from "@/lib/scoring";
+import { matchesProfile } from "@/lib/examAccess";
 
 export type StartAttemptResult =
   | { ok: true; attemptId: string }
@@ -21,7 +22,7 @@ export async function startOrResumeAttempt(
     include: { questionBank: { include: { questions: true } } },
   });
   if (!exam) return { ok: false, error: "Exam tidak tersedia" };
-  if (exam.discipline !== userDiscipline || exam.position !== userPosition) {
+  if (!matchesProfile(exam, { discipline: userDiscipline, position: userPosition })) {
     return { ok: false, error: "Exam ini bukan untuk disiplin/jabatan Anda" };
   }
 
