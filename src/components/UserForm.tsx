@@ -203,7 +203,7 @@ export function UserForm({ user }: { user?: UserData }) {
           <button
             type="button"
             onClick={() => setPassword(randomPassword())}
-            className="shrink-0 text-sm border border-panel-strong rounded-ctl px-3 hover:bg-panel-high"
+            className="shrink-0 text-sm border border-panel-field rounded-ctl px-3 hover:bg-panel-high"
           >
             Buat acak
           </button>

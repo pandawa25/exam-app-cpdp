@@ -15,7 +15,8 @@ const config: Config = {
           raised: "#232C35", // kartu, tabel
           high: "#2C3742", // hover, sel tombol
           line: "#38444F", // garis pemisah
-          strong: "#4C5B69", // border input & tombol sekunder
+          strong: "#4C5B69", // garis dekoratif yang lebih tegas
+          field: "#66778A", // batas kontrol interaktif (input, tombol): >= 3:1 terhadap latar
         },
         ink: {
           DEFAULT: "#E8EDF1",

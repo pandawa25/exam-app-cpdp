@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import { disciplineLabel, positionLabel } from "@/lib/constants";
+import { DISCIPLINES, POSITIONS, disciplineLabel, positionLabel } from "@/lib/constants";
 
 type Bank = {
   id: string;
@@ -15,7 +15,10 @@ type Bank = {
 export function NewExamForm({ banks }: { banks: Bank[] }) {
   const router = useRouter();
   const [title, setTitle] = useState("");
-  const [questionBankId, setQuestionBankId] = useState(banks[0]?.id ?? "");
+  // Filter disiplin/jenjang mempersempit pilihan bank soal (bisa puluhan bank).
+  const [discipline, setDiscipline] = useState("");
+  const [position, setPosition] = useState("");
+  const [pickedBankId, setPickedBankId] = useState(banks[0]?.id ?? "");
   const [questionCount, setQuestionCount] = useState(20);
   const [durationMin, setDurationMin] = useState(60);
   const [passingScore, setPassingScore] = useState(70);
@@ -24,7 +27,12 @@ export function NewExamForm({ banks }: { banks: Bank[] }) {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const selectedBank = banks.find((b) => b.id === questionBankId);
+  const visibleBanks = banks.filter(
+    (b) => (!discipline || b.discipline === discipline) && (!position || b.position === position)
+  );
+  // Pilihan yang tidak lagi termasuk hasil filter otomatis pindah ke bank pertama yang tampil.
+  const selectedBank = visibleBanks.find((b) => b.id === pickedBankId) ?? visibleBanks[0];
+  const questionBankId = selectedBank?.id ?? "";
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -77,16 +85,50 @@ export function NewExamForm({ banks }: { banks: Bank[] }) {
         />
       </div>
 
+      <div className="grid grid-cols-2 gap-3">
+        <div>
+          <label className="label" htmlFor="n-discipline">
+            Disiplin
+          </label>
+          <select id="n-discipline" value={discipline} onChange={(e) => setDiscipline(e.target.value)} className="input">
+            <option value="">Semua disiplin</option>
+            {DISCIPLINES.map((d) => (
+              <option key={d.value} value={d.value}>
+                {d.label}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <label className="label" htmlFor="n-position">
+            Jenjang
+          </label>
+          <select id="n-position" value={position} onChange={(e) => setPosition(e.target.value)} className="input">
+            <option value="">Semua jenjang</option>
+            {POSITIONS.map((p) => (
+              <option key={p.value} value={p.value}>
+                {p.label}
+              </option>
+            ))}
+          </select>
+        </div>
+      </div>
+
       <div>
-        <label className="label">Bank Soal</label>
+        <label className="label" htmlFor="n-bank">
+          Bank Soal
+        </label>
         <select
+          id="n-bank"
           value={questionBankId}
-          onChange={(e) => setQuestionBankId(e.target.value)}
+          onChange={(e) => setPickedBankId(e.target.value)}
           className="input"
+          disabled={visibleBanks.length === 0}
         >
-          {banks.map((b) => (
+          {visibleBanks.length === 0 && <option value="">Tidak ada bank soal untuk filter ini</option>}
+          {visibleBanks.map((b) => (
             <option key={b.id} value={b.id}>
-              {b.name} ({disciplineLabel(b.discipline)} / {positionLabel(b.position)}) - {b._count.questions} soal
+              {b.name} - {b._count.questions} soal
             </option>
           ))}
         </select>
@@ -160,7 +202,7 @@ export function NewExamForm({ banks }: { banks: Bank[] }) {
 
       <button
         type="submit"
-        disabled={loading}
+        disabled={loading || !questionBankId}
         className="btn btn-primary"
       >
         {loading ? "Menyimpan..." : "Buat Ujian (Draft)"}

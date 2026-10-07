@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useConfirm } from "@/components/ConfirmDialog";
 
 type Props = {
   id: string;
@@ -15,12 +16,18 @@ type Props = {
 // user tanpa riwayat ujian (salah input / akun percobaan).
 export function UserDangerZone({ id, name, isActive, isSelf, attemptCount }: Props) {
   const router = useRouter();
+  const { confirm, dialog } = useConfirm();
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
 
   async function toggleActive() {
     const verb = isActive ? "menonaktifkan" : "mengaktifkan kembali";
-    if (!confirm(`Yakin ${verb} akun ${name}?`)) return;
+    const ok = await confirm({
+      title: isActive ? "Nonaktifkan akun?" : "Aktifkan kembali akun?",
+      message: `Yakin ${verb} akun ${name}?`,
+      confirmLabel: isActive ? "Nonaktifkan" : "Aktifkan",
+    });
+    if (!ok) return;
     setLoading(true);
     setError("");
     const res = await fetch(`/api/users/${id}`, {
@@ -38,7 +45,13 @@ export function UserDangerZone({ id, name, isActive, isSelf, attemptCount }: Pro
   }
 
   async function remove() {
-    if (!confirm(`Hapus permanen akun ${name}? Tindakan ini tidak bisa dibatalkan.`)) return;
+    const ok = await confirm({
+      title: "Hapus akun permanen?",
+      message: `Akun ${name} akan terhapus permanen. Tindakan ini tidak bisa dibatalkan.`,
+      confirmLabel: "Hapus permanen",
+      tone: "danger",
+    });
+    if (!ok) return;
     setLoading(true);
     setError("");
     const res = await fetch(`/api/users/${id}`, { method: "DELETE" });
@@ -70,7 +83,7 @@ export function UserDangerZone({ id, name, isActive, isSelf, attemptCount }: Pro
           <button
             onClick={toggleActive}
             disabled={loading}
-            className="text-sm border border-panel-strong rounded-ctl px-4 py-2 hover:bg-panel-high disabled:opacity-50"
+            className="btn btn-secondary"
           >
             {isActive ? "Nonaktifkan akun" : "Aktifkan kembali"}
           </button>
@@ -90,6 +103,7 @@ export function UserDangerZone({ id, name, isActive, isSelf, attemptCount }: Pro
         </p>
       )}
       {error && <p className="text-sm text-alarm mt-3">{error}</p>}
+      {dialog}
     </div>
   );
 }

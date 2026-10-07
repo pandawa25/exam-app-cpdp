@@ -118,7 +118,56 @@ export function ResultsView({
         </p>
       )}
 
-      <div className="card overflow-x-auto">
+      {/* Layar sempit: satu kartu per hasil, tanpa geser horizontal. */}
+      <ul className="space-y-3 md:hidden">
+        {rows.length === 0 && (
+          <li className="card p-5 text-center text-sm text-ink-mute">
+            {filtered ? "Tidak ada hasil yang cocok. Coba hapus filter." : "Belum ada hasil ujian."}
+          </li>
+        )}
+        {rows.map((r) => {
+          const end = r.work.ms === null ? null : new Date(r.startedAt.getTime() + r.work.ms);
+          const status = STATUS[r.status] ?? { label: r.status, className: "badge-neutral" };
+          return (
+            <li key={r.id} className="card p-4">
+              <div className="flex items-start justify-between gap-3">
+                <div className="min-w-0">
+                  <p className="font-medium text-ink">{r.name}</p>
+                  <p className="truncate text-xs text-ink-mute">{r.email}</p>
+                </div>
+                <span className={`badge shrink-0 whitespace-nowrap ${status.className}`}>{status.label}</span>
+              </div>
+              <p className="mt-2 text-sm text-ink-soft">{jobTitle(r.discipline, r.position)}</p>
+              {r.department && <p className="text-xs text-ink-mute">{r.department}</p>}
+              <p className="mt-3 text-sm text-ink-soft">{r.examTitle}</p>
+
+              <div className="tnum mt-3 flex items-end justify-between gap-4 border-t border-panel-line pt-3">
+                <div className="min-w-0 text-xs text-ink-mute">
+                  <p className="text-sm font-medium text-ink">
+                    {r.work.ms === null ? "Belum selesai" : formatDuration(r.work.ms)}
+                    {r.work.timedOut && <span className="ml-2 text-xs font-normal text-warn">waktu habis</span>}
+                  </p>
+                  <p>
+                    {formatDate(r.startedAt)}, {formatClock(r.startedAt)}
+                    {end ? ` - ${formatClock(end)}` : " - ..."}
+                  </p>
+                  {r.violationCount > 0 && <p className="text-warn">{r.violationCount} pelanggaran</p>}
+                </div>
+                {r.score !== null && (
+                  <div className="shrink-0 text-right">
+                    <p className="font-display text-3xl font-semibold leading-none text-ink">{r.score}</p>
+                    <p className={`mt-1 text-xs ${r.passed ? "text-ok" : "text-alarm"}`}>
+                      {r.passed ? "Lulus" : "Belum lulus"}
+                    </p>
+                  </div>
+                )}
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+
+      <div className="card hidden overflow-x-auto md:block">
         <table className="w-full min-w-[60rem] text-sm">
           <caption className="sr-only">Hasil ujian per peserta</caption>
           <thead>

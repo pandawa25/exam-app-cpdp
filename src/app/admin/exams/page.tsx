@@ -52,15 +52,17 @@ export default async function AdminExamsPage() {
                 {exam.closesAt.toLocaleString("id-ID", { timeZone: "Asia/Jakarta" })} WIB
               </p>
             </div>
-            <div className="flex shrink-0 items-start gap-5">
+            <div className="flex shrink-0 items-center gap-4">
               <ExamStatusActions examId={exam.id} status={exam.status} />
               <DeleteButton
                 url={`/api/exams/${exam.id}${exam._count.attempts > 0 ? "?force=1" : ""}`}
+                confirmTitle="Hapus ujian?"
                 confirmText={
                   exam._count.attempts > 0
-                    ? `Hapus ujian "${exam.title}" BESERTA ${exam._count.attempts} hasil ujian peserta? Tidak bisa dibatalkan.`
-                    : `Hapus ujian "${exam.title}"? Tidak bisa dibatalkan.`
+                    ? `"${exam.title}" dan ${exam._count.attempts} hasil ujian peserta akan terhapus permanen, termasuk jawaban dan catatan pelanggarannya. Tidak bisa dibatalkan.`
+                    : `"${exam.title}" akan terhapus permanen. Tidak bisa dibatalkan.`
                 }
+                requireText={exam._count.attempts > 0 ? "HAPUS" : undefined}
               />
             </div>
           </div>

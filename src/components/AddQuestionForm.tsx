@@ -77,7 +77,7 @@ export function AddQuestionForm({ bankId }: { bankId: string }) {
           <select
             value={correctOption}
             onChange={(e) => setCorrectOption(e.target.value)}
-            className="rounded-ctl border border-panel-strong px-2 py-1 text-sm ml-1"
+            className="rounded-ctl border border-panel-field px-2 py-1 text-sm ml-1"
           >
             {["A", "B", "C", "D"].map((o) => (
               <option key={o} value={o}>

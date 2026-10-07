@@ -288,12 +288,12 @@ export function ExamRunner({ attemptId }: { attemptId: string }) {
                     className={`flex w-full items-start gap-3 rounded-ctl border px-4 py-3 text-left transition-colors ${
                       selected
                         ? "border-brand bg-brand-dim"
-                        : "border-panel-strong bg-panel hover:border-ink-mute hover:bg-panel-high"
+                        : "border-panel-field bg-panel hover:border-ink-mute hover:bg-panel-high"
                     }`}
                   >
                     <span
                       className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded border text-xs font-semibold ${
-                        selected ? "border-brand bg-brand text-brand-on" : "border-panel-strong text-ink-soft"
+                        selected ? "border-brand bg-brand text-brand-on" : "border-panel-field text-ink-soft"
                       }`}
                     >
                       {String.fromCharCode(65 + i)}
@@ -348,7 +348,7 @@ export function ExamRunner({ attemptId }: { attemptId: string }) {
                         ? "bg-brand text-brand-on"
                         : answered
                         ? "border border-brand/50 bg-brand-dim text-brand hover:bg-brand/20"
-                        : "border border-panel-strong bg-panel text-ink-mute hover:bg-panel-high"
+                        : "border border-panel-field bg-panel text-ink-mute hover:bg-panel-high"
                     }`}
                   >
                     {i + 1}
@@ -367,7 +367,7 @@ export function ExamRunner({ attemptId }: { attemptId: string }) {
                 Sudah dijawab
               </li>
               <li className="flex items-center gap-2">
-                <span className="h-3 w-3 rounded-sm border border-panel-strong bg-panel" aria-hidden="true" />
+                <span className="h-3 w-3 rounded-sm border border-panel-field bg-panel" aria-hidden="true" />
                 Belum dijawab
               </li>
             </ul>

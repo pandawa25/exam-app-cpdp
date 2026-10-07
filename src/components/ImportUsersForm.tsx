@@ -150,7 +150,7 @@ export function ImportUsersForm() {
 
       <div className="flex flex-wrap items-center gap-3">
         <input type="file" accept=".csv,.txt,text/csv" onChange={handleFile}
-          className="text-sm text-ink-soft file:mr-3 file:cursor-pointer file:rounded-ctl file:border file:border-panel-strong file:bg-transparent file:px-3 file:py-1.5 file:text-sm file:text-ink hover:file:bg-panel-high"
+          className="text-sm text-ink-soft file:mr-3 file:cursor-pointer file:rounded-ctl file:border file:border-panel-field file:bg-transparent file:px-3 file:py-1.5 file:text-sm file:text-ink hover:file:bg-panel-high"
         />
         <button
           type="button"

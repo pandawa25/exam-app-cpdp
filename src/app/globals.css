@@ -41,20 +41,24 @@
 
   /* Tombol */
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-ctl px-4 py-2 text-sm font-medium transition-colors;
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-ctl px-4 py-2 text-sm font-medium transition-colors sm:min-h-0;
     @apply disabled:cursor-not-allowed disabled:opacity-45;
   }
   .btn-primary {
     @apply bg-brand text-brand-on hover:bg-brand-strong;
   }
   .btn-secondary {
-    @apply border border-panel-strong text-ink hover:bg-panel-high;
+    @apply border border-panel-field text-ink hover:bg-panel-high;
   }
   .btn-danger {
     @apply border border-alarm/50 text-alarm hover:bg-alarm-dim;
   }
   .btn-ok {
     @apply bg-ok text-ok-on hover:brightness-110;
+  }
+  /* Aksi berupa teks (Publish, Tutup, Hapus): area sentuh 44px di layar kecil. */
+  .action {
+    @apply -mx-2 inline-flex min-h-11 items-center px-2 text-sm font-medium transition-colors sm:min-h-0;
   }
   .link {
     @apply text-brand underline-offset-2 hover:text-brand-strong hover:underline;
@@ -65,7 +69,7 @@
     @apply mb-1 block text-sm font-medium text-ink-soft;
   }
   .input {
-    @apply w-full rounded-ctl border border-panel-strong bg-panel px-3 py-2 text-sm text-ink placeholder:text-ink-mute;
+    @apply w-full rounded-ctl border border-panel-field bg-panel px-3 py-2 text-sm text-ink placeholder:text-ink-mute;
     @apply focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand;
     @apply disabled:cursor-not-allowed disabled:opacity-60;
   }

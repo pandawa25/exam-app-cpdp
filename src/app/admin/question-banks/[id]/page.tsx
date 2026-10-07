@@ -25,7 +25,8 @@ export default async function QuestionBankDetailPage({ params }: { params: { id:
         <DeleteButton
           url={`/api/question-banks/${bank.id}`}
           label="Hapus bank soal"
-          confirmText={`Hapus bank soal "${bank.name}" beserta ${bank.questions.length} soalnya? Tidak bisa dibatalkan.`}
+          confirmTitle="Hapus bank soal?"
+          confirmText={`"${bank.name}" beserta ${bank.questions.length} soalnya akan terhapus permanen. Tidak bisa dibatalkan.`}
           redirectTo="/admin/question-banks"
           disabled={bank._count.exams > 0}
           disabledReason={`Dipakai ${bank._count.exams} ujian - hapus ujiannya dulu`}

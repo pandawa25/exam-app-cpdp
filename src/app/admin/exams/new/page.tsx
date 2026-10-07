@@ -6,7 +6,7 @@ export const dynamic = "force-dynamic";
 export default async function NewExamPage() {
   const banks = await prisma.questionBank.findMany({
     include: { _count: { select: { questions: true } } },
-    orderBy: { createdAt: "desc" },
+    orderBy: [{ discipline: "asc" }, { position: "asc" }, { name: "asc" }],
   });
 
   return (
