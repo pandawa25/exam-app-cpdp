@@ -45,16 +45,27 @@ export default function LoginPage() {
       {/* Panel identitas: hanya di layar lebar. Grid tipis meniru kertas gambar P&ID. */}
       <section
         aria-hidden="true"
-        className="relative hidden flex-col justify-center gap-12 overflow-hidden border-r border-panel-line bg-panel-raised p-12 lg:flex"
+        className="relative hidden flex-col justify-start gap-10 overflow-hidden border-r border-panel-line bg-panel-raised px-12 py-14 lg:flex"
         style={{
           backgroundImage:
             "radial-gradient(40rem 30rem at 20% 20%, rgba(77,182,200,.22), transparent 65%), radial-gradient(34rem 26rem at 90% 100%, rgba(90,110,220,.20), transparent 65%), linear-gradient(to right, rgba(148,163,188,.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(148,163,188,.07) 1px, transparent 1px)",
           backgroundSize: "auto, auto, 32px 32px, 32px 32px",
         }}
       >
-        <BrandLogoFull width={130} />
+        {/* Ilustrasi kilang (SVG monoline): di bawah, memudar ke atas agar teks tetap terbaca. */}
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/login-refinery.svg"
+          alt=""
+          className="pointer-events-none absolute inset-x-0 bottom-0 w-full opacity-[0.42]"
+          style={{ maskImage: "linear-gradient(to top, #000 55%, transparent 100%)", WebkitMaskImage: "linear-gradient(to top, #000 55%, transparent 100%)" }}
+        />
 
-        <div className="max-w-lg">
+        <div className="relative">
+          <BrandLogoFull width={130} />
+        </div>
+
+        <div className="relative max-w-lg">
           <p className="mb-3 font-display text-xl font-medium uppercase tracking-wider text-brand">
             {PROGRAM_SHORT} &middot; {PROGRAM_MODULE} ({PROGRAM_MODULE_SHORT})
           </p>
