@@ -35,6 +35,7 @@ const config: Config = {
       },
       fontFamily: {
         sans: ['"Barlow"', "ui-sans-serif", "system-ui", "sans-serif"],
+        logo: ['"Cinzel"', "Georgia", "serif"],
         display: ['"Barlow Condensed"', '"Barlow"', "ui-sans-serif", "system-ui", "sans-serif"],
       },
       boxShadow: {

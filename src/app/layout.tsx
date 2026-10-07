@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import "@fontsource/cinzel/latin-500.css";
+import "@fontsource/cinzel/latin-600.css";
 import "@fontsource/barlow/latin-400.css";
 import "@fontsource/barlow/latin-500.css";
 import "@fontsource/barlow/latin-600.css";
