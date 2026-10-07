@@ -55,9 +55,11 @@ export default function LoginPage() {
         {/* Ilustrasi kilang (SVG monoline): di bawah, memudar ke atas agar teks tetap terbaca. */}
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/login-refinery.svg"
+          src="/login-refinery.webp"
+          loading="lazy"
+          decoding="async"
           alt=""
-          className="pointer-events-none absolute inset-x-0 bottom-0 w-full opacity-[0.42]"
+          className="pointer-events-none absolute inset-x-0 bottom-0 w-full opacity-[0.55]"
           style={{ maskImage: "linear-gradient(to top, #000 55%, transparent 100%)", WebkitMaskImage: "linear-gradient(to top, #000 55%, transparent 100%)" }}
         />
 
