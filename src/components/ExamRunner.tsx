@@ -53,15 +53,22 @@ export function ExamRunner({ attemptId }: { attemptId: string }) {
   // Heartbeat ke server tiap 10 detik - ini yang memastikan auto-submit
   // benar-benar terjadi walau peserta diam tanpa interaksi.
   useEffect(() => {
-    const interval = setInterval(async () => {
-      const res = await fetch(`/api/attempts/${attemptId}/heartbeat`);
-      const json = await res.json();
-      setRemainingMs(json.remainingMs);
-      if (json.status !== "IN_PROGRESS" && !endedRef.current) {
-        endedRef.current = true;
-        router.replace(`/peserta/attempts/${attemptId}/result`);
+    async function beat() {
+      try {
+        const res = await fetch(`/api/attempts/${attemptId}/heartbeat`);
+        const json = await res.json();
+        setRemainingMs(json.remainingMs);
+        if (json.status !== "IN_PROGRESS" && !endedRef.current) {
+          endedRef.current = true;
+          router.replace(`/peserta/attempts/${attemptId}/result`);
+        }
+      } catch {
+        // Koneksi putus sesaat: abaikan, heartbeat berikutnya mencoba lagi.
+        // Waktu tetap dihitung server, jadi tidak ada keuntungan dari memutus koneksi.
       }
-    }, 10_000);
+    }
+    beat(); // langsung sekali di awal supaya timer tidak "--:--" selama 10 detik pertama
+    const interval = setInterval(beat, 10_000);
     return () => clearInterval(interval);
   }, [attemptId, router]);
 
@@ -88,7 +95,7 @@ export function ExamRunner({ attemptId }: { attemptId: string }) {
         router.replace(`/peserta/attempts/${attemptId}/result`);
       } else {
         setViolationWarning(
-          `Pelanggaran tercatat (${json.violationCount}/3). Ujian akan otomatis diakhiri jika pelanggaran mencapai batas.`
+          `Pelanggaran tercatat (${json.violationCount}/${json.threshold ?? 3}). Ujian akan otomatis diakhiri jika pelanggaran mencapai batas.`
         );
       }
     },

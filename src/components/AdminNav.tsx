@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LogoutButton } from "@/components/LogoutButton";
 
 export function AdminNav() {
   return (
@@ -10,6 +11,9 @@ export function AdminNav() {
       <Link href="/admin/exams" className="text-slate-600 hover:text-brand-700">
         Exam
       </Link>
+      <span className="ml-auto">
+        <LogoutButton />
+      </span>
     </nav>
   );
 }

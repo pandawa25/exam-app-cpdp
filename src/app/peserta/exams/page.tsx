@@ -3,8 +3,12 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { LogoutButton } from "@/components/LogoutButton";
 
 export const dynamic = "force-dynamic";
+
+// Server jalan di UTC (Railway); paksa tampilan jam ke WIB supaya tidak bergeser 7 jam.
+const WIB = "Asia/Jakarta";
 
 // Daftar exam yang muncul SUDAH difilter sesuai disiplin & jabatan peserta
 // (query di dalam fungsi ini, sama logic-nya dengan GET /api/exams tapi
@@ -28,7 +32,10 @@ export default async function PesertaExamsPage() {
 
   return (
     <div>
-      <h1 className="text-xl font-semibold mb-1">Exam Tersedia</h1>
+      <div className="flex items-center justify-between mb-1">
+        <h1 className="text-xl font-semibold">Exam Tersedia</h1>
+        <LogoutButton />
+      </div>
       <p className="text-sm text-slate-500 mb-6">
         Halo {session.user.name} - menampilkan exam untuk disiplin & jabatan Anda.
       </p>
@@ -49,7 +56,7 @@ export default async function PesertaExamsPage() {
                 {exam.passingScore}
               </p>
               <p className="text-xs text-slate-400 mt-1">
-                Tutup: {exam.closesAt.toLocaleString("id-ID")}
+                Tutup: {exam.closesAt.toLocaleString("id-ID", { timeZone: WIB })} WIB
               </p>
 
               <div className="mt-3">

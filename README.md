@@ -58,8 +58,11 @@ Lihat `references/deployment.md` di skill `online-exam-system-builder` untuk lan
 1. Push project ini ke GitHub, hubungkan ke Railway.
 2. Tambah PostgreSQL addon di Railway (auto-inject `DATABASE_URL`).
 3. Set env var `NEXTAUTH_SECRET`, `NEXTAUTH_URL` (domain Railway kamu), `VIOLATION_THRESHOLD` (opsional, default 3).
-4. Set deploy command jalankan `npx prisma migrate deploy` sebelum start, atau jalankan manual sekali via Railway shell.
-5. Jalankan `npm run prisma:seed` sekali (opsional, kalau mau data contoh) — untuk produksi sebaiknya buat user asli lewat Prisma Studio, bukan data seed.
+4. Settings → Deploy → **Pre-deploy Command**: `npx prisma migrate deploy` (jangan di Start Command; biarkan Start Command default). Migration awal ada di `prisma/migrations/`.
+5. Jalankan seed sekali (opsional) dengan `SEED_PASSWORD` diisi di environment variables, supaya akun contoh tidak memakai `password123`: `npm run prisma:seed`. Untuk produksi sebaiknya buat user asli lewat Prisma Studio, lalu hapus akun contoh.
+6. Akses lewat `https://<domain>/` — root otomatis diarahkan ke `/login` atau dashboard sesuai role.
+
+Catatan: waktu buka/tutup exam diinput sesuai zona waktu browser admin dan ditampilkan dalam WIB. Setiap perubahan `schema.prisma` harus disertai migration baru (`npx prisma migrate dev --name <nama>` di lokal, commit folder `prisma/migrations/`).
 
 ## Struktur project
 

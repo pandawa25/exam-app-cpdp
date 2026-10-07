@@ -75,7 +75,9 @@ const SAMPLE_QUESTIONS: Record<Discipline, { text: string; options: [string, str
 };
 
 async function main() {
-  const passwordHash = await bcrypt.hash("password123", 10);
+  // Di production set SEED_PASSWORD (env) supaya akun seed tidak memakai password default yang publik di README.
+  const seedPassword = process.env.SEED_PASSWORD ?? "password123";
+  const passwordHash = await bcrypt.hash(seedPassword, 10);
 
   await prisma.user.upsert({
     where: { email: "admin@perusahaan.com" },
@@ -126,9 +128,14 @@ async function main() {
   });
 
   for (const discipline of Object.keys(SAMPLE_QUESTIONS) as Discipline[]) {
+    // Idempotent: seed boleh dijalankan ulang tanpa menggandakan bank soal contoh.
+    const bankName = `${discipline} - Teknisi Senior (contoh)`;
+    const existingBank = await prisma.questionBank.findFirst({ where: { name: bankName } });
+    if (existingBank) continue;
+
     const bank = await prisma.questionBank.create({
       data: {
-        name: `${discipline} - Teknisi Senior (contoh)`,
+        name: bankName,
         discipline,
         position: Position.TEKNISI_SENIOR,
       },
@@ -168,7 +175,11 @@ async function main() {
     }
   }
 
-  console.log("Seed selesai. Login dengan password: password123");
+  console.log(
+    process.env.SEED_PASSWORD
+      ? "Seed selesai. Login dengan password dari env SEED_PASSWORD."
+      : "Seed selesai. Login dengan password: password123 (GANTI di production: set env SEED_PASSWORD)"
+  );
 }
 
 main()

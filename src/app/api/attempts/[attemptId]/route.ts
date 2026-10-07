@@ -6,7 +6,7 @@ import { getAttemptDeadline } from "@/lib/deadline";
 
 // GET: detail attempt untuk halaman pengerjaan ujian.
 // Kalau masih IN_PROGRESS: correctOption SENGAJA tidak disertakan di response.
-// Kalau sudah SUBMITTED/REVIEWED: correctOption disertakan untuk halaman hasil.
+// Kalau sudah SUBMITTED/REVIEWED: correctOption disertakan hanya untuk SUPERVISOR/ADMIN.
 export async function GET(_req: Request, { params }: { params: { attemptId: string } }) {
   const session = await getServerSession(authOptions);
   if (!session) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -27,7 +27,9 @@ export async function GET(_req: Request, { params }: { params: { attemptId: stri
   const questions = await prisma.question.findMany({ where: { id: { in: questionIds } } });
   const byId = new Map(questions.map((q) => [q.id, q]));
 
-  const showAnswerKey = attempt.status !== "IN_PROGRESS";
+  // Kunci jawaban hanya untuk reviewer. Peserta (pemilik attempt) tidak boleh menarik kunci
+  // lewat API walau ujian sudah selesai - bank soal yang sama dipakai peserta lain yang belum ujian.
+  const showAnswerKey = attempt.status !== "IN_PROGRESS" && isReviewer;
 
   // Susun soal sesuai questionOrder (urutan unik per attempt), opsi sesuai optionOrder.
   const orderedQuestions = (attempt.questionOrder as string[]).map((qid) => {

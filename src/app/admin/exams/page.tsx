@@ -40,8 +40,8 @@ export default async function AdminExamsPage() {
                 {exam.questionCount} soal &middot; {exam.durationMin} menit &middot; {exam._count.attempts} peserta
               </p>
               <p className="text-xs text-slate-400 mt-0.5">
-                {statusLabel[exam.status]} &middot; Buka {exam.opensAt.toLocaleString("id-ID")} - Tutup{" "}
-                {exam.closesAt.toLocaleString("id-ID")}
+                {statusLabel[exam.status]} &middot; Buka {exam.opensAt.toLocaleString("id-ID", { timeZone: "Asia/Jakarta" })} - Tutup{" "}
+                {exam.closesAt.toLocaleString("id-ID", { timeZone: "Asia/Jakarta" })} WIB
               </p>
             </div>
             <ExamStatusActions examId={exam.id} status={exam.status} />

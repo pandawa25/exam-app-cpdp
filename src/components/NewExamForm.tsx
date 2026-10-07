@@ -40,8 +40,10 @@ export function NewExamForm({ banks }: { banks: Bank[] }) {
         questionCount,
         durationMin,
         passingScore,
-        opensAt,
-        closesAt,
+        // datetime-local tidak membawa zona waktu. Konversi di browser (zona waktu admin)
+        // ke ISO UTC; kalau dikirim mentah, server (UTC) akan menafsirkannya bergeser 7 jam dari WIB.
+        opensAt: new Date(opensAt).toISOString(),
+        closesAt: new Date(closesAt).toISOString(),
       }),
     });
 

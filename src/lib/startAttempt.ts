@@ -20,19 +20,25 @@ export async function startOrResumeAttempt(
     where: { id: examId },
     include: { questionBank: { include: { questions: true } } },
   });
-  if (!exam || exam.status !== "PUBLISHED") return { ok: false, error: "Exam tidak tersedia" };
+  if (!exam) return { ok: false, error: "Exam tidak tersedia" };
   if (exam.discipline !== userDiscipline || exam.position !== userPosition) {
     return { ok: false, error: "Exam ini bukan untuk disiplin/jabatan Anda" };
   }
-  const now = new Date();
-  if (now < exam.opensAt || now > exam.closesAt) {
-    return { ok: false, error: "Exam belum/tidak lagi dibuka" };
-  }
 
+  // Attempt yang sedang berjalan SELALU boleh dilanjutkan (misal setelah refresh/koneksi putus),
+  // walau exam sudah lewat closesAt atau di-CLOSE admin. Sisa waktunya tetap dibatasi deadline
+  // attempt dan di-finalize oleh heartbeat - kalau dicek setelah window, peserta yang mulai
+  // 5 menit sebelum closesAt tidak bisa kembali dan attempt-nya menggantung IN_PROGRESS selamanya.
   const existing = await prisma.examAttempt.findFirst({
     where: { examId, userId, status: "IN_PROGRESS" },
   });
   if (existing) return { ok: true, attemptId: existing.id };
+
+  if (exam.status !== "PUBLISHED") return { ok: false, error: "Exam tidak tersedia" };
+  const now = new Date();
+  if (now < exam.opensAt || now > exam.closesAt) {
+    return { ok: false, error: "Exam belum/tidak lagi dibuka" };
+  }
 
   // Kalau sudah pernah attempt (submitted) dan exam tidak mengizinkan retake,
   // jangan buat attempt baru.

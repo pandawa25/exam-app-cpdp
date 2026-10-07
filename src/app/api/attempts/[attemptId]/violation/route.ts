@@ -37,8 +37,19 @@ export async function POST(req: Request, { params }: { params: { attemptId: stri
 
   if (violationCount >= VIOLATION_THRESHOLD) {
     const finalized = await finalizeAttempt(attempt.id, "AUTO_SUBMITTED");
-    return NextResponse.json({ ok: true, violationCount, autoSubmitted: true, attempt: finalized });
+    return NextResponse.json({
+      ok: true,
+      violationCount,
+      threshold: VIOLATION_THRESHOLD,
+      autoSubmitted: true,
+      attempt: finalized,
+    });
   }
 
-  return NextResponse.json({ ok: true, violationCount, autoSubmitted: false });
+  return NextResponse.json({
+    ok: true,
+    violationCount,
+    threshold: VIOLATION_THRESHOLD,
+    autoSubmitted: false,
+  });
 }

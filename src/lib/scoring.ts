@@ -1,5 +1,25 @@
 import { prisma } from "@/lib/prisma";
+import { getAttemptDeadline, GRACE_PERIOD_MS } from "@/lib/deadline";
 import type { AttemptStatus } from "@prisma/client";
+
+/**
+ * Tutup semua attempt IN_PROGRESS yang waktunya sudah habis tapi tidak pernah di-finalize
+ * (peserta menutup browser/mati listrik dan tidak kembali, sehingga heartbeat tidak pernah jalan).
+ * Dipanggil lazy saat supervisor membuka daftar review, supaya attempt semacam itu
+ * tidak menggantung selamanya dan tidak pernah muncul untuk direview.
+ */
+export async function finalizeExpiredAttempts() {
+  const running = await prisma.examAttempt.findMany({
+    where: { status: "IN_PROGRESS" },
+    include: { exam: true },
+  });
+  const now = Date.now();
+  for (const attempt of running) {
+    if (getAttemptDeadline(attempt, attempt.exam).getTime() + GRACE_PERIOD_MS < now) {
+      await finalizeAttempt(attempt.id, "AUTO_SUBMITTED");
+    }
+  }
+}
 
 /**
  * Hitung skor attempt dan tutup attempt (submit/auto-submit).
