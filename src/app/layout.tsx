@@ -9,7 +9,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "CPDP Maintenance Execution II",
-  description: "Craft Profesional Development Program (CPDP) Maintenance Execution II (ME II) - ujian kompetensi per disiplin dan jabatan",
+  description: "Craft Professional Development Program (CPDP) Maintenance Execution II (ME II) - ujian kompetensi per disiplin dan jabatan",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

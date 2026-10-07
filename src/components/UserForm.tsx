@@ -178,7 +178,7 @@ export function UserForm({ user }: { user?: UserData }) {
             </select>
           </div>
           <p className="col-span-2 text-xs text-ink-mute">
-            Disiplin &amp; jabatan menentukan exam mana yang muncul untuk peserta ini.
+            Disiplin &amp; jabatan menentukan ujian mana yang muncul untuk peserta ini.
           </p>
         </div>
       )}

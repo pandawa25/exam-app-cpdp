@@ -28,12 +28,12 @@ export default async function QuestionBankDetailPage({ params }: { params: { id:
           confirmText={`Hapus bank soal "${bank.name}" beserta ${bank.questions.length} soalnya? Tidak bisa dibatalkan.`}
           redirectTo="/admin/question-banks"
           disabled={bank._count.exams > 0}
-          disabledReason={`Dipakai ${bank._count.exams} exam - hapus exam-nya dulu`}
+          disabledReason={`Dipakai ${bank._count.exams} ujian - hapus ujiannya dulu`}
         />
       </div>
       {bank._count.exams > 0 && (
         <p className="-mt-3 text-xs text-ink-mute">
-          Bank ini dipakai {bank._count.exams} exam, jadi belum bisa dihapus. Hapus exam-nya dulu di menu Exam.
+          Bank ini dipakai {bank._count.exams} ujian, jadi belum bisa dihapus. Hapus ujiannya dulu di menu Ujian.
         </p>
       )}
 

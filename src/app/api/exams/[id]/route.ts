@@ -32,12 +32,12 @@ export async function DELETE(req: Request, { params }: { params: { id: string } 
     where: { id: params.id },
     include: { _count: { select: { attempts: true } } },
   });
-  if (!exam) return NextResponse.json({ error: "Exam tidak ditemukan" }, { status: 404 });
+  if (!exam) return NextResponse.json({ error: "Ujian tidak ditemukan" }, { status: 404 });
 
   const force = new URL(req.url).searchParams.get("force") === "1";
   if (exam._count.attempts > 0 && !force) {
     return NextResponse.json(
-      { error: `Exam ini punya ${exam._count.attempts} hasil ujian. Konfirmasi ulang untuk menghapusnya beserta hasil.` },
+      { error: `Ujian ini punya ${exam._count.attempts} hasil ujian. Konfirmasi ulang untuk menghapusnya beserta hasil.` },
       { status: 409 }
     );
   }

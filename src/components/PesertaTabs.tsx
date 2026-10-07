@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const TABS = [
-  { key: "exams", href: "/peserta/exams", label: "Exam tersedia" },
+  { key: "exams", href: "/peserta/exams", label: "Ujian tersedia" },
   { key: "history", href: "/peserta/history", label: "Riwayat ujian" },
 ] as const;
 

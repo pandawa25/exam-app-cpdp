@@ -52,10 +52,10 @@ export function ResultsView({
       <form method="get" action={basePath} className="mb-4 flex flex-wrap items-end gap-3">
         <div>
           <label htmlFor="f-exam" className="label">
-            Exam
+            Ujian
           </label>
           <select id="f-exam" name="exam" defaultValue={filters.examId ?? ""} className="input w-auto max-w-[16rem]">
-            <option value="">Semua exam</option>
+            <option value="">Semua ujian</option>
             {exams.map((e) => (
               <option key={e.id} value={e.id}>
                 {e.title}
@@ -125,7 +125,7 @@ export function ResultsView({
             <tr className="border-b border-panel-line text-left text-ink-mute">
               <th scope="col" className="min-w-[13rem] px-4 py-3 font-medium">Peserta</th>
               <th scope="col" className="min-w-[12rem] px-4 py-3 font-medium">Jabatan</th>
-              <th scope="col" className="min-w-[10rem] px-4 py-3 font-medium">Exam</th>
+              <th scope="col" className="min-w-[10rem] px-4 py-3 font-medium">Ujian</th>
               <th scope="col" className="min-w-[13rem] px-4 py-3 font-medium">Waktu pengerjaan</th>
               <th scope="col" className="px-4 py-3 text-right font-medium">Skor</th>
               <th scope="col" className="whitespace-nowrap px-4 py-3 text-right font-medium">Pelanggaran</th>
@@ -201,7 +201,7 @@ export function ResultsView({
       </div>
 
       <p className="mt-3 text-xs text-ink-mute">
-        Waktu pengerjaan dihitung dari saat peserta membuka ujian sampai selesai, dan tidak melebihi batas waktu exam.
+        Waktu pengerjaan dihitung dari saat peserta membuka ujian sampai selesai, dan tidak melebihi batas waktu ujian.
         Server tidak mencatat waktu per soal.
       </p>
     </div>

@@ -21,17 +21,17 @@ export default async function AdminExamsPage() {
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
-        <h1 className="page-title">Exam</h1>
+        <h1 className="page-title">Ujian</h1>
         <Link
           href="/admin/exams/new"
           className="btn btn-primary"
         >
-          Exam baru
+          Ujian baru
         </Link>
       </div>
 
       <div className="bg-panel-raised rounded-card border border-panel-line divide-y divide-panel-line">
-        {exams.length === 0 && <p className="p-6 text-sm text-ink-mute">Belum ada exam.</p>}
+        {exams.length === 0 && <p className="p-6 text-sm text-ink-mute">Belum ada ujian.</p>}
         {exams.map((exam) => (
           <div key={exam.id} className="flex items-center justify-between gap-4 px-6 py-4">
             <div className="min-w-0">
@@ -58,8 +58,8 @@ export default async function AdminExamsPage() {
                 url={`/api/exams/${exam.id}${exam._count.attempts > 0 ? "?force=1" : ""}`}
                 confirmText={
                   exam._count.attempts > 0
-                    ? `Hapus exam "${exam.title}" BESERTA ${exam._count.attempts} hasil ujian peserta? Tidak bisa dibatalkan.`
-                    : `Hapus exam "${exam.title}"? Tidak bisa dibatalkan.`
+                    ? `Hapus ujian "${exam.title}" BESERTA ${exam._count.attempts} hasil ujian peserta? Tidak bisa dibatalkan.`
+                    : `Hapus ujian "${exam.title}"? Tidak bisa dibatalkan.`
                 }
               />
             </div>

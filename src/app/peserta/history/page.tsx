@@ -18,7 +18,7 @@ const STATUS: Record<string, { label: string; className: string }> = {
 };
 
 // Riwayat semua ujian milik peserta yang login, termasuk exam yang sudah ditutup
-// (daftar "Exam tersedia" hanya memuat exam yang sedang terbuka).
+// (daftar "Ujian tersedia" hanya memuat ujian yang sedang terbuka).
 export default async function PesertaHistoryPage() {
   const session = await getServerSession(authOptions);
   if (!session || session.user.role !== "PESERTA") redirect("/login");
@@ -66,7 +66,7 @@ export default async function PesertaHistoryPage() {
               <p className="mt-1 text-sm text-ink-mute">
                 Hasil ujian yang Anda kerjakan akan tersimpan di sini.{" "}
                 <Link href="/peserta/exams" className="link">
-                  Lihat exam tersedia
+                  Lihat ujian tersedia
                 </Link>
                 .
               </p>

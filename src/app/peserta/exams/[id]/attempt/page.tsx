@@ -28,7 +28,7 @@ export default async function AttemptPage({ params }: { params: { id: string } }
               {result.error}
             </p>
             <Link href="/peserta/exams" className="btn btn-secondary mt-5">
-              Kembali ke daftar exam
+              Kembali ke daftar ujian
             </Link>
           </div>
         </main>

@@ -47,17 +47,17 @@ export default async function PesertaExamsPage() {
       <AppHeader />
       <main className="mx-auto max-w-3xl px-4 py-8">
         <PesertaTabs current="exams" />
-        <h1 className="page-title">Exam tersedia</h1>
+        <h1 className="page-title">Ujian tersedia</h1>
         <p className="mb-7 mt-1 text-sm text-ink-mute">
-          {profile ? `Exam untuk ${profile}.` : "Exam sesuai disiplin dan jabatan Anda."}
+          {profile ? `Ujian untuk ${profile}.` : "Ujian sesuai disiplin dan jabatan Anda."}
         </p>
 
         <div className="space-y-3">
           {exams.length === 0 && (
             <div className="card p-6">
-              <p className="font-medium text-ink">Belum ada exam yang terbuka untuk Anda.</p>
+              <p className="font-medium text-ink">Belum ada ujian yang terbuka untuk Anda.</p>
               <p className="mt-1 text-sm text-ink-mute">
-                Exam muncul di sini begitu admin mempublikasikannya untuk disiplin dan jabatan Anda.
+                Ujian muncul di sini begitu admin mempublikasikannya untuk disiplin dan jabatan Anda.
               </p>
             </div>
           )}

@@ -1,6 +1,6 @@
 # CPDP Maintenance Execution II (ME II)
 
-Aplikasi web ujian kompetensi untuk Craft Profesional Development Program (CPDP) Maintenance Execution II (ME II), untuk teknisi 5 disiplin — **Instrumentasi, Electrical, Stationary, Rotating, Civil** — dengan bank soal, exam difilter otomatis sesuai disiplin & jabatan peserta, timer server-side, anti-cheat (randomize soal/opsi, deteksi tab-switch, fullscreen lock, auto-submit), dan review supervisor.
+Aplikasi web ujian kompetensi untuk Craft Professional Development Program (CPDP) Maintenance Execution II (ME II), untuk teknisi 5 disiplin — **Instrumentasi, Electrical, Stationary, Rotating, Civil** — dengan bank soal, ujian difilter otomatis sesuai disiplin & jabatan peserta, timer server-side, anti-cheat (randomize soal/opsi, deteksi tab-switch, fullscreen lock, auto-submit), dan review supervisor.
 
 Dibangun mengikuti skill `online-exam-system-builder` (lihat `references/` di skill tersebut untuk penjelasan desain lengkap).
 
@@ -20,7 +20,7 @@ cp .env.example .env
 openssl rand -base64 32
 
 npx prisma migrate dev --name init
-npm run prisma:seed   # isi 4 disiplin, akun contoh, 1 exam contoh sudah PUBLISHED
+npm run prisma:seed   # isi 5 disiplin, 25 bank soal dummy, akun contoh, 1 ujian contoh sudah PUBLISHED
 npm run dev
 ```
 
@@ -33,11 +33,11 @@ Buka `http://localhost:3000/login`. Akun contoh dari seed (password sama semua: 
 | Peserta (Instrumentasi, Sr. Technician I) | teknisi.instrumentasi@perusahaan.com |
 | Peserta (Electrical, Sr. Technician I) | teknisi.electrical@perusahaan.com |
 
-Login sebagai peserta Instrumentasi langsung bisa coba exam contoh yang sudah di-publish oleh seed.
+Login sebagai peserta Instrumentasi langsung bisa coba ujian contoh yang sudah di-publish oleh seed.
 
 ## Alur pemakaian
 
-1. **Admin** login → `Bank Soal` → buat bank per kombinasi disiplin+jabatan → tambah soal → `Exam` → buat exam dari bank itu (masih Draft) → klik **Publish**.
+1. **Admin** login → `Bank Soal` → buat bank per kombinasi disiplin+jabatan → tambah soal → `Ujian` → buat ujian dari bank itu (masih Draft) → klik **Publish**.
 2. **Peserta** hanya melihat exam yang disiplin & jabatannya cocok dengan profil mereka (difilter di query, bukan disembunyikan di UI saja — lihat `src/app/api/exams/route.ts` dan `src/app/peserta/exams/page.tsx`).
 3. Peserta mulai ujian → wajib masuk fullscreen dulu → timer jalan dari server → jawaban auto-save tiap pilih opsi → keluar fullscreen/pindah tab tercatat sebagai pelanggaran (auto-submit di pelanggaran ke-3, bisa diubah lewat env `VIOLATION_THRESHOLD`).
 4. **Supervisor** login → `Review Hasil Ujian` → attempt dengan pelanggaran terbanyak muncul duluan → approve skor (bisa override) + catatan.
@@ -68,7 +68,7 @@ Lihat `references/deployment.md` di skill `online-exam-system-builder` untuk lan
 5. Jalankan seed sekali (opsional) dengan `SEED_PASSWORD` diisi di environment variables, supaya akun contoh tidak memakai `password123`: `npm run prisma:seed`. Untuk produksi sebaiknya buat user asli lewat Prisma Studio, lalu hapus akun contoh.
 6. Akses lewat `https://<domain>/` — root otomatis diarahkan ke `/login` atau dashboard sesuai role.
 
-Catatan: waktu buka/tutup exam diinput sesuai zona waktu browser admin dan ditampilkan dalam WIB. Setiap perubahan `schema.prisma` harus disertai migration baru (`npx prisma migrate dev --name <nama>` di lokal, commit folder `prisma/migrations/`).
+Catatan: waktu buka/tutup ujian diinput sesuai zona waktu browser admin dan ditampilkan dalam WIB. Setiap perubahan `schema.prisma` harus disertai migration baru (`npx prisma migrate dev --name <nama>` di lokal, commit folder `prisma/migrations/`).
 
 ## Jabatan dan soal dummy
 
@@ -79,14 +79,14 @@ Catatan: waktu buka/tutup exam diinput sesuai zona waktu browser admin dan ditam
 
 ## Riwayat ujian peserta
 
-- Peserta: tab **Riwayat ujian** (`/peserta/history`) memuat semua ujian miliknya, termasuk exam yang sudah ditutup: tanggal, jam mulai-selesai, durasi, skor, lulus/belum, pelanggaran, status, dan tautan ke halaman hasil.
+- Peserta: tab **Riwayat ujian** (`/peserta/history`) memuat semua ujian miliknya, termasuk ujian yang sudah ditutup: tanggal, jam mulai-selesai, durasi, skor, lulus/belum, pelanggaran, status, dan tautan ke halaman hasil.
 - Halaman hasil menampilkan skor, tanggal, waktu pengerjaan, jumlah soal benar dan terjawab. Kunci jawaban per soal tidak ditampilkan ke peserta.
 
 ## Hasil ujian
 
 - Admin: menu **Hasil Ujian** (`/admin/results`). Supervisor: tab **Semua hasil** (`/supervisor/results`), hanya baca.
 - Kolom: nama, email, jabatan, disiplin, exam, waktu pengerjaan (durasi + jam mulai-selesai WIB), skor, pelanggaran, status. Ada filter exam, disiplin, status, dan pencarian peserta.
-- Waktu pengerjaan = `startedAt` sampai `submittedAt`, dibatasi `durationMin` exam. Peserta yang menghilang ditutup otomatis saat halaman dibuka, jadi tampil sebagai durasi penuh dengan penanda "waktu habis".
+- Waktu pengerjaan = `startedAt` sampai `submittedAt`, dibatasi `durationMin` ujian. Peserta yang menghilang ditutup otomatis saat halaman dibuka, jadi tampil sebagai durasi penuh dengan penanda "waktu habis".
 - Waktu per soal tidak dicatat (hanya waktu awal dan akhir per attempt). Mencatatnya butuh perubahan skema.
 
 ## Tampilan
@@ -104,7 +104,7 @@ Tema gelap "ruang kontrol": warna dipakai sebagai status (cyan = aksi, hijau = l
 src/
 ├── app/
 │   ├── (auth)/login/            # halaman login
-│   ├── admin/                   # kelola bank soal & exam
+│   ├── admin/                   # kelola bank soal & ujian
 │   ├── peserta/                 # daftar exam, halaman pengerjaan, hasil
 │   ├── supervisor/review/       # review & approve hasil
 │   └── api/                     # semua API route (lihat tiap route.ts, dikomentari alasannya)

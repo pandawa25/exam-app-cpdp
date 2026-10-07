@@ -50,7 +50,7 @@ export function NewExamForm({ banks }: { banks: Bank[] }) {
     setLoading(false);
     if (!res.ok) {
       const data = await res.json();
-      setError(data.error ?? "Gagal membuat exam");
+      setError(data.error ?? "Gagal membuat ujian");
       return;
     }
     router.push("/admin/exams");
@@ -59,7 +59,7 @@ export function NewExamForm({ banks }: { banks: Bank[] }) {
   if (banks.length === 0) {
     return (
       <p className="text-sm text-ink-mute">
-        Belum ada bank soal. Buat bank soal dulu sebelum membuat exam.
+        Belum ada bank soal. Buat bank soal dulu sebelum membuat ujian.
       </p>
     );
   }
@@ -67,7 +67,7 @@ export function NewExamForm({ banks }: { banks: Bank[] }) {
   return (
     <form onSubmit={handleSubmit} className="space-y-4 bg-panel-raised rounded-card border border-panel-line p-6">
       <div>
-        <label className="label">Judul Exam</label>
+        <label className="label">Judul Ujian</label>
         <input
           required
           value={title}
@@ -92,8 +92,8 @@ export function NewExamForm({ banks }: { banks: Bank[] }) {
         </select>
         {selectedBank && (
           <p className="text-xs text-ink-mute mt-1">
-            Exam otomatis untuk disiplin {disciplineLabel(selectedBank.discipline)}, jabatan{" "}
-            {positionLabel(selectedBank.position)} - hanya peserta dengan profil itu yang akan melihat exam ini.
+            Ujian otomatis untuk disiplin {disciplineLabel(selectedBank.discipline)}, jabatan{" "}
+            {positionLabel(selectedBank.position)} - hanya peserta dengan profil itu yang akan melihat ujian ini.
           </p>
         )}
       </div>
@@ -163,10 +163,10 @@ export function NewExamForm({ banks }: { banks: Bank[] }) {
         disabled={loading}
         className="btn btn-primary"
       >
-        {loading ? "Menyimpan..." : "Buat Exam (Draft)"}
+        {loading ? "Menyimpan..." : "Buat Ujian (Draft)"}
       </button>
       <p className="text-xs text-ink-mute">
-        Exam dibuat sebagai Draft dulu. Klik &quot;Publish&quot; di halaman daftar exam setelah siap.
+        Ujian dibuat sebagai Draft dulu. Klik &quot;Publish&quot; di halaman daftar ujian setelah siap.
       </p>
     </form>
   );

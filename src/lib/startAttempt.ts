@@ -21,9 +21,9 @@ export async function startOrResumeAttempt(
     where: { id: examId },
     include: { questionBank: { include: { questions: true } } },
   });
-  if (!exam) return { ok: false, error: "Exam tidak tersedia" };
+  if (!exam) return { ok: false, error: "Ujian tidak tersedia" };
   if (!matchesProfile(exam, { discipline: userDiscipline, position: userPosition })) {
-    return { ok: false, error: "Exam ini bukan untuk disiplin/jabatan Anda" };
+    return { ok: false, error: "Ujian ini bukan untuk disiplin/jabatan Anda" };
   }
 
   // Attempt yang sedang berjalan SELALU boleh dilanjutkan (misal setelah refresh/koneksi putus),
@@ -35,16 +35,16 @@ export async function startOrResumeAttempt(
   });
   if (existing) return { ok: true, attemptId: existing.id };
 
-  if (exam.status !== "PUBLISHED") return { ok: false, error: "Exam tidak tersedia" };
+  if (exam.status !== "PUBLISHED") return { ok: false, error: "Ujian tidak tersedia" };
   const now = new Date();
   if (now < exam.opensAt || now > exam.closesAt) {
-    return { ok: false, error: "Exam belum/tidak lagi dibuka" };
+    return { ok: false, error: "Ujian belum/tidak lagi dibuka" };
   }
 
   // Kalau sudah pernah attempt (submitted) dan exam tidak mengizinkan retake,
   // jangan buat attempt baru.
   const previous = await prisma.examAttempt.findFirst({ where: { examId, userId } });
-  if (previous) return { ok: false, error: "Anda sudah mengerjakan exam ini" };
+  if (previous) return { ok: false, error: "Anda sudah mengerjakan ujian ini" };
 
   const selectedQuestions = shuffle(exam.questionBank.questions).slice(0, exam.questionCount);
   const attempt = await prisma.examAttempt.create({

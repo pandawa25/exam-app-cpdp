@@ -16,7 +16,7 @@ export async function DELETE(_req: Request, { params }: { params: { id: string }
 
   if (bank._count.exams > 0) {
     return NextResponse.json(
-      { error: `Bank soal ini dipakai ${bank._count.exams} exam. Hapus exam tersebut dulu.` },
+      { error: `Bank soal ini dipakai ${bank._count.exams} ujian. Hapus ujian tersebut dulu.` },
       { status: 409 }
     );
   }

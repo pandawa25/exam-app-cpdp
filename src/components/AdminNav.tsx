@@ -7,7 +7,7 @@ import { AccountLinks } from "@/components/AccountLinks";
 
 const ITEMS = [
   { href: "/admin/question-banks", label: "Bank Soal" },
-  { href: "/admin/exams", label: "Exam" },
+  { href: "/admin/exams", label: "Ujian" },
   { href: "/admin/results", label: "Hasil Ujian" },
   { href: "/admin/users", label: "User" },
 ];
