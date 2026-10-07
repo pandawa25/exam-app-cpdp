@@ -77,6 +77,11 @@ Catatan: waktu buka/tutup exam diinput sesuai zona waktu browser admin dan ditam
 - Soal dummy dibuat untuk uji alur aplikasi, belum diverifikasi SME. Ganti dengan soal resmi sebelum dipakai menilai peserta.
 - Migrasi `position_levels` memetakan data lama: Teknisi Junior menjadi Jr. Technician I; Teknisi Senior, Supervisor Lapangan, dan Engineer menjadi Sr. Technician I. Periksa ulang jabatan user yang sudah ada.
 
+## Riwayat ujian peserta
+
+- Peserta: tab **Riwayat ujian** (`/peserta/history`) memuat semua ujian miliknya, termasuk exam yang sudah ditutup: tanggal, jam mulai-selesai, durasi, skor, lulus/belum, pelanggaran, status, dan tautan ke halaman hasil.
+- Halaman hasil menampilkan skor, tanggal, waktu pengerjaan, jumlah soal benar dan terjawab. Kunci jawaban per soal tidak ditampilkan ke peserta.
+
 ## Hasil ujian
 
 - Admin: menu **Hasil Ujian** (`/admin/results`). Supervisor: tab **Semua hasil** (`/supervisor/results`), hanya baca.

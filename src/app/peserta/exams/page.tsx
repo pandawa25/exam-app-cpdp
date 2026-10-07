@@ -6,6 +6,7 @@ import { prisma } from "@/lib/prisma";
 import { disciplineLabel, positionLabel } from "@/lib/constants";
 import { AppHeader } from "@/components/AppHeader";
 import { visibleExamsWhere } from "@/lib/examAccess";
+import { PesertaTabs } from "@/components/PesertaTabs";
 
 export const dynamic = "force-dynamic";
 
@@ -45,6 +46,7 @@ export default async function PesertaExamsPage() {
     <>
       <AppHeader />
       <main className="mx-auto max-w-3xl px-4 py-8">
+        <PesertaTabs current="exams" />
         <h1 className="page-title">Exam tersedia</h1>
         <p className="mb-7 mt-1 text-sm text-ink-mute">
           {profile ? `Exam untuk ${profile}.` : "Exam sesuai disiplin dan jabatan Anda."}
