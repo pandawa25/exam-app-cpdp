@@ -44,15 +44,15 @@ export function AddQuestionForm({ bankId }: { bankId: string }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-3 bg-white rounded-xl border border-slate-200 p-6">
-      <h2 className="font-medium text-slate-900 mb-1">Tambah Soal</h2>
+    <form onSubmit={handleSubmit} className="space-y-3 bg-panel-raised rounded-card border border-panel-line p-6">
+      <h2 className="font-medium text-ink mb-1">Tambah Soal</h2>
       <textarea
         required
         value={text}
         onChange={(e) => setText(e.target.value)}
         placeholder="Teks soal"
         rows={2}
-        className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+        className="input"
       />
       <div className="grid grid-cols-2 gap-3">
         {[
@@ -67,17 +67,17 @@ export function AddQuestionForm({ bankId }: { bankId: string }) {
             value={value}
             onChange={(e) => setter(e.target.value)}
             placeholder={`Opsi ${label}`}
-            className="rounded-lg border border-slate-300 px-3 py-2 text-sm"
+            className="input w-auto"
           />
         ))}
       </div>
       <div className="flex items-center gap-4">
-        <label className="text-sm text-slate-700">
+        <label className="text-sm text-ink-soft">
           Jawaban benar:{" "}
           <select
             value={correctOption}
             onChange={(e) => setCorrectOption(e.target.value)}
-            className="rounded-lg border border-slate-300 px-2 py-1 text-sm ml-1"
+            className="rounded-ctl border border-panel-strong px-2 py-1 text-sm ml-1"
           >
             {["A", "B", "C", "D"].map((o) => (
               <option key={o} value={o}>
@@ -86,22 +86,22 @@ export function AddQuestionForm({ bankId }: { bankId: string }) {
             ))}
           </select>
         </label>
-        <label className="text-sm text-slate-700">
+        <label className="text-sm text-ink-soft">
           Bobot:{" "}
           <input
             type="number"
             min={1}
             value={points}
             onChange={(e) => setPoints(Number(e.target.value))}
-            className="w-16 rounded-lg border border-slate-300 px-2 py-1 text-sm ml-1"
+            className="input w-16 !px-2 !py-1 ml-1"
           />
         </label>
       </div>
-      {error && <p className="text-sm text-red-600">{error}</p>}
+      {error && <p className="text-sm text-alarm">{error}</p>}
       <button
         type="submit"
         disabled={loading}
-        className="bg-brand-600 hover:bg-brand-700 text-white text-sm font-medium rounded-lg px-4 py-2 disabled:opacity-50"
+        className="btn btn-primary"
       >
         {loading ? "Menyimpan..." : "Tambah Soal"}
       </button>

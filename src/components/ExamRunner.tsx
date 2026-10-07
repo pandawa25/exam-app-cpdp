@@ -15,9 +15,58 @@ type AttemptData = {
   id: string;
   status: string;
   deadline: string;
+  durationMin: number;
   examTitle: string;
+  violationCount?: number;
   questions: Question[];
 };
+
+// Sisa waktu ditampilkan seperti bar gauge di HMI: isi = sisa waktu, dua garis = batas
+// peringatan (25%) dan alarm (10%). Warna berubah di batas itu, dan teks ikut berubah
+// supaya status tidak hanya dibedakan lewat warna.
+function TimeGauge({
+  remainingMs,
+  totalMs,
+  className = "w-full sm:w-56",
+}: {
+  remainingMs: number | null;
+  totalMs: number;
+  className?: string;
+}) {
+  const known = remainingMs !== null && totalMs > 0;
+  const frac = known ? Math.min(1, Math.max(0, (remainingMs as number) / totalMs)) : 1;
+  const level = !known ? "normal" : frac <= 0.1 || (remainingMs as number) < 60_000 ? "alarm" : frac <= 0.25 ? "warn" : "normal";
+
+  const fill = level === "alarm" ? "bg-alarm" : level === "warn" ? "bg-warn" : "bg-brand";
+  const text = level === "alarm" ? "text-alarm" : level === "warn" ? "text-warn" : "text-ink";
+  const label = level === "alarm" ? "Waktu hampir habis" : level === "warn" ? "Waktu menipis" : "Sisa waktu";
+
+  const minutes = known ? Math.floor((remainingMs as number) / 60000) : null;
+  const seconds = known ? Math.floor(((remainingMs as number) % 60000) / 1000) : null;
+
+  return (
+    <div className={`shrink-0 ${className}`}>
+      <div className="flex items-baseline justify-between gap-3">
+        <span className={`text-xs ${level === "normal" ? "text-ink-mute" : `font-medium ${text}`}`}>{label}</span>
+        <span role="timer" aria-live="off" className={`tnum font-display text-3xl font-semibold leading-none ${text}`}>
+          {minutes !== null ? `${minutes}:${String(seconds).padStart(2, "0")}` : "--:--"}
+        </span>
+      </div>
+      <div className="relative mt-2 h-2 rounded-full bg-panel-high" aria-hidden="true">
+        <div
+          className={`h-full rounded-full ${fill} transition-[width] duration-1000 ease-linear`}
+          style={{ width: `${frac * 100}%` }}
+        />
+        <span className="absolute -bottom-[3px] -top-[3px] w-px bg-panel-strong" style={{ left: "25%" }} />
+        <span className="absolute -bottom-[3px] -top-[3px] w-px bg-panel-strong" style={{ left: "10%" }} />
+      </div>
+      {/* Hanya berubah saat melewati batas, jadi pembaca layar tidak mengumumkan tiap detik. */}
+      <p className="sr-only" aria-live="polite">
+        {level === "normal" ? "" : label}
+      </p>
+    </div>
+  );
+}
 
 // Halaman pengerjaan ujian - inti dari tiga pilar anti-cheat di skill:
 // 1. Timer: angka mundur di sini HANYA untuk tampilan. Source of truth tetap
@@ -32,6 +81,7 @@ export function ExamRunner({ attemptId }: { attemptId: string }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [remainingMs, setRemainingMs] = useState<number | null>(null);
   const [violationCount, setViolationCount] = useState(0);
+  const [violationLimit, setViolationLimit] = useState<number | null>(null);
   const [violationWarning, setViolationWarning] = useState("");
   const [isFullscreen, setIsFullscreen] = useState(false);
   const endedRef = useRef(false);
@@ -40,6 +90,7 @@ export function ExamRunner({ attemptId }: { attemptId: string }) {
     const res = await fetch(`/api/attempts/${attemptId}`);
     const json = await res.json();
     setData(json);
+    if (typeof json.violationCount === "number") setViolationCount(json.violationCount);
     if (json.status !== "IN_PROGRESS" && !endedRef.current) {
       endedRef.current = true;
       router.replace(`/peserta/attempts/${attemptId}/result`);
@@ -90,6 +141,7 @@ export function ExamRunner({ attemptId }: { attemptId: string }) {
       });
       const json = await res.json();
       setViolationCount(json.violationCount ?? 0);
+      if (typeof json.threshold === "number") setViolationLimit(json.threshold);
       if (json.autoSubmitted && !endedRef.current) {
         endedRef.current = true;
         router.replace(`/peserta/attempts/${attemptId}/result`);
@@ -147,125 +199,187 @@ export function ExamRunner({ attemptId }: { attemptId: string }) {
   }
 
   async function handleSubmit() {
-    if (!confirm("Yakin selesaikan ujian sekarang? Jawaban tidak bisa diubah lagi setelah submit.")) return;
+    const unanswered = data ? data.questions.filter((q) => !q.selectedOption).length : 0;
+    const warning = unanswered > 0 ? `Masih ada ${unanswered} soal belum dijawab. ` : "";
+    if (!confirm(`${warning}Selesaikan ujian sekarang? Jawaban tidak bisa diubah lagi setelah dikirim.`)) return;
     endedRef.current = true;
     await fetch(`/api/attempts/${attemptId}/submit`, { method: "POST" });
     router.replace(`/peserta/attempts/${attemptId}/result`);
   }
 
-  if (!data) return <p className="text-sm text-slate-500 p-6">Memuat soal...</p>;
+  if (!data) return <p className="p-6 text-sm text-ink-mute">Memuat soal...</p>;
 
+  const totalMs = data.durationMin * 60_000;
+
+  // Timer server sudah berjalan sejak halaman ini dibuka, jadi sisa waktu ditampilkan juga di sini.
   if (!isFullscreen) {
     return (
-      <div className="bg-white border border-slate-200 rounded-xl p-8 text-center">
-        <h1 className="font-semibold text-lg mb-2">{data.examTitle}</h1>
-        <p className="text-sm text-slate-600 mb-6">
-          Ujian ini dijalankan dalam mode fullscreen dengan pemantauan tab-switch. Keluar dari fullscreen
-          atau berpindah tab akan tercatat sebagai pelanggaran.
-        </p>
-        <button
-          onClick={enterFullscreen}
-          className="bg-brand-600 hover:bg-brand-700 text-white text-sm font-medium rounded-lg px-6 py-3"
-        >
-          Masuk Mode Ujian (Fullscreen)
-        </button>
-      </div>
+      <main className="mx-auto flex min-h-screen max-w-xl items-center px-4 py-10">
+        <div className="card w-full p-6 sm:p-8">
+          <h1 className="page-title">{data.examTitle}</h1>
+          <p className="mt-3 text-sm text-ink-soft">
+            Ujian berjalan dalam mode layar penuh. Hal berikut dicatat sebagai pelanggaran:
+          </p>
+          <ul className="mt-2 list-disc space-y-1 pl-5 text-sm text-ink-soft">
+            <li>Keluar dari mode layar penuh</li>
+            <li>Berpindah tab atau jendela</li>
+          </ul>
+          <p className="mt-3 text-sm text-ink-soft">Ujian diakhiri otomatis jika pelanggaran mencapai batas.</p>
+
+          <div className="mt-6 border-t border-panel-line pt-5">
+            <TimeGauge remainingMs={remainingMs} totalMs={totalMs} className="w-full" />
+            <p className="mt-3 text-xs text-ink-mute">
+              Waktu sudah berjalan sejak halaman ini dibuka. Masuk mode ujian sekarang.
+            </p>
+          </div>
+
+          <button onClick={enterFullscreen} className="btn btn-primary mt-5 w-full py-3">
+            Masuk mode ujian
+          </button>
+        </div>
+      </main>
     );
   }
 
   const question = data.questions[currentIndex];
+  const total = data.questions.length;
   const answeredCount = data.questions.filter((q) => q.selectedOption).length;
-  const minutes = remainingMs !== null ? Math.floor(remainingMs / 60000) : null;
-  const seconds = remainingMs !== null ? Math.floor((remainingMs % 60000) / 1000) : null;
+  const isLast = currentIndex === total - 1;
 
   return (
-    <div className="max-w-2xl mx-auto px-4 py-6">
-      <div className="flex items-center justify-between mb-4">
-        <h1 className="font-semibold">{data.examTitle}</h1>
-        <div
-          className={`text-sm font-mono px-3 py-1 rounded-lg ${
-            remainingMs !== null && remainingMs < 60_000 ? "bg-red-100 text-red-700" : "bg-slate-100 text-slate-700"
-          }`}
-        >
-          {minutes !== null ? `${minutes}:${String(seconds).padStart(2, "0")}` : "--:--"}
+    <div className="min-h-screen">
+      <header className="sticky top-0 z-10 border-b border-panel-line bg-panel-raised/95 backdrop-blur">
+        <div className="mx-auto flex max-w-5xl flex-col gap-2 px-4 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+          <h1 className="min-w-0 truncate font-display text-xl font-semibold text-ink">{data.examTitle}</h1>
+          <TimeGauge remainingMs={remainingMs} totalMs={totalMs} />
         </div>
-      </div>
+      </header>
 
-      {violationWarning && (
-        <p className="text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2 mb-4">
-          {violationWarning}
-        </p>
-      )}
+      <div className="mx-auto max-w-5xl gap-6 px-4 py-6 lg:grid lg:grid-cols-[minmax(0,1fr)_15rem]">
+        <div>
+          {violationWarning && (
+            <p role="alert" className="notice notice-warn mb-4">
+              {violationWarning}
+            </p>
+          )}
 
-      <p className="text-xs text-slate-400 mb-2">
-        Soal {currentIndex + 1} dari {data.questions.length} &middot; Terjawab: {answeredCount}
-      </p>
+          <section className="card p-5 sm:p-7" aria-labelledby="question-text">
+            <p className="tnum mb-4 text-sm text-ink-mute">
+              Soal {currentIndex + 1} dari {total}
+            </p>
+            <p id="question-text" className="max-w-[68ch] text-lg font-medium leading-relaxed text-ink">
+              {question.text}
+            </p>
+            {question.imageUrl && (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img src={question.imageUrl} alt="" className="mt-4 max-h-72 rounded-ctl border border-panel-line" />
+            )}
 
-      <div className="bg-white border border-slate-200 rounded-xl p-6 mb-4">
-        <p className="font-medium text-slate-900 mb-4">{question.text}</p>
-        {question.imageUrl && (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img src={question.imageUrl} alt="" className="mb-4 rounded-lg max-h-64" />
-        )}
-        <div className="space-y-2">
-          {question.options.map((opt) => (
+            <div role="radiogroup" aria-labelledby="question-text" className="mt-6 space-y-2.5">
+              {question.options.map((opt, i) => {
+                const selected = question.selectedOption === opt.key;
+                return (
+                  <button
+                    key={opt.key}
+                    type="button"
+                    role="radio"
+                    aria-checked={selected}
+                    onClick={() => selectAnswer(question.questionId, opt.key)}
+                    className={`flex w-full items-start gap-3 rounded-ctl border px-4 py-3 text-left transition-colors ${
+                      selected
+                        ? "border-brand bg-brand-dim"
+                        : "border-panel-strong bg-panel hover:border-ink-mute hover:bg-panel-high"
+                    }`}
+                  >
+                    <span
+                      className={`mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded border text-xs font-semibold ${
+                        selected ? "border-brand bg-brand text-brand-on" : "border-panel-strong text-ink-soft"
+                      }`}
+                    >
+                      {String.fromCharCode(65 + i)}
+                    </span>
+                    <span className="text-[0.95rem] leading-snug text-ink">{opt.text}</span>
+                  </button>
+                );
+              })}
+            </div>
+          </section>
+
+          <div className="mt-4 flex items-center justify-between">
             <button
-              key={opt.key}
-              onClick={() => selectAnswer(question.questionId, opt.key)}
-              className={`w-full text-left rounded-lg border px-4 py-2.5 text-sm ${
-                question.selectedOption === opt.key
-                  ? "border-brand-600 bg-brand-50 text-brand-900"
-                  : "border-slate-200 hover:border-slate-300"
-              }`}
+              onClick={() => setCurrentIndex((i) => Math.max(0, i - 1))}
+              disabled={currentIndex === 0}
+              className="btn btn-secondary"
             >
-              {opt.text}
+              &larr; Sebelumnya
             </button>
-          ))}
-        </div>
-      </div>
 
-      <div className="flex items-center justify-between">
-        <button
-          onClick={() => setCurrentIndex((i) => Math.max(0, i - 1))}
-          disabled={currentIndex === 0}
-          className="text-sm text-slate-600 disabled:opacity-30"
-        >
-          &larr; Sebelumnya
-        </button>
-
-        <div className="flex gap-1 flex-wrap justify-center max-w-xs">
-          {data.questions.map((q, i) => (
-            <button
-              key={q.questionId}
-              onClick={() => setCurrentIndex(i)}
-              className={`w-7 h-7 text-xs rounded ${
-                i === currentIndex
-                  ? "bg-brand-600 text-white"
-                  : q.selectedOption
-                  ? "bg-brand-100 text-brand-700"
-                  : "bg-slate-100 text-slate-500"
-              }`}
-            >
-              {i + 1}
-            </button>
-          ))}
+            {!isLast ? (
+              <button onClick={() => setCurrentIndex((i) => Math.min(total - 1, i + 1))} className="btn btn-primary">
+                Selanjutnya &rarr;
+              </button>
+            ) : (
+              <button onClick={handleSubmit} className="btn btn-ok">
+                Selesai ujian
+              </button>
+            )}
+          </div>
         </div>
 
-        {currentIndex < data.questions.length - 1 ? (
-          <button
-            onClick={() => setCurrentIndex((i) => Math.min(data.questions.length - 1, i + 1))}
-            className="text-sm text-slate-600"
-          >
-            Selanjutnya &rarr;
-          </button>
-        ) : (
-          <button
-            onClick={handleSubmit}
-            className="bg-green-600 hover:bg-green-700 text-white text-sm font-medium rounded-lg px-4 py-2"
-          >
-            Selesai Ujian
-          </button>
-        )}
+        {/* Navigator soal ala annunciator: tiap soal satu kotak, status terbaca dari bentuk dan warna. */}
+        <aside className="mt-6 lg:mt-0" aria-label="Daftar soal">
+          <div className="card p-4 lg:sticky lg:top-24">
+            <p className="tnum text-sm text-ink-soft">
+              Terjawab <span className="font-semibold text-ink">{answeredCount}</span> dari {total}
+            </p>
+
+            <div className="mt-3 grid grid-cols-8 gap-1.5 sm:grid-cols-10 lg:grid-cols-5">
+              {data.questions.map((q, i) => {
+                const current = i === currentIndex;
+                const answered = !!q.selectedOption;
+                return (
+                  <button
+                    key={q.questionId}
+                    onClick={() => setCurrentIndex(i)}
+                    aria-label={`Soal ${i + 1}, ${answered ? "terjawab" : "belum dijawab"}`}
+                    aria-current={current ? "step" : undefined}
+                    className={`tnum h-9 rounded text-sm font-medium transition-colors ${
+                      current
+                        ? "bg-brand text-brand-on"
+                        : answered
+                        ? "border border-brand/50 bg-brand-dim text-brand hover:bg-brand/20"
+                        : "border border-panel-strong bg-panel text-ink-mute hover:bg-panel-high"
+                    }`}
+                  >
+                    {i + 1}
+                  </button>
+                );
+              })}
+            </div>
+
+            <ul className="mt-4 space-y-1.5 border-t border-panel-line pt-3 text-xs text-ink-mute">
+              <li className="flex items-center gap-2">
+                <span className="h-3 w-3 rounded-sm bg-brand" aria-hidden="true" />
+                Soal saat ini
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-3 w-3 rounded-sm border border-brand/50 bg-brand-dim" aria-hidden="true" />
+                Sudah dijawab
+              </li>
+              <li className="flex items-center gap-2">
+                <span className="h-3 w-3 rounded-sm border border-panel-strong bg-panel" aria-hidden="true" />
+                Belum dijawab
+              </li>
+            </ul>
+
+            {violationCount > 0 && (
+              <p className="notice notice-warn mt-4 text-xs">
+                Pelanggaran {violationCount}
+                {violationLimit ? ` dari ${violationLimit}` : ""}
+              </p>
+            )}
+          </div>
+        </aside>
       </div>
     </div>
   );

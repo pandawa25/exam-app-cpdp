@@ -58,31 +58,31 @@ export function NewExamForm({ banks }: { banks: Bank[] }) {
 
   if (banks.length === 0) {
     return (
-      <p className="text-sm text-slate-500">
+      <p className="text-sm text-ink-mute">
         Belum ada bank soal. Buat bank soal dulu sebelum membuat exam.
       </p>
     );
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 bg-white rounded-xl border border-slate-200 p-6">
+    <form onSubmit={handleSubmit} className="space-y-4 bg-panel-raised rounded-card border border-panel-line p-6">
       <div>
-        <label className="block text-sm font-medium text-slate-700 mb-1">Judul Exam</label>
+        <label className="label">Judul Exam</label>
         <input
           required
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           placeholder='Misal: "Ujian Kompetensi Instrumentasi - Teknisi Senior Q4 2026"'
-          className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+          className="input"
         />
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-slate-700 mb-1">Bank Soal</label>
+        <label className="label">Bank Soal</label>
         <select
           value={questionBankId}
           onChange={(e) => setQuestionBankId(e.target.value)}
-          className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+          className="input"
         >
           {banks.map((b) => (
             <option key={b.id} value={b.id}>
@@ -91,7 +91,7 @@ export function NewExamForm({ banks }: { banks: Bank[] }) {
           ))}
         </select>
         {selectedBank && (
-          <p className="text-xs text-slate-500 mt-1">
+          <p className="text-xs text-ink-mute mt-1">
             Exam otomatis untuk disiplin {disciplineLabel(selectedBank.discipline)}, jabatan{" "}
             {positionLabel(selectedBank.position)} - hanya peserta dengan profil itu yang akan melihat exam ini.
           </p>
@@ -100,72 +100,72 @@ export function NewExamForm({ banks }: { banks: Bank[] }) {
 
       <div className="grid grid-cols-3 gap-3">
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-1">Jumlah Soal</label>
+          <label className="label">Jumlah Soal</label>
           <input
             type="number"
             min={1}
             max={selectedBank?._count.questions ?? 1}
             value={questionCount}
             onChange={(e) => setQuestionCount(Number(e.target.value))}
-            className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+            className="input"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-1">Durasi (menit)</label>
+          <label className="label">Durasi (menit)</label>
           <input
             type="number"
             min={1}
             value={durationMin}
             onChange={(e) => setDurationMin(Number(e.target.value))}
-            className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+            className="input"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-1">Passing Score</label>
+          <label className="label">Passing Score</label>
           <input
             type="number"
             min={0}
             max={100}
             value={passingScore}
             onChange={(e) => setPassingScore(Number(e.target.value))}
-            className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+            className="input"
           />
         </div>
       </div>
 
       <div className="grid grid-cols-2 gap-3">
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-1">Buka</label>
+          <label className="label">Buka</label>
           <input
             type="datetime-local"
             required
             value={opensAt}
             onChange={(e) => setOpensAt(e.target.value)}
-            className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+            className="input"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-1">Tutup</label>
+          <label className="label">Tutup</label>
           <input
             type="datetime-local"
             required
             value={closesAt}
             onChange={(e) => setClosesAt(e.target.value)}
-            className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+            className="input"
           />
         </div>
       </div>
 
-      {error && <p className="text-sm text-red-600">{error}</p>}
+      {error && <p className="text-sm text-alarm">{error}</p>}
 
       <button
         type="submit"
         disabled={loading}
-        className="bg-brand-600 hover:bg-brand-700 text-white text-sm font-medium rounded-lg px-4 py-2.5 disabled:opacity-50"
+        className="btn btn-primary"
       >
         {loading ? "Menyimpan..." : "Buat Exam (Draft)"}
       </button>
-      <p className="text-xs text-slate-400">
+      <p className="text-xs text-ink-mute">
         Exam dibuat sebagai Draft dulu. Klik &quot;Publish&quot; di halaman daftar exam setelah siap.
       </p>
     </form>

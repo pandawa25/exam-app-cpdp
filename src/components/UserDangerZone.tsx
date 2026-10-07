@@ -53,24 +53,24 @@ export function UserDangerZone({ id, name, isActive, isSelf, attemptCount }: Pro
   }
 
   return (
-    <div className="mt-6 bg-white rounded-xl border border-slate-200 p-6">
-      <h2 className="text-sm font-semibold text-slate-900 mb-3">Status Akun</h2>
-      <p className="text-sm text-slate-500 mb-4">
+    <div className="mt-6 bg-panel-raised rounded-card border border-panel-line p-6">
+      <h2 className="text-sm font-semibold text-ink mb-3">Status Akun</h2>
+      <p className="text-sm text-ink-mute mb-4">
         Status saat ini:{" "}
-        <span className={isActive ? "text-green-700 font-medium" : "text-red-700 font-medium"}>
+        <span className={isActive ? "text-ok font-medium" : "text-alarm font-medium"}>
           {isActive ? "Aktif" : "Nonaktif (tidak bisa login)"}
         </span>
         . Sesi login yang sudah berjalan berakhir otomatis maksimal 12 jam.
       </p>
 
       {isSelf ? (
-        <p className="text-xs text-slate-400">Akun Anda sendiri tidak bisa dinonaktifkan atau dihapus.</p>
+        <p className="text-xs text-ink-mute">Akun Anda sendiri tidak bisa dinonaktifkan atau dihapus.</p>
       ) : (
         <div className="flex flex-wrap gap-3">
           <button
             onClick={toggleActive}
             disabled={loading}
-            className="text-sm border border-slate-300 rounded-lg px-4 py-2 hover:bg-slate-50 disabled:opacity-50"
+            className="text-sm border border-panel-strong rounded-ctl px-4 py-2 hover:bg-panel-high disabled:opacity-50"
           >
             {isActive ? "Nonaktifkan akun" : "Aktifkan kembali"}
           </button>
@@ -78,18 +78,18 @@ export function UserDangerZone({ id, name, isActive, isSelf, attemptCount }: Pro
             onClick={remove}
             disabled={loading || attemptCount > 0}
             title={attemptCount > 0 ? "Sudah punya riwayat ujian - nonaktifkan saja" : undefined}
-            className="text-sm text-red-700 border border-red-200 rounded-lg px-4 py-2 hover:bg-red-50 disabled:opacity-40 disabled:cursor-not-allowed"
+            className="btn btn-danger"
           >
             Hapus permanen
           </button>
         </div>
       )}
       {!isSelf && attemptCount > 0 && (
-        <p className="text-xs text-slate-400 mt-3">
+        <p className="text-xs text-ink-mute mt-3">
           Punya {attemptCount} riwayat ujian, jadi hanya bisa dinonaktifkan.
         </p>
       )}
-      {error && <p className="text-sm text-red-600 mt-3">{error}</p>}
+      {error && <p className="text-sm text-alarm mt-3">{error}</p>}
     </div>
   );
 }

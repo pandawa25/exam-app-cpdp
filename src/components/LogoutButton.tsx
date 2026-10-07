@@ -7,7 +7,7 @@ export function LogoutButton({ className }: { className?: string }) {
     <button
       type="button"
       onClick={() => signOut({ callbackUrl: "/login" })}
-      className={className ?? "text-sm text-slate-500 hover:text-slate-800"}
+      className={className ?? "text-sm text-ink-soft hover:text-ink"}
     >
       Keluar
     </button>

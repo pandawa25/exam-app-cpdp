@@ -11,7 +11,7 @@ export default async function NewExamPage() {
 
   return (
     <div className="max-w-xl">
-      <h1 className="text-xl font-semibold mb-6">Exam Baru</h1>
+      <h1 className="page-title mb-6">Exam Baru</h1>
       <NewExamForm banks={banks} />
     </div>
   );

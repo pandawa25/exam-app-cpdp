@@ -3,12 +3,20 @@ import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
-import { AccountLinks } from "@/components/AccountLinks";
+import { disciplineLabel, positionLabel } from "@/lib/constants";
+import { AppHeader } from "@/components/AppHeader";
 
 export const dynamic = "force-dynamic";
 
 // Server jalan di UTC (Railway); paksa tampilan jam ke WIB supaya tidak bergeser 7 jam.
 const WIB = "Asia/Jakarta";
+
+const attemptBadge: Record<string, { label: string; className: string }> = {
+  IN_PROGRESS: { label: "Sedang berjalan", className: "badge-warn" },
+  SUBMITTED: { label: "Selesai", className: "badge-info" },
+  AUTO_SUBMITTED: { label: "Dihentikan otomatis", className: "badge-alarm" },
+  REVIEWED: { label: "Sudah direview", className: "badge-ok" },
+};
 
 // Daftar exam yang muncul SUDAH difilter sesuai disiplin & jabatan peserta
 // (query di dalam fungsi ini, sama logic-nya dengan GET /api/exams tapi
@@ -30,65 +38,75 @@ export default async function PesertaExamsPage() {
     orderBy: { opensAt: "asc" },
   });
 
+  const profile =
+    session.user.discipline && session.user.position
+      ? `${disciplineLabel(session.user.discipline)}, ${positionLabel(session.user.position)}`
+      : null;
+
   return (
-    <div>
-      <div className="flex items-center justify-between mb-1">
-        <h1 className="text-xl font-semibold">Exam Tersedia</h1>
-        <AccountLinks />
-      </div>
-      <p className="text-sm text-slate-500 mb-6">
-        Halo {session.user.name} - menampilkan exam untuk disiplin & jabatan Anda.
-      </p>
+    <>
+      <AppHeader />
+      <main className="mx-auto max-w-3xl px-4 py-8">
+        <h1 className="page-title">Exam tersedia</h1>
+        <p className="mb-7 mt-1 text-sm text-ink-mute">
+          {profile ? `Exam untuk ${profile}.` : "Exam sesuai disiplin dan jabatan Anda."}
+        </p>
 
-      <div className="space-y-3">
-        {exams.length === 0 && (
-          <p className="text-sm text-slate-500 bg-white border border-slate-200 rounded-xl p-6">
-            Belum ada exam yang terbuka untuk Anda saat ini.
-          </p>
-        )}
-        {exams.map((exam) => {
-          const myAttempt = exam.attempts[0];
-          return (
-            <div key={exam.id} className="bg-white border border-slate-200 rounded-xl p-5">
-              <p className="font-medium text-slate-900">{exam.title}</p>
-              <p className="text-sm text-slate-500 mt-1">
-                {exam.questionCount} soal &middot; {exam.durationMin} menit &middot; nilai lulus{" "}
-                {exam.passingScore}
+        <div className="space-y-3">
+          {exams.length === 0 && (
+            <div className="card p-6">
+              <p className="font-medium text-ink">Belum ada exam yang terbuka untuk Anda.</p>
+              <p className="mt-1 text-sm text-ink-mute">
+                Exam muncul di sini begitu admin mempublikasikannya untuk disiplin dan jabatan Anda.
               </p>
-              <p className="text-xs text-slate-400 mt-1">
-                Tutup: {exam.closesAt.toLocaleString("id-ID", { timeZone: WIB })} WIB
-              </p>
-
-              <div className="mt-3">
-                {!myAttempt && (
-                  <Link
-                    href={`/peserta/exams/${exam.id}/attempt`}
-                    className="inline-block bg-brand-600 hover:bg-brand-700 text-white text-sm font-medium rounded-lg px-4 py-2"
-                  >
-                    Mulai Ujian
-                  </Link>
-                )}
-                {myAttempt?.status === "IN_PROGRESS" && (
-                  <Link
-                    href={`/peserta/exams/${exam.id}/attempt`}
-                    className="inline-block bg-amber-600 hover:bg-amber-700 text-white text-sm font-medium rounded-lg px-4 py-2"
-                  >
-                    Lanjutkan Ujian
-                  </Link>
-                )}
-                {myAttempt && myAttempt.status !== "IN_PROGRESS" && (
-                  <Link
-                    href={`/peserta/attempts/${myAttempt.id}/result`}
-                    className="inline-block text-sm text-slate-600 hover:underline"
-                  >
-                    Lihat hasil ({myAttempt.status === "AUTO_SUBMITTED" ? "auto-submit" : "selesai"})
-                  </Link>
-                )}
-              </div>
             </div>
-          );
-        })}
-      </div>
-    </div>
+          )}
+
+          {exams.map((exam) => {
+            const myAttempt = exam.attempts[0];
+            const badge = myAttempt ? attemptBadge[myAttempt.status] : null;
+            return (
+              <article
+                key={exam.id}
+                className="card flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6"
+              >
+                <div className="min-w-0">
+                  <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                    <h2 className="section-title">{exam.title}</h2>
+                    {badge && <span className={`badge ${badge.className}`}>{badge.label}</span>}
+                  </div>
+                  <p className="tnum mt-2 flex flex-wrap gap-x-5 text-sm text-ink-soft">
+                    <span>{exam.questionCount} soal</span>
+                    <span>{exam.durationMin} menit</span>
+                    <span>Nilai lulus {exam.passingScore}</span>
+                  </p>
+                  <p className="mt-1 text-xs text-ink-mute">
+                    Ditutup {exam.closesAt.toLocaleString("id-ID", { timeZone: WIB })} WIB
+                  </p>
+                </div>
+
+                <div className="shrink-0">
+                  {!myAttempt && (
+                    <Link href={`/peserta/exams/${exam.id}/attempt`} className="btn btn-primary">
+                      Mulai ujian
+                    </Link>
+                  )}
+                  {myAttempt?.status === "IN_PROGRESS" && (
+                    <Link href={`/peserta/exams/${exam.id}/attempt`} className="btn btn-primary">
+                      Lanjutkan ujian
+                    </Link>
+                  )}
+                  {myAttempt && myAttempt.status !== "IN_PROGRESS" && (
+                    <Link href={`/peserta/attempts/${myAttempt.id}/result`} className="btn btn-secondary">
+                      Lihat hasil
+                    </Link>
+                  )}
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      </main>
+    </>
   );
 }

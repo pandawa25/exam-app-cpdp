@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { LogoutButton } from "@/components/LogoutButton";
 
-export function AccountLinks() {
+export function AccountLinks({ className = "flex items-center gap-4 text-sm" }: { className?: string }) {
   return (
-    <span className="flex items-center gap-4 text-sm">
-      <Link href="/akun/password" className="text-slate-500 hover:text-slate-800">
+    <span className={className}>
+      <Link href="/akun/password" className="text-ink-soft hover:text-ink">
         Ganti Password
       </Link>
       <LogoutButton />

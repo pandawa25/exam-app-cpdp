@@ -1,3 +1,5 @@
+// Tiap halaman peserta menyusun sendiri header dan lebarnya: layar ujian (fullscreen)
+// tidak boleh memakai header yang berisi tautan keluar/ganti password.
 export default function PesertaLayout({ children }: { children: React.ReactNode }) {
-  return <main className="max-w-2xl mx-auto px-4 py-8">{children}</main>;
+  return <div className="min-h-screen">{children}</div>;
 }

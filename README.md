@@ -70,6 +70,15 @@ Lihat `references/deployment.md` di skill `online-exam-system-builder` untuk lan
 
 Catatan: waktu buka/tutup exam diinput sesuai zona waktu browser admin dan ditampilkan dalam WIB. Setiap perubahan `schema.prisma` harus disertai migration baru (`npx prisma migrate dev --name <nama>` di lokal, commit folder `prisma/migrations/`).
 
+## Tampilan
+
+Tema gelap "ruang kontrol": warna dipakai sebagai status (cyan = aksi, hijau = lulus/normal, amber = peringatan, merah = gagal/alarm), seperti annunciator panel.
+
+- Token warna, font, dan radius: `tailwind.config.ts`. Kelas komponen (`btn`, `input`, `card`, `badge-*`, `notice-*`): `src/app/globals.css`.
+- Font Barlow dan Barlow Condensed di-host sendiri lewat paket `@fontsource/*` (tidak ada request ke Google Fonts).
+- Logo sementara (simbol instrument balloon "UK 01") ada di `src/components/Brand.tsx`. Ganti file itu bila perusahaan sudah punya logo resmi.
+- Layar ujian (`ExamRunner`) sengaja tanpa header akun supaya tidak ada tautan keluar di tengah ujian.
+
 ## Struktur project
 
 ```

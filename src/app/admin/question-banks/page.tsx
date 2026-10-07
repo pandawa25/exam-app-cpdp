@@ -13,32 +13,32 @@ export default async function QuestionBanksPage() {
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-xl font-semibold">Bank Soal</h1>
+        <h1 className="page-title">Bank Soal</h1>
         <Link
           href="/admin/question-banks/new"
-          className="bg-brand-600 hover:bg-brand-700 text-white text-sm font-medium rounded-lg px-4 py-2"
+          className="btn btn-primary"
         >
-          + Bank Soal Baru
+          Bank soal baru
         </Link>
       </div>
 
-      <div className="bg-white rounded-xl border border-slate-200 divide-y divide-slate-100">
+      <div className="bg-panel-raised rounded-card border border-panel-line divide-y divide-panel-line">
         {banks.length === 0 && (
-          <p className="p-6 text-sm text-slate-500">Belum ada bank soal. Buat satu per disiplin + jabatan.</p>
+          <p className="p-6 text-sm text-ink-mute">Belum ada bank soal. Buat satu per disiplin + jabatan.</p>
         )}
         {banks.map((bank) => (
           <Link
             key={bank.id}
             href={`/admin/question-banks/${bank.id}`}
-            className="flex items-center justify-between px-6 py-4 hover:bg-slate-50"
+            className="flex items-center justify-between px-6 py-4 hover:bg-panel-high"
           >
             <div>
-              <p className="font-medium text-slate-900">{bank.name}</p>
-              <p className="text-sm text-slate-500">
+              <p className="font-medium text-ink">{bank.name}</p>
+              <p className="text-sm text-ink-mute">
                 {disciplineLabel(bank.discipline)} &middot; {positionLabel(bank.position)}
               </p>
             </div>
-            <span className="text-sm text-slate-500">{bank._count.questions} soal</span>
+            <span className="text-sm text-ink-mute">{bank._count.questions} soal</span>
           </Link>
         ))}
       </div>

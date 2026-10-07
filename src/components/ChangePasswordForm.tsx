@@ -44,12 +44,12 @@ export function ChangePasswordForm() {
     setConfirm("");
   }
 
-  const inputClass = "w-full rounded-lg border border-slate-300 px-3 py-2 text-sm";
+  const inputClass = "input";
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 bg-white rounded-xl border border-slate-200 p-6">
+    <form onSubmit={handleSubmit} className="space-y-4 bg-panel-raised rounded-card border border-panel-line p-6">
       <div>
-        <label className="block text-sm font-medium text-slate-700 mb-1">Password saat ini</label>
+        <label className="label">Password saat ini</label>
         <input
           type="password"
           required
@@ -60,7 +60,7 @@ export function ChangePasswordForm() {
         />
       </div>
       <div>
-        <label className="block text-sm font-medium text-slate-700 mb-1">Password baru</label>
+        <label className="label">Password baru</label>
         <input
           type="password"
           required
@@ -69,10 +69,10 @@ export function ChangePasswordForm() {
           onChange={(e) => setNewPassword(e.target.value)}
           className={inputClass}
         />
-        <p className="text-xs text-slate-400 mt-1">Minimal {MIN_PASSWORD_LENGTH} karakter.</p>
+        <p className="text-xs text-ink-mute mt-1">Minimal {MIN_PASSWORD_LENGTH} karakter.</p>
       </div>
       <div>
-        <label className="block text-sm font-medium text-slate-700 mb-1">Ulangi password baru</label>
+        <label className="label">Ulangi password baru</label>
         <input
           type="password"
           required
@@ -83,13 +83,13 @@ export function ChangePasswordForm() {
         />
       </div>
 
-      {error && <p className="text-sm text-red-600">{error}</p>}
-      {success && <p className="text-sm text-green-700">Password berhasil diganti.</p>}
+      {error && <p className="text-sm text-alarm">{error}</p>}
+      {success && <p className="text-sm text-ok">Password berhasil diganti.</p>}
 
       <button
         type="submit"
         disabled={loading}
-        className="w-full bg-brand-600 hover:bg-brand-700 text-white text-sm font-medium rounded-lg py-2.5 disabled:opacity-50"
+        className="btn btn-primary w-full"
       >
         {loading ? "Menyimpan..." : "Ganti Password"}
       </button>

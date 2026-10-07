@@ -23,7 +23,7 @@ function randomPassword(length = 10) {
   return Array.from(bytes, (b) => chars[b % chars.length]).join("");
 }
 
-const inputClass = "w-full rounded-lg border border-slate-300 px-3 py-2 text-sm";
+const inputClass = "input";
 
 // Dipakai untuk "Tambah User" (tanpa prop user) dan "Edit User" (dengan prop user).
 export function UserForm({ user }: { user?: UserData }) {
@@ -98,10 +98,10 @@ export function UserForm({ user }: { user?: UserData }) {
 
   if (created) {
     return (
-      <div className="bg-white rounded-xl border border-slate-200 p-6 space-y-4">
-        <p className="text-sm font-medium text-green-700">User berhasil dibuat.</p>
-        <div className="rounded-lg bg-amber-50 border border-amber-200 p-4 text-sm">
-          <p className="text-amber-800 mb-2">
+      <div className="bg-panel-raised rounded-card border border-panel-line p-6 space-y-4">
+        <p className="text-sm font-medium text-ok">User berhasil dibuat.</p>
+        <div className="rounded-ctl bg-warn-dim border border-warn/40 p-4 text-sm">
+          <p className="text-warn mb-2">
             Password sementara ini hanya ditampilkan sekali. Salin dan berikan ke yang bersangkutan.
           </p>
           <p>
@@ -114,11 +114,11 @@ export function UserForm({ user }: { user?: UserData }) {
         <div className="flex gap-3">
           <button
             onClick={resetForm}
-            className="bg-brand-600 hover:bg-brand-700 text-white text-sm font-medium rounded-lg px-4 py-2"
+            className="btn btn-primary"
           >
             Tambah user lain
           </button>
-          <Link href="/admin/users" className="text-sm text-slate-600 hover:underline self-center">
+          <Link href="/admin/users" className="text-sm text-ink-soft hover:underline self-center">
             Ke daftar user
           </Link>
         </div>
@@ -127,14 +127,14 @@ export function UserForm({ user }: { user?: UserData }) {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 bg-white rounded-xl border border-slate-200 p-6">
+    <form onSubmit={handleSubmit} className="space-y-4 bg-panel-raised rounded-card border border-panel-line p-6">
       <div>
-        <label className="block text-sm font-medium text-slate-700 mb-1">Nama</label>
+        <label className="label">Nama</label>
         <input required value={name} onChange={(e) => setName(e.target.value)} className={inputClass} />
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-slate-700 mb-1">Email</label>
+        <label className="label">Email</label>
         <input
           type="email"
           required
@@ -145,7 +145,7 @@ export function UserForm({ user }: { user?: UserData }) {
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-slate-700 mb-1">Role</label>
+        <label className="label">Role</label>
         <select value={role} onChange={(e) => setRole(e.target.value)} className={inputClass}>
           {ROLES.map((r) => (
             <option key={r.value} value={r.value}>
@@ -158,7 +158,7 @@ export function UserForm({ user }: { user?: UserData }) {
       {role === "PESERTA" && (
         <div className="grid grid-cols-2 gap-3">
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">Disiplin</label>
+            <label className="label">Disiplin</label>
             <select value={discipline} onChange={(e) => setDiscipline(e.target.value)} className={inputClass}>
               {DISCIPLINES.map((d) => (
                 <option key={d.value} value={d.value}>
@@ -168,7 +168,7 @@ export function UserForm({ user }: { user?: UserData }) {
             </select>
           </div>
           <div>
-            <label className="block text-sm font-medium text-slate-700 mb-1">Jabatan</label>
+            <label className="label">Jabatan</label>
             <select value={position} onChange={(e) => setPosition(e.target.value)} className={inputClass}>
               {POSITIONS.map((p) => (
                 <option key={p.value} value={p.value}>
@@ -177,19 +177,19 @@ export function UserForm({ user }: { user?: UserData }) {
               ))}
             </select>
           </div>
-          <p className="col-span-2 text-xs text-slate-400">
+          <p className="col-span-2 text-xs text-ink-mute">
             Disiplin &amp; jabatan menentukan exam mana yang muncul untuk peserta ini.
           </p>
         </div>
       )}
 
       <div>
-        <label className="block text-sm font-medium text-slate-700 mb-1">Departemen (opsional)</label>
+        <label className="label">Departemen (opsional)</label>
         <input value={department} onChange={(e) => setDepartment(e.target.value)} className={inputClass} />
       </div>
 
       <div>
-        <label className="block text-sm font-medium text-slate-700 mb-1">
+        <label className="label">
           {isEdit ? "Reset password (opsional)" : "Password (opsional)"}
         </label>
         <div className="flex gap-2">
@@ -203,24 +203,24 @@ export function UserForm({ user }: { user?: UserData }) {
           <button
             type="button"
             onClick={() => setPassword(randomPassword())}
-            className="shrink-0 text-sm border border-slate-300 rounded-lg px-3 hover:bg-slate-50"
+            className="shrink-0 text-sm border border-panel-strong rounded-ctl px-3 hover:bg-panel-high"
           >
             Buat acak
           </button>
         </div>
-        <p className="text-xs text-slate-400 mt-1">
+        <p className="text-xs text-ink-mute mt-1">
           Minimal 8 karakter.
           {isEdit && " Salin password sebelum menyimpan; setelah disimpan tidak bisa dilihat lagi."}
         </p>
       </div>
 
-      {error && <p className="text-sm text-red-600">{error}</p>}
-      {notice && <p className="text-sm text-green-700">{notice}</p>}
+      {error && <p className="text-sm text-alarm">{error}</p>}
+      {notice && <p className="text-sm text-ok">{notice}</p>}
 
       <button
         type="submit"
         disabled={loading}
-        className="bg-brand-600 hover:bg-brand-700 text-white text-sm font-medium rounded-lg px-4 py-2.5 disabled:opacity-50"
+        className="btn btn-primary"
       >
         {loading ? "Menyimpan..." : isEdit ? "Simpan Perubahan" : "Buat User"}
       </button>

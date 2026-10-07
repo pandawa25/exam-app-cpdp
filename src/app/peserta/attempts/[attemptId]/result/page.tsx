@@ -1,13 +1,15 @@
+import Link from "next/link";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { AppHeader } from "@/components/AppHeader";
 
 export const dynamic = "force-dynamic";
 
 const statusLabel: Record<string, string> = {
   SUBMITTED: "Selesai",
-  AUTO_SUBMITTED: "Auto-submit (waktu habis / pelanggaran)",
+  AUTO_SUBMITTED: "Dihentikan otomatis (waktu habis atau pelanggaran)",
   REVIEWED: "Sudah direview supervisor",
 };
 
@@ -25,34 +27,76 @@ export default async function ResultPage({ params }: { params: { attemptId: stri
     redirect(`/peserta/exams/${attempt.examId}/attempt`);
   }
 
+  const passing = attempt.exam.passingScore;
+  const hasScore = attempt.score !== null && attempt.score !== undefined;
+  const score = hasScore ? Math.min(100, Math.max(0, attempt.score as number)) : null;
+  const tone = attempt.passed === null ? "brand" : attempt.passed ? "ok" : "alarm";
+  const barColor = tone === "ok" ? "bg-ok" : tone === "alarm" ? "bg-alarm" : "bg-brand";
+  const textColor = tone === "ok" ? "text-ok" : tone === "alarm" ? "text-alarm" : "text-ink";
+
   return (
-    <div className="bg-white border border-slate-200 rounded-xl p-6 text-center">
-      <h1 className="font-semibold text-lg mb-1">{attempt.exam.title}</h1>
-      <p className="text-sm text-slate-500 mb-6">{statusLabel[attempt.status]}</p>
+    <>
+      <AppHeader />
+      <main className="mx-auto max-w-xl px-4 py-8">
+        <Link href="/peserta/exams" className="text-sm text-ink-mute hover:text-ink">
+          &larr; Kembali ke daftar exam
+        </Link>
 
-      <div className="text-4xl font-bold mb-1 text-slate-900">{attempt.score ?? "-"}</div>
-      <p className="text-sm text-slate-500 mb-4">dari passing score {attempt.exam.passingScore}</p>
+        <section className="card mt-4 p-6 sm:p-8">
+          <h1 className="section-title">{attempt.exam.title}</h1>
+          <p className="mt-1 text-sm text-ink-mute">{statusLabel[attempt.status]}</p>
 
-      {attempt.passed !== null && (
-        <span
-          className={`inline-block text-sm font-medium rounded-full px-4 py-1 ${
-            attempt.passed ? "bg-green-100 text-green-700" : "bg-red-100 text-red-700"
-          }`}
-        >
-          {attempt.passed ? "LULUS" : "BELUM LULUS"}
-        </span>
-      )}
+          <p className={`tnum mt-8 font-display text-8xl font-semibold leading-none ${textColor}`}>
+            {score ?? "-"}
+          </p>
 
-      {attempt.violations.length > 0 && (
-        <p className="text-xs text-amber-600 mt-4">
-          Tercatat {attempt.violations.length} pelanggaran selama ujian - hasil akan direview supervisor.
-        </p>
-      )}
-      {attempt.reviewNote && (
-        <p className="text-sm text-slate-600 mt-4 border-t border-slate-100 pt-4">
-          Catatan supervisor: {attempt.reviewNote}
-        </p>
-      )}
-    </div>
+          {/* Bar gauge: isi = skor, garis putih = batas lulus (seperti PV vs setpoint di HMI). */}
+          {score !== null && (
+            <div className="mt-6">
+              <div
+                role="img"
+                aria-label={`Skor ${score} dari 100, nilai lulus ${passing}`}
+                className="relative h-3 rounded-full bg-panel-high"
+              >
+                <div className={`h-full rounded-full ${barColor}`} style={{ width: `${score}%` }} />
+                <div
+                  className="absolute -bottom-1.5 -top-1.5 w-0.5 rounded bg-ink"
+                  style={{ left: `${Math.min(100, Math.max(0, passing))}%` }}
+                />
+              </div>
+              <div className="relative mt-3 h-4 text-xs text-ink-mute">
+                <span className="absolute left-0">0</span>
+                <span
+                  className="tnum absolute -translate-x-1/2 whitespace-nowrap text-ink-soft"
+                  style={{ left: `${Math.min(92, Math.max(8, passing))}%` }}
+                >
+                  Nilai lulus {passing}
+                </span>
+                <span className="absolute right-0">100</span>
+              </div>
+            </div>
+          )}
+
+          {attempt.passed !== null && (
+            <p className="mt-6">
+              <span className={`badge ${attempt.passed ? "badge-ok" : "badge-alarm"} px-3 py-1 text-sm`}>
+                {attempt.passed ? "Lulus" : "Belum lulus"}
+              </span>
+            </p>
+          )}
+
+          {attempt.violations.length > 0 && (
+            <p className="notice notice-warn mt-6">
+              Tercatat {attempt.violations.length} pelanggaran selama ujian. Hasil ini akan direview supervisor.
+            </p>
+          )}
+          {attempt.reviewNote && (
+            <p className="mt-6 border-t border-panel-line pt-4 text-sm text-ink-soft">
+              <span className="font-medium text-ink">Catatan supervisor:</span> {attempt.reviewNote}
+            </p>
+          )}
+        </section>
+      </main>
+    </>
   );
 }

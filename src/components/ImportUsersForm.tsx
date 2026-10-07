@@ -77,25 +77,25 @@ export function ImportUsersForm() {
 
   if (result) {
     return (
-      <div className="bg-white rounded-xl border border-slate-200 p-6 space-y-4">
-        <p className="text-sm font-medium text-green-700">{result.length} user berhasil dibuat.</p>
+      <div className="bg-panel-raised rounded-card border border-panel-line p-6 space-y-4">
+        <p className="text-sm font-medium text-ok">{result.length} user berhasil dibuat.</p>
 
         {generated.length > 0 && (
           <>
-            <div className="rounded-lg bg-amber-50 border border-amber-200 p-4 text-sm text-amber-800">
+            <div className="rounded-ctl bg-warn-dim border border-warn/40 p-4 text-sm text-warn">
               Password sementara di bawah ini hanya ditampilkan sekali. Unduh atau salin sekarang, lalu
               bagikan ke masing-masing user dan minta mereka menggantinya lewat menu Ganti Password.
             </div>
             <div className="flex gap-3">
               <button
                 onClick={downloadCredentials}
-                className="bg-brand-600 hover:bg-brand-700 text-white text-sm font-medium rounded-lg px-4 py-2"
+                className="btn btn-primary"
               >
                 Unduh CSV
               </button>
               <button
                 onClick={copyCredentials}
-                className="text-sm border border-slate-300 rounded-lg px-4 py-2 hover:bg-slate-50"
+                className="btn btn-secondary"
               >
                 {copied ? "Tersalin" : "Salin"}
               </button>
@@ -106,7 +106,7 @@ export function ImportUsersForm() {
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
-              <tr className="text-left text-slate-500 border-b border-slate-200">
+              <tr className="text-left text-ink-mute border-b border-panel-line">
                 <th className="py-2 pr-4 font-medium">Nama</th>
                 <th className="py-2 pr-4 font-medium">Email</th>
                 <th className="py-2 font-medium">Password</th>
@@ -114,11 +114,11 @@ export function ImportUsersForm() {
             </thead>
             <tbody>
               {result.map((u) => (
-                <tr key={u.email} className="border-b border-slate-100">
+                <tr key={u.email} className="border-b border-panel-line">
                   <td className="py-2 pr-4">{u.name}</td>
                   <td className="py-2 pr-4">{u.email}</td>
                   <td className="py-2 font-mono">
-                    {u.temporaryPassword ?? <span className="text-slate-400 font-sans">diisi admin</span>}
+                    {u.temporaryPassword ?? <span className="text-ink-mute font-sans">diisi admin</span>}
                   </td>
                 </tr>
               ))}
@@ -126,7 +126,7 @@ export function ImportUsersForm() {
           </table>
         </div>
 
-        <Link href="/admin/users" className="inline-block text-sm text-slate-600 hover:underline">
+        <Link href="/admin/users" className="inline-block text-sm text-ink-soft hover:underline">
           Ke daftar user
         </Link>
       </div>
@@ -134,14 +134,14 @@ export function ImportUsersForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4 bg-white rounded-xl border border-slate-200 p-6">
-      <div className="text-sm text-slate-600 space-y-2">
+    <form onSubmit={handleSubmit} className="space-y-4 bg-panel-raised rounded-card border border-panel-line p-6">
+      <div className="text-sm text-ink-soft space-y-2">
         <p>
           Kolom wajib: <b>nama, email, role</b>. Untuk role PESERTA wajib juga <b>disiplin</b> dan{" "}
           <b>jabatan</b>. Kolom <b>departemen</b> dan <b>password</b> opsional; password kosong akan dibuatkan
           otomatis.
         </p>
-        <p className="text-xs text-slate-400">
+        <p className="text-xs text-ink-mute">
           Delimiter koma, titik koma, atau tab (hasil copy dari Excel) dikenali otomatis. Nilai disiplin:
           Instrumentasi, Electrical, Stationary, Rotating. Jabatan: Teknisi Junior, Teknisi Senior, Supervisor
           Lapangan, Engineer. Maksimal 300 baris. Jika ada satu baris bermasalah, tidak ada user yang dibuat.
@@ -149,11 +149,13 @@ export function ImportUsersForm() {
       </div>
 
       <div className="flex flex-wrap items-center gap-3">
-        <input type="file" accept=".csv,.txt,text/csv" onChange={handleFile} className="text-sm" />
+        <input type="file" accept=".csv,.txt,text/csv" onChange={handleFile}
+          className="text-sm text-ink-soft file:mr-3 file:cursor-pointer file:rounded-ctl file:border file:border-panel-strong file:bg-transparent file:px-3 file:py-1.5 file:text-sm file:text-ink hover:file:bg-panel-high"
+        />
         <button
           type="button"
           onClick={() => setCsv(EXAMPLE)}
-          className="text-sm text-brand-700 hover:underline"
+          className="link text-sm"
         >
           Isi contoh format
         </button>
@@ -165,12 +167,12 @@ export function ImportUsersForm() {
         rows={12}
         spellCheck={false}
         placeholder="Tempel isi CSV di sini, atau pilih file di atas"
-        className="w-full rounded-lg border border-slate-300 px-3 py-2 text-xs font-mono"
+        className="input text-xs font-mono"
       />
 
-      {error && <p className="text-sm text-red-600">{error}</p>}
+      {error && <p className="text-sm text-alarm">{error}</p>}
       {rowErrors.length > 0 && (
-        <ul className="text-sm text-red-700 bg-red-50 border border-red-200 rounded-lg p-3 space-y-1 max-h-64 overflow-y-auto">
+        <ul className="text-sm text-alarm bg-alarm-dim border border-alarm/40 rounded-ctl p-3 space-y-1 max-h-64 overflow-y-auto">
           {rowErrors.map((r, i) => (
             <li key={i}>
               Baris {r.row}
@@ -183,7 +185,7 @@ export function ImportUsersForm() {
       <button
         type="submit"
         disabled={loading || !csv.trim()}
-        className="bg-brand-600 hover:bg-brand-700 text-white text-sm font-medium rounded-lg px-4 py-2.5 disabled:opacity-50"
+        className="btn btn-primary"
       >
         {loading ? "Mengimpor..." : "Import User"}
       </button>

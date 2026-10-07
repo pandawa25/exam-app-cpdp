@@ -1,15 +1,21 @@
 import type { Metadata } from "next";
+import "@fontsource/barlow/latin-400.css";
+import "@fontsource/barlow/latin-500.css";
+import "@fontsource/barlow/latin-600.css";
+import "@fontsource/barlow-condensed/latin-500.css";
+import "@fontsource/barlow-condensed/latin-600.css";
+import "@fontsource/barlow-condensed/latin-700.css";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Sistem Ujian Kompetensi Internal",
+  title: "Ujian Kompetensi Teknisi",
   description: "Aplikasi ujian kompetensi teknisi - Instrumentasi, Electrical, Stationary, Rotating",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="id">
-      <body className="bg-slate-50 text-slate-900 min-h-screen">{children}</body>
+      <body>{children}</body>
     </html>
   );
 }

@@ -2,7 +2,118 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body {
-  height: 100%;
+@layer base {
+  html {
+    height: 100%;
+    /* Barlow berukuran optis kecil; naikkan sedikit supaya nyaman dibaca di layar panel/tablet. */
+    font-size: 106%;
+    /* Kontrol native (select, datetime-local, scrollbar) ikut gelap. */
+    color-scheme: dark;
+  }
+  body {
+    @apply min-h-full bg-panel font-sans text-ink antialiased;
+  }
+  :focus-visible {
+    outline: 2px solid theme("colors.brand.DEFAULT");
+    outline-offset: 2px;
+  }
+  ::selection {
+    background: theme("colors.brand.dim");
+    color: theme("colors.ink.DEFAULT");
+  }
+  /* Angka sejajar untuk skor, timer, tabel. */
+  .tnum {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@layer components {
+  .page-title {
+    @apply font-display text-[1.75rem] font-semibold leading-tight text-ink;
+  }
+  .section-title {
+    @apply font-display page-title leading-tight text-ink;
+  }
+
+  .card {
+    @apply rounded-card border border-panel-line bg-panel-raised;
+  }
+
+  /* Tombol */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-ctl px-4 py-2 text-sm font-medium transition-colors;
+    @apply disabled:cursor-not-allowed disabled:opacity-45;
+  }
+  .btn-primary {
+    @apply bg-brand text-brand-on hover:bg-brand-strong;
+  }
+  .btn-secondary {
+    @apply border border-panel-strong text-ink hover:bg-panel-high;
+  }
+  .btn-danger {
+    @apply border border-alarm/50 text-alarm hover:bg-alarm-dim;
+  }
+  .btn-ok {
+    @apply bg-ok text-ok-on hover:brightness-110;
+  }
+  .link {
+    @apply text-brand underline-offset-2 hover:text-brand-strong hover:underline;
+  }
+
+  /* Form */
+  .label {
+    @apply mb-1 block text-sm font-medium text-ink-soft;
+  }
+  .input {
+    @apply w-full rounded-ctl border border-panel-strong bg-panel px-3 py-2 text-sm text-ink placeholder:text-ink-mute;
+    @apply focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand;
+    @apply disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  /* Badge status ala annunciator: teks + titik warna, bukan hanya warna. */
+  .badge {
+    @apply inline-flex items-center gap-1.5 rounded px-2 py-0.5 text-xs font-medium;
+  }
+  .badge::before {
+    content: "";
+    @apply inline-block h-1.5 w-1.5 rounded-full bg-current;
+  }
+  .badge-neutral {
+    @apply bg-panel-high text-ink-soft;
+  }
+  .badge-info {
+    @apply bg-brand-dim text-brand;
+  }
+  .badge-ok {
+    @apply bg-ok-dim text-ok;
+  }
+  .badge-warn {
+    @apply bg-warn-dim text-warn;
+  }
+  .badge-alarm {
+    @apply bg-alarm-dim text-alarm;
+  }
+
+  /* Pesan inline */
+  .notice {
+    @apply rounded-ctl border px-3 py-2 text-sm;
+  }
+  .notice-warn {
+    @apply border-warn/40 bg-warn-dim text-warn;
+  }
+  .notice-alarm {
+    @apply border-alarm/40 bg-alarm-dim text-alarm;
+  }
+  .notice-ok {
+    @apply border-ok/40 bg-ok-dim text-ok;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }

@@ -35,24 +35,24 @@ export default function NewQuestionBankPage() {
 
   return (
     <div className="max-w-md">
-      <h1 className="text-xl font-semibold mb-6">Bank Soal Baru</h1>
-      <form onSubmit={handleSubmit} className="space-y-4 bg-white rounded-xl border border-slate-200 p-6">
+      <h1 className="page-title mb-6">Bank Soal Baru</h1>
+      <form onSubmit={handleSubmit} className="space-y-4 bg-panel-raised rounded-card border border-panel-line p-6">
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-1">Nama Bank Soal</label>
+          <label className="label">Nama Bank Soal</label>
           <input
             required
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder='Misal: "Instrumentasi - Teknisi Senior"'
-            className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+            className="input"
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-1">Disiplin</label>
+          <label className="label">Disiplin</label>
           <select
             value={discipline}
             onChange={(e) => setDiscipline(e.target.value)}
-            className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+            className="input"
           >
             {DISCIPLINES.map((d) => (
               <option key={d.value} value={d.value}>
@@ -62,11 +62,11 @@ export default function NewQuestionBankPage() {
           </select>
         </div>
         <div>
-          <label className="block text-sm font-medium text-slate-700 mb-1">Jabatan</label>
+          <label className="label">Jabatan</label>
           <select
             value={position}
             onChange={(e) => setPosition(e.target.value)}
-            className="w-full rounded-lg border border-slate-300 px-3 py-2 text-sm"
+            className="input"
           >
             {POSITIONS.map((p) => (
               <option key={p.value} value={p.value}>
@@ -75,11 +75,11 @@ export default function NewQuestionBankPage() {
             ))}
           </select>
         </div>
-        {error && <p className="text-sm text-red-600">{error}</p>}
+        {error && <p className="text-sm text-alarm">{error}</p>}
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-brand-600 hover:bg-brand-700 text-white text-sm font-medium rounded-lg py-2.5 disabled:opacity-50"
+          className="btn btn-primary w-full"
         >
           {loading ? "Menyimpan..." : "Buat Bank Soal"}
         </button>
