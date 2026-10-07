@@ -32,7 +32,7 @@
     @apply font-display text-[1.75rem] font-semibold leading-tight text-ink;
   }
   .section-title {
-    @apply font-display page-title leading-tight text-ink;
+    @apply font-display text-xl font-semibold leading-tight text-ink;
   }
 
   .card {

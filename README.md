@@ -70,6 +70,13 @@ Lihat `references/deployment.md` di skill `online-exam-system-builder` untuk lan
 
 Catatan: waktu buka/tutup exam diinput sesuai zona waktu browser admin dan ditampilkan dalam WIB. Setiap perubahan `schema.prisma` harus disertai migration baru (`npx prisma migrate dev --name <nama>` di lokal, commit folder `prisma/migrations/`).
 
+## Hasil ujian
+
+- Admin: menu **Hasil Ujian** (`/admin/results`). Supervisor: tab **Semua hasil** (`/supervisor/results`), hanya baca.
+- Kolom: nama, email, jabatan, disiplin, exam, waktu pengerjaan (durasi + jam mulai-selesai WIB), skor, pelanggaran, status. Ada filter exam, disiplin, status, dan pencarian peserta.
+- Waktu pengerjaan = `startedAt` sampai `submittedAt`, dibatasi `durationMin` exam. Peserta yang menghilang ditutup otomatis saat halaman dibuka, jadi tampil sebagai durasi penuh dengan penanda "waktu habis".
+- Waktu per soal tidak dicatat (hanya waktu awal dan akhir per attempt). Mencatatnya butuh perubahan skema.
+
 ## Tampilan
 
 Tema gelap "ruang kontrol": warna dipakai sebagai status (cyan = aksi, hijau = lulus/normal, amber = peringatan, merah = gagal/alarm), seperti annunciator panel.

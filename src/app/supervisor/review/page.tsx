@@ -4,6 +4,7 @@ import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { SupervisorReviewCard } from "@/components/SupervisorReviewCard";
 import { AppHeader } from "@/components/AppHeader";
+import { SupervisorTabs } from "@/components/SupervisorTabs";
 import { finalizeExpiredAttempts } from "@/lib/scoring";
 
 export const dynamic = "force-dynamic";
@@ -30,38 +31,41 @@ export default async function SupervisorReviewPage() {
 
   return (
     <>
-      <AppHeader />
-      <main className="mx-auto max-w-3xl px-4 py-8">
-        <h1 className="page-title">Review hasil ujian</h1>
-        <p className="mb-7 mt-1 text-sm text-ink-mute">
-          {sorted.length === 0
-            ? "Tidak ada hasil yang menunggu review."
-            : `${sorted.length} hasil menunggu review, pelanggaran terbanyak di atas.`}
-        </p>
+      <AppHeader width="max-w-6xl" />
+      <main className="mx-auto max-w-6xl px-4 py-8">
+        <SupervisorTabs current="review" />
+        <div className="max-w-3xl">
+          <h1 className="page-title">Review hasil ujian</h1>
+          <p className="mb-7 mt-1 text-sm text-ink-mute">
+            {sorted.length === 0
+              ? "Tidak ada hasil yang menunggu review."
+              : `${sorted.length} hasil menunggu review, pelanggaran terbanyak di atas.`}
+          </p>
 
-        <div className="space-y-4">
-          {sorted.length === 0 && (
-            <div className="card p-6">
-              <p className="font-medium text-ink">Semua hasil sudah direview.</p>
-              <p className="mt-1 text-sm text-ink-mute">
-                Hasil baru muncul di sini setelah peserta menyelesaikan ujian atau waktunya habis.
-              </p>
-            </div>
-          )}
-          {sorted.map((attempt) => (
-            <SupervisorReviewCard
-              key={attempt.id}
-              attempt={{
-                id: attempt.id,
-                status: attempt.status,
-                score: attempt.score,
-                passed: attempt.passed,
-                violationCount: attempt.violations.length,
-                exam: attempt.exam,
-                user: attempt.user,
-              }}
-            />
-          ))}
+          <div className="space-y-4">
+            {sorted.length === 0 && (
+              <div className="card p-6">
+                <p className="font-medium text-ink">Semua hasil sudah direview.</p>
+                <p className="mt-1 text-sm text-ink-mute">
+                  Hasil baru muncul di sini setelah peserta menyelesaikan ujian atau waktunya habis.
+                </p>
+              </div>
+            )}
+            {sorted.map((attempt) => (
+              <SupervisorReviewCard
+                key={attempt.id}
+                attempt={{
+                  id: attempt.id,
+                  status: attempt.status,
+                  score: attempt.score,
+                  passed: attempt.passed,
+                  violationCount: attempt.violations.length,
+                  exam: attempt.exam,
+                  user: attempt.user,
+                }}
+              />
+            ))}
+          </div>
         </div>
       </main>
     </>
