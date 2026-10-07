@@ -3,6 +3,8 @@ import { prisma } from "@/lib/prisma";
 import { disciplineLabel, positionLabel } from "@/lib/constants";
 import { ExamStatusActions } from "@/components/ExamStatusActions";
 
+export const dynamic = "force-dynamic";
+
 const statusLabel: Record<string, string> = {
   DRAFT: "Draft",
   PUBLISHED: "Published",

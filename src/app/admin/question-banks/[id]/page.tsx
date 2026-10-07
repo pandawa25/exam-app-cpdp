@@ -3,6 +3,8 @@ import { notFound } from "next/navigation";
 import { disciplineLabel, positionLabel } from "@/lib/constants";
 import { AddQuestionForm } from "@/components/AddQuestionForm";
 
+export const dynamic = "force-dynamic";
+
 export default async function QuestionBankDetailPage({ params }: { params: { id: string } }) {
   const bank = await prisma.questionBank.findUnique({
     where: { id: params.id },

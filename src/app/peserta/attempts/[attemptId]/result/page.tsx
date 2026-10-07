@@ -3,6 +3,8 @@ import { redirect } from "next/navigation";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 const statusLabel: Record<string, string> = {
   SUBMITTED: "Selesai",
   AUTO_SUBMITTED: "Auto-submit (waktu habis / pelanggaran)",

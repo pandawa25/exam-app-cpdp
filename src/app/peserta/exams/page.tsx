@@ -4,6 +4,8 @@ import { redirect } from "next/navigation";
 import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 // Daftar exam yang muncul SUDAH difilter sesuai disiplin & jabatan peserta
 // (query di dalam fungsi ini, sama logic-nya dengan GET /api/exams tapi
 // langsung lewat Prisma karena ini server component).

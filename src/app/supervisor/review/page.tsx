@@ -4,6 +4,8 @@ import { authOptions } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { SupervisorReviewCard } from "@/components/SupervisorReviewCard";
 
+export const dynamic = "force-dynamic";
+
 // Attempt dengan pelanggaran terbanyak ditampilkan duluan - itu yang paling
 // butuh perhatian supervisor (lihat references/architecture.md & anti-cheat.md di skill).
 export default async function SupervisorReviewPage() {

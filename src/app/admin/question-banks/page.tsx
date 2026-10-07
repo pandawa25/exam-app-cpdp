@@ -2,6 +2,8 @@ import Link from "next/link";
 import { prisma } from "@/lib/prisma";
 import { disciplineLabel, positionLabel } from "@/lib/constants";
 
+export const dynamic = "force-dynamic";
+
 export default async function QuestionBanksPage() {
   const banks = await prisma.questionBank.findMany({
     include: { _count: { select: { questions: true } } },

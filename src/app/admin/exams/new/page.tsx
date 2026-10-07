@@ -1,6 +1,8 @@
 import { prisma } from "@/lib/prisma";
 import { NewExamForm } from "@/components/NewExamForm";
 
+export const dynamic = "force-dynamic";
+
 export default async function NewExamPage() {
   const banks = await prisma.questionBank.findMany({
     include: { _count: { select: { questions: true } } },
