@@ -37,7 +37,7 @@ Login sebagai peserta Instrumentasi langsung bisa coba ujian contoh yang sudah d
 
 ## Alur pemakaian
 
-1. **Admin** login → `Bank Soal` → buat bank per kombinasi disiplin+jabatan → tambah soal → `Ujian` → buat ujian dari bank itu (masih Draft) → klik **Publish**.
+1. **Admin** login → `Bank Soal` → buat bank per kombinasi disiplin+jabatan → tambah soal → `Ujian` → buat ujian dari bank itu (masih Draf) → klik **Terbitkan**.
 2. **Peserta** hanya melihat exam yang disiplin & jabatannya cocok dengan profil mereka (difilter di query, bukan disembunyikan di UI saja — lihat `src/app/api/exams/route.ts` dan `src/app/peserta/exams/page.tsx`).
 3. Peserta mulai ujian → wajib masuk fullscreen dulu → timer jalan dari server → jawaban auto-save tiap pilih opsi → keluar fullscreen/pindah tab tercatat sebagai pelanggaran (auto-submit di pelanggaran ke-3, bisa diubah lewat env `VIOLATION_THRESHOLD`).
 4. **Supervisor** login → `Review Hasil Ujian` → attempt dengan pelanggaran terbanyak muncul duluan → approve skor (bisa override) + catatan.

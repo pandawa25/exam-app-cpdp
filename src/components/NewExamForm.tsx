@@ -163,7 +163,7 @@ export function NewExamForm({ banks }: { banks: Bank[] }) {
           />
         </div>
         <div>
-          <label className="label">Passing Score</label>
+          <label className="label">Nilai Lulus</label>
           <input
             type="number"
             min={0}
@@ -205,10 +205,10 @@ export function NewExamForm({ banks }: { banks: Bank[] }) {
         disabled={loading || !questionBankId}
         className="btn btn-primary"
       >
-        {loading ? "Menyimpan..." : "Buat Ujian (Draft)"}
+        {loading ? "Menyimpan..." : "Buat Ujian (Draf)"}
       </button>
       <p className="text-xs text-ink-mute">
-        Ujian dibuat sebagai Draft dulu. Klik &quot;Publish&quot; di halaman daftar ujian setelah siap.
+        Ujian dibuat sebagai draf dulu. Klik &quot;Terbitkan&quot; di halaman daftar ujian setelah siap.
       </p>
     </form>
   );

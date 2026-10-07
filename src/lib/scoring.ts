@@ -8,9 +8,9 @@ import type { AttemptStatus } from "@prisma/client";
  * Dipanggil lazy saat supervisor membuka daftar review, supaya attempt semacam itu
  * tidak menggantung selamanya dan tidak pernah muncul untuk direview.
  */
-export async function finalizeExpiredAttempts() {
+export async function finalizeExpiredAttempts(userId?: string) {
   const running = await prisma.examAttempt.findMany({
-    where: { status: "IN_PROGRESS" },
+    where: { status: "IN_PROGRESS", ...(userId ? { userId } : {}) },
     include: { exam: true },
   });
   const now = Date.now();

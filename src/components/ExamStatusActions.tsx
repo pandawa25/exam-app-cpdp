@@ -25,7 +25,7 @@ export function ExamStatusActions({ examId, status }: { examId: string; status: 
         disabled={loading}
         className="action link disabled:opacity-50"
       >
-        Publish
+        Terbitkan
       </button>
     );
   }

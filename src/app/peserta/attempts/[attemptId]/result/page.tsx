@@ -97,31 +97,31 @@ export default async function ResultPage({ params }: { params: { attemptId: stri
             </p>
           )}
 
-          <dl className="tnum mt-8 grid grid-cols-2 gap-x-6 gap-y-4 border-t border-panel-line pt-6 text-sm">
+          <dl className="tnum mt-8 grid grid-cols-1 gap-x-6 gap-y-4 border-t border-panel-line pt-6 text-base sm:grid-cols-2">
             <div>
-              <dt className="text-xs text-ink-mute">Tanggal</dt>
+              <dt className="text-sm text-ink-mute">Tanggal</dt>
               <dd className="mt-0.5 text-ink">{formatDate(attempt.startedAt)}</dd>
             </div>
             <div>
-              <dt className="text-xs text-ink-mute">Waktu pengerjaan</dt>
+              <dt className="text-sm text-ink-mute">Waktu pengerjaan</dt>
               <dd className="mt-0.5 text-ink">
                 {work.ms === null ? "-" : formatDuration(work.ms)}
-                {work.timedOut && <span className="ml-2 text-xs text-warn">waktu habis</span>}
+                {work.timedOut && <span className="ml-2 text-sm text-warn">waktu habis</span>}
               </dd>
-              <dd className="text-xs text-ink-mute">
+              <dd className="text-sm text-ink-mute">
                 {formatClock(attempt.startedAt)}
                 {work.ms !== null && ` - ${formatClock(new Date(attempt.startedAt.getTime() + work.ms))}`} WIB, batas{" "}
                 {attempt.exam.durationMin} menit
               </dd>
             </div>
             <div>
-              <dt className="text-xs text-ink-mute">Soal benar</dt>
+              <dt className="text-sm text-ink-mute">Soal benar</dt>
               <dd className="mt-0.5 text-ink">
                 {correct} dari {total}
               </dd>
             </div>
             <div>
-              <dt className="text-xs text-ink-mute">Soal terjawab</dt>
+              <dt className="text-sm text-ink-mute">Soal terjawab</dt>
               <dd className="mt-0.5 text-ink">
                 {answered} dari {total}
               </dd>

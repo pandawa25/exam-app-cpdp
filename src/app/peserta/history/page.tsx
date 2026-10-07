@@ -24,7 +24,7 @@ export default async function PesertaHistoryPage() {
   if (!session || session.user.role !== "PESERTA") redirect("/login");
 
   // Tutup attempt yang waktunya habis tapi belum di-finalize, supaya tidak tampil "berjalan" selamanya.
-  await finalizeExpiredAttempts();
+  await finalizeExpiredAttempts(session.user.id);
 
   const attempts = await prisma.examAttempt.findMany({
     where: { userId: session.user.id },
@@ -91,7 +91,7 @@ export default async function PesertaHistoryPage() {
                     {formatDate(r.startedAt)}, {formatClock(r.startedAt)}
                     {end ? ` - ${formatClock(end)}` : ""}
                   </p>
-                  <p className="tnum mt-1 flex flex-wrap gap-x-5 text-xs text-ink-mute">
+                  <p className="tnum mt-1 flex flex-wrap gap-x-5 text-sm text-ink-mute">
                     {r.work.ms !== null && (
                       <span>
                         Durasi {formatDuration(r.work.ms)}
@@ -108,7 +108,7 @@ export default async function PesertaHistoryPage() {
                     <div className="text-right">
                       <p className="tnum font-display text-3xl font-semibold leading-none text-ink">{r.score}</p>
                       <p
-                        className={`mt-1 text-xs ${
+                        className={`mt-1 text-sm ${
                           r.passed === null ? "text-ink-mute" : r.passed ? "text-ok" : "text-alarm"
                         }`}
                       >
@@ -138,7 +138,7 @@ export default async function PesertaHistoryPage() {
 function Stat({ label, value }: { label: string; value: string }) {
   return (
     <div className="bg-panel-raised p-4">
-      <dt className="text-xs text-ink-mute">{label}</dt>
+      <dt className="text-sm text-ink-mute">{label}</dt>
       <dd className="tnum mt-1 font-display text-3xl font-semibold leading-none text-ink">{value}</dd>
     </div>
   );

@@ -80,7 +80,7 @@ export default async function PesertaExamsPage() {
                     <span>{exam.durationMin} menit</span>
                     <span>Nilai lulus {exam.passingScore}</span>
                   </p>
-                  <p className="mt-1 text-xs text-ink-mute">
+                  <p className="mt-1 text-sm text-ink-mute">
                     Ditutup {exam.closesAt.toLocaleString("id-ID", { timeZone: WIB })} WIB
                   </p>
                 </div>
