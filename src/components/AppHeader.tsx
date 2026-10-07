@@ -12,7 +12,7 @@ export async function AppHeader({ width = "max-w-3xl" }: { width?: string }) {
   if (!session) return null;
 
   return (
-    <header className="sticky top-0 z-10 border-b border-panel-line bg-panel-raised/95 backdrop-blur">
+    <header className="sticky top-0 z-10 border-b border-panel-line bg-panel/75 backdrop-blur-md supports-[backdrop-filter]:bg-panel/60">
       <div className={`mx-auto flex items-center justify-between gap-4 px-4 py-3 ${width}`}>
         <Link href="/post-login" aria-label="Beranda">
           <Brand size={30} />

@@ -12,6 +12,11 @@
   }
   body {
     @apply min-h-full bg-panel font-sans text-ink antialiased;
+    /* Cahaya halus dari atas, meniru warna logo; tetap statis (tidak memengaruhi kinerja). */
+    background-image:
+      radial-gradient(60rem 28rem at 12% -8%, rgba(77, 182, 200, 0.10), transparent 60%),
+      radial-gradient(48rem 24rem at 100% 0%, rgba(90, 110, 220, 0.08), transparent 60%);
+    background-attachment: fixed;
   }
   :focus-visible {
     outline: 2px solid theme("colors.brand.DEFAULT");
@@ -36,16 +41,27 @@
   }
 
   .card {
-    @apply rounded-card border border-panel-line bg-panel-raised;
+    @apply rounded-card border border-panel-line bg-panel-raised shadow-card;
+  }
+  /* Kartu yang bisa diklik/dibuka: naik tipis saat hover. */
+  .card-hover {
+    @apply transition duration-200 hover:-translate-y-0.5 hover:border-panel-strong;
+  }
+  /* Teks gradien untuk angka/judul penting. */
+  .text-gradient {
+    background-image: linear-gradient(135deg, #E8EDF5 0%, #74CCDA 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
   }
 
   /* Tombol */
   .btn {
-    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-ctl px-4 py-2 text-sm font-medium transition-colors sm:min-h-0;
+    @apply inline-flex min-h-11 items-center justify-center gap-2 rounded-ctl px-4 py-2 text-sm font-medium transition duration-150 sm:min-h-0;
     @apply disabled:cursor-not-allowed disabled:opacity-45;
   }
   .btn-primary {
-    @apply bg-brand text-brand-on hover:bg-brand-strong;
+    @apply bg-gradient-to-b from-brand-strong to-brand text-brand-on shadow-sm hover:shadow-glow hover:brightness-105 active:translate-y-px;
   }
   .btn-secondary {
     @apply border border-panel-field text-ink hover:bg-panel-high;
@@ -69,14 +85,14 @@
     @apply mb-1 block text-sm font-medium text-ink-soft;
   }
   .input {
-    @apply w-full rounded-ctl border border-panel-field bg-panel px-3 py-2 text-sm text-ink placeholder:text-ink-mute;
+    @apply w-full rounded-ctl border border-panel-field bg-panel/70 px-3 py-2 text-sm text-ink placeholder:text-ink-mute;
     @apply focus:border-brand focus:outline-none focus:ring-1 focus:ring-brand;
     @apply disabled:cursor-not-allowed disabled:opacity-60;
   }
 
   /* Badge status ala annunciator: teks + titik warna, bukan hanya warna. */
   .badge {
-    @apply inline-flex items-center gap-1.5 rounded px-2 py-0.5 text-xs font-medium;
+    @apply inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-xs font-medium;
   }
   .badge::before {
     content: "";

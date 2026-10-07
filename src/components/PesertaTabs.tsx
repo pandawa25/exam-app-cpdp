@@ -7,7 +7,7 @@ const TABS = [
 
 export function PesertaTabs({ current }: { current: (typeof TABS)[number]["key"] }) {
   return (
-    <nav aria-label="Bagian peserta" className="mb-7 flex gap-1 border-b border-panel-line">
+    <nav aria-label="Bagian peserta" className="mb-7 inline-flex gap-1 rounded-full border border-panel-line bg-panel-raised p-1">
       {TABS.map((t) => {
         const active = t.key === current;
         return (
@@ -15,8 +15,8 @@ export function PesertaTabs({ current }: { current: (typeof TABS)[number]["key"]
             key={t.key}
             href={t.href}
             aria-current={active ? "page" : undefined}
-            className={`-mb-px border-b-2 px-3 py-2 text-sm font-medium transition-colors ${
-              active ? "border-brand text-brand" : "border-transparent text-ink-soft hover:text-ink"
+            className={`rounded-full px-4 py-1.5 text-sm font-medium transition duration-150 ${
+              active ? "bg-brand text-brand-on shadow-sm" : "text-ink-soft hover:bg-panel-high hover:text-ink"
             }`}
           >
             {t.label}

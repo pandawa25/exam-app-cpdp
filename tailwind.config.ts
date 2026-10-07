@@ -11,35 +11,39 @@ const config: Config = {
     extend: {
       colors: {
         panel: {
-          DEFAULT: "#1B222A", // latar halaman
-          raised: "#232C35", // kartu, tabel
-          high: "#2C3742", // hover, sel tombol
-          line: "#38444F", // garis pemisah
-          strong: "#4C5B69", // garis dekoratif yang lebih tegas
-          field: "#66778A", // batas kontrol interaktif (input, tombol): >= 3:1 terhadap latar
+          DEFAULT: "#141C2B", // latar halaman
+          raised: "#1B2538", // kartu, tabel
+          high: "#25314A", // hover, sel tombol
+          line: "#2F3C55", // garis pemisah
+          strong: "#435472", // garis dekoratif yang lebih tegas
+          field: "#6B7C99", // batas kontrol interaktif (input, tombol): >= 3:1 terhadap latar
         },
         ink: {
-          DEFAULT: "#E8EDF1",
-          soft: "#BAC5CE",
-          mute: "#93A0AC",
+          DEFAULT: "#E8EDF5",
+          soft: "#C0CBDD",
+          mute: "#94A3BC",
         },
         brand: {
           DEFAULT: "#4DB6C8",
           strong: "#74CCDA",
-          dim: "#173A44",
+          dim: "#143645",
           on: "#06222A",
         },
-        ok: { DEFAULT: "#5DBB82", dim: "#1B3A2A", on: "#06210F" },
-        warn: { DEFAULT: "#F2A93B", dim: "#3E2E12" },
-        alarm: { DEFAULT: "#F27474", dim: "#442224" },
+        ok: { DEFAULT: "#5DBB82", dim: "#16352A", on: "#06210F" },
+        warn: { DEFAULT: "#F2A93B", dim: "#3A2B14" },
+        alarm: { DEFAULT: "#F27474", dim: "#42212B" },
       },
       fontFamily: {
         sans: ['"Barlow"', "ui-sans-serif", "system-ui", "sans-serif"],
         display: ['"Barlow Condensed"', '"Barlow"', "ui-sans-serif", "system-ui", "sans-serif"],
       },
+      boxShadow: {
+        card: "0 1px 0 rgba(255,255,255,.04) inset, 0 8px 24px -12px rgba(0,0,0,.55)",
+        glow: "0 0 0 1px rgba(77,182,200,.35), 0 8px 28px -8px rgba(77,182,200,.35)",
+      },
       borderRadius: {
-        ctl: "6px", // kontrol: tombol, input
-        card: "10px", // panel / kartu
+        ctl: "8px", // kontrol: tombol, input
+        card: "14px", // panel / kartu
       },
     },
   },

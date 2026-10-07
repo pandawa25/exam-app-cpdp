@@ -259,7 +259,7 @@ export function ResultsView({
 
 function Stat({ label, value, note }: { label: string; value: string; note?: string }) {
   return (
-    <div className="bg-panel-raised p-4">
+    <div className="bg-panel-raised p-4 transition-colors hover:bg-panel-high">
       <dt className="text-xs text-ink-mute">{label}</dt>
       <dd className="tnum mt-1 whitespace-nowrap font-display text-2xl font-semibold leading-none text-ink sm:text-3xl">{value}</dd>
       {note && <p className="mt-1.5 text-xs text-ink-mute">{note}</p>}

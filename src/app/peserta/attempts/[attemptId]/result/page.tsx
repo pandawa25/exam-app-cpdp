@@ -14,6 +14,9 @@ const statusLabel: Record<string, string> = {
   REVIEWED: "Sudah direview supervisor",
 };
 
+const R = 48;
+const C = 2 * Math.PI * R;
+
 export default async function ResultPage({ params }: { params: { attemptId: string } }) {
   const session = await getServerSession(authOptions);
   if (!session) redirect("/login");
@@ -43,7 +46,6 @@ export default async function ResultPage({ params }: { params: { attemptId: stri
   const hasScore = attempt.score !== null && attempt.score !== undefined;
   const score = hasScore ? Math.min(100, Math.max(0, attempt.score as number)) : null;
   const tone = attempt.passed === null ? "brand" : attempt.passed ? "ok" : "alarm";
-  const barColor = tone === "ok" ? "bg-ok" : tone === "alarm" ? "bg-alarm" : "bg-brand";
   const textColor = tone === "ok" ? "text-ok" : tone === "alarm" ? "text-alarm" : "text-ink";
 
   return (
@@ -55,42 +57,49 @@ export default async function ResultPage({ params }: { params: { attemptId: stri
         </Link>
 
         <section className="card mt-4 p-6 sm:p-8">
-          <h1 className="section-title">{attempt.exam.title}</h1>
-          <p className="mt-1 text-sm text-ink-mute">{statusLabel[attempt.status]}</p>
+          <h1 className="section-title text-center">{attempt.exam.title}</h1>
+          <p className="mt-1 text-center text-sm text-ink-mute">{statusLabel[attempt.status]}</p>
 
-          <p className={`tnum mt-8 font-display text-8xl font-semibold leading-none ${textColor}`}>
-            {score ?? "-"}
-          </p>
-
-          {/* Bar gauge: isi = skor, garis putih = batas lulus (seperti PV vs setpoint di HMI). */}
-          {score !== null && (
-            <div className="mt-6">
-              <div
-                role="img"
-                aria-label={`Skor ${score} dari 100, nilai lulus ${passing}`}
-                className="relative h-3 rounded-full bg-panel-high"
-              >
-                <div className={`h-full rounded-full ${barColor}`} style={{ width: `${score}%` }} />
-                <div
-                  className="absolute -bottom-1.5 -top-1.5 w-0.5 rounded bg-ink"
-                  style={{ left: `${Math.min(100, Math.max(0, passing))}%` }}
+          {/* Gauge melingkar: busur = skor, garis putih = batas lulus. */}
+          <div className="mt-8 flex flex-col items-center">
+            <div
+              role="img"
+              aria-label={score === null ? "Belum ada skor" : `Skor ${score} dari 100, nilai lulus ${passing}`}
+              className="relative h-48 w-48"
+            >
+              <svg viewBox="0 0 120 120" className="h-full w-full -rotate-90" aria-hidden="true">
+                <circle cx="60" cy="60" r={R} fill="none" strokeWidth="9" className="stroke-panel-high" />
+                {score !== null && (
+                  <circle
+                    cx="60"
+                    cy="60"
+                    r={R}
+                    fill="none"
+                    strokeWidth="9"
+                    strokeLinecap="round"
+                    strokeDasharray={`${(C * score) / 100} ${C}`}
+                    className={tone === "ok" ? "stroke-ok" : tone === "alarm" ? "stroke-alarm" : "stroke-brand"}
+                  />
+                )}
+                <line
+                  x1="60"
+                  y1={60 - R - 7}
+                  x2="60"
+                  y2={60 - R + 7}
+                  strokeWidth="2.5"
+                  className="stroke-ink"
+                  transform={`rotate(${(passing / 100) * 360} 60 60)`}
                 />
-              </div>
-              <div className="relative mt-3 h-4 text-xs text-ink-mute">
-                <span className="absolute left-0">0</span>
-                <span
-                  className="tnum absolute -translate-x-1/2 whitespace-nowrap text-ink-soft"
-                  style={{ left: `${Math.min(92, Math.max(8, passing))}%` }}
-                >
-                  Nilai lulus {passing}
-                </span>
-                <span className="absolute right-0">100</span>
-              </div>
+              </svg>
+              <p className={`tnum absolute inset-0 flex items-center justify-center font-display text-6xl font-semibold ${textColor}`}>
+                {score ?? "-"}
+              </p>
             </div>
-          )}
+            <p className="tnum mt-3 text-sm text-ink-soft">Nilai lulus {passing}</p>
+          </div>
 
           {attempt.passed !== null && (
-            <p className="mt-6">
+            <p className="mt-5 text-center">
               <span className={`badge ${attempt.passed ? "badge-ok" : "badge-alarm"} px-3 py-1 text-sm`}>
                 {attempt.passed ? "Lulus" : "Belum lulus"}
               </span>

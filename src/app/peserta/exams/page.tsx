@@ -68,7 +68,7 @@ export default async function PesertaExamsPage() {
             return (
               <article
                 key={exam.id}
-                className="card flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6"
+                className="card card-hover flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:justify-between sm:gap-6"
               >
                 <div className="min-w-0">
                   <div className="flex flex-wrap items-center gap-x-3 gap-y-1">

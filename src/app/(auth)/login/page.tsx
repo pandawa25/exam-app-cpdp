@@ -48,8 +48,8 @@ export default function LoginPage() {
         className="relative hidden flex-col justify-center gap-12 overflow-hidden border-r border-panel-line bg-panel-raised p-12 lg:flex"
         style={{
           backgroundImage:
-            "linear-gradient(to right, rgba(147,160,172,.08) 1px, transparent 1px), linear-gradient(to bottom, rgba(147,160,172,.08) 1px, transparent 1px)",
-          backgroundSize: "32px 32px",
+            "radial-gradient(40rem 30rem at 20% 20%, rgba(77,182,200,.22), transparent 65%), radial-gradient(34rem 26rem at 90% 100%, rgba(90,110,220,.20), transparent 65%), linear-gradient(to right, rgba(148,163,188,.07) 1px, transparent 1px), linear-gradient(to bottom, rgba(148,163,188,.07) 1px, transparent 1px)",
+          backgroundSize: "auto, auto, 32px 32px, 32px 32px",
         }}
       >
         <BrandLogoFull width={130} />
@@ -58,12 +58,12 @@ export default function LoginPage() {
           <p className="mb-3 font-display text-xl font-medium uppercase tracking-wider text-brand">
             {PROGRAM_SHORT} &middot; {PROGRAM_MODULE} ({PROGRAM_MODULE_SHORT})
           </p>
-          <h2 className="font-display text-5xl font-semibold leading-[1] text-ink">{PROGRAM_NAME}</h2>
+          <h2 className="text-gradient font-display text-5xl font-semibold leading-[1.05]">{PROGRAM_NAME}</h2>
         </div>
       </section>
 
       <section className="flex min-h-screen items-center justify-center px-6 py-12 lg:min-h-0">
-        <div className="w-full max-w-sm">
+        <div className="card w-full max-w-sm p-7 sm:p-8">
           <div className="mb-10 lg:hidden">
             <BrandLogoFull width={120} />
             <p className="mt-3 font-display text-lg font-semibold leading-tight text-ink">{PROGRAM_NAME}</p>
