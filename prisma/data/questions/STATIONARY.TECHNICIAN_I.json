@@ -1,0 +1,302 @@
+[
+  {
+    "text": "Pada data plate pressure vessel, MAWP (Maximum Allowable Working Pressure) merupakan...",
+    "options": [
+      "tekanan maksimum yang diizinkan di bagian atas vessel pada temperatur tertentu kondisi corroded",
+      "tekanan yang dipakai saat hydrotest di bengkel fabrikasi sebelum dikirim",
+      "tekanan set PSV pada kondisi accumulation sebesar 10% di atas set",
+      "tekanan operasi normal harian yang tercatat oleh operator di control room"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Ketebalan awal dinding vessel pada pengukuran sebelumnya 12,0 mm dan pada pengukuran sekarang 11,4 mm dengan selang waktu 3 tahun. Laju korosinya adalah...",
+    "options": [
+      "0,4 mm/tahun",
+      "0,6 mm/tahun",
+      "0,02 mm/tahun",
+      "0,2 mm/tahun"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "Ketebalan aktual suatu shell 9,5 mm, ketebalan minimum yang dibutuhkan 8,0 mm, dan laju korosi 0,25 mm/tahun. Sisa umur (remaining life) shell tersebut adalah...",
+    "options": [
+      "12 tahun",
+      "6 tahun",
+      "4 tahun",
+      "38 tahun"
+    ],
+    "correct": "B"
+  },
+  {
+    "text": "Sebuah vessel ASME Section VIII Div. 1 memiliki MAWP 15 bar dengan rasio tegangan material 1,0. Tekanan hydrotest minimum menurut aturan 1,3 x MAWP adalah...",
+    "options": [
+      "19,5 bar",
+      "16,5 bar",
+      "22,5 bar",
+      "15,0 bar"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Untuk pneumatic test pada vessel ASME VIII Div. 1 dengan MAWP 20 bar dan rasio tegangan 1,0, tekanan uji minimum sebesar 1,1 x MAWP yaitu...",
+    "options": [
+      "30 bar",
+      "22 bar",
+      "26 bar",
+      "20 bar"
+    ],
+    "correct": "B"
+  },
+  {
+    "text": "Pada leak test sambungan flange yang telah dikencangkan, cara yang umum untuk menemukan titik kebocoran gas dengan aman adalah...",
+    "options": [
+      "menggunakan korek api di dekat sambungan",
+      "meraba sambungan dengan tangan kosong saat bertekanan",
+      "menunggu sampai terdengar suara ledakan kecil",
+      "mengoleskan larutan sabun lalu mengamati munculnya gelembung"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "Pada pengencangan flange dengan torque wrench, urutan pass yang lazim dilakukan adalah...",
+    "options": [
+      "50% torsi lalu semua baut dilepas dan diulang kembali tanpa pola",
+      "100% torsi hanya pada empat baut utama sedangkan sisanya dibiarkan",
+      "langsung 100% torsi dari baut pertama sampai baut terakhir berurutan",
+      "bertahap 30%, 60%, 100% torsi dengan pola bintang, lalu pass melingkar"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "Torque wrench diatur pada 200 ft-lb. Nilai ini setara kira-kira dengan (1 ft-lb = 1,3558 N·m)...",
+    "options": [
+      "200 N·m",
+      "271 N·m",
+      "392 N·m",
+      "148 N·m"
+    ],
+    "correct": "B"
+  },
+  {
+    "text": "Urutan tahapan liquid penetrant testing (PT) yang benar adalah...",
+    "options": [
+      "pengamatan awal, pembersihan, penetrant, developer, lalu hapus kelebihan",
+      "aplikasi developer, penetrant, pembersihan, dwell time, lalu pengamatan akhir",
+      "pembersihan, penetrant, dwell time, hapus kelebihan, developer, pengamatan",
+      "penetrant, pengamatan, developer, dwell time, lalu pembersihan permukaan"
+    ],
+    "correct": "C"
+  },
+  {
+    "text": "Magnetic particle testing (MT) hanya dapat dipakai pada material...",
+    "options": [
+      "non-feromagnetik seperti austenitic stainless steel dan aluminium",
+      "plastik fiberglass dan komposit non-logam",
+      "semua jenis material tanpa kecuali dan tanpa syarat",
+      "feromagnetik seperti carbon steel"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Sebelum pengukuran ketebalan dengan ultrasonic thickness gauge, hal yang harus dilakukan adalah...",
+    "options": [
+      "mengkalibrasi alat pada step block lalu memakai couplant",
+      "menyalakan alat langsung tanpa kalibrasi dan tanpa couplant",
+      "membasahi permukaan dengan bensin agar sinyal lebih kuat",
+      "memanaskan permukaan sampai 300 derajat Celsius agar kering"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Cacat las berupa alur pada base metal di tepi las yang tidak terisi logam pengisi disebut...",
+    "options": [
+      "slag inclusion",
+      "porosity",
+      "undercut",
+      "overlap"
+    ],
+    "correct": "C"
+  },
+  {
+    "text": "Rongga-rongga kecil berbentuk bulat dalam logam las akibat gas terperangkap disebut...",
+    "options": [
+      "crater crack",
+      "porosity",
+      "lack of fusion",
+      "burn through"
+    ],
+    "correct": "C"
+  },
+  {
+    "text": "Cacat las akibat logam las tidak menyatu sempurna dengan base metal atau lapisan las sebelumnya disebut...",
+    "options": [
+      "lack of fusion",
+      "spatter",
+      "arc strike",
+      "undercut"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Tekanan hidrostatik di dasar kolom air setinggi 10 meter kira-kira sebesar...",
+    "options": [
+      "98 bar",
+      "0,1 bar",
+      "10 bar",
+      "1 bar"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "Pada hydrotest vessel atau pipa austenitic stainless steel, kualitas air uji yang dipersyaratkan adalah...",
+    "options": [
+      "kadar chloride rendah untuk mencegah stress corrosion cracking",
+      "air yang berminyak untuk melumasi dinding",
+      "air laut langsung tanpa filter",
+      "air dengan kadar chloride tinggi agar lebih konduktif"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Tekanan hydrotest 30 bar. Rentang pressure gauge yang sesuai aturan umum (1,5 sampai 4 kali tekanan uji) adalah...",
+    "options": [
+      "0 sampai 30 bar",
+      "0 sampai 100 bar",
+      "0 sampai 200 bar",
+      "0 sampai 40 bar"
+    ],
+    "correct": "B"
+  },
+  {
+    "text": "Untuk mendeteksi tube yang bocor pada shell and tube heat exchanger secara sederhana, shell side diisi air dan diberi tekanan, lalu...",
+    "options": [
+      "manway sisi shell dibuka tanpa isolasi sambil dipantau",
+      "steam dialirkan ke tube selama uji berlangsung tanpa tekanan di shell",
+      "tekanan dipasang hanya pada sisi tube sambil shell dibiarkan terbuka tanpa isolasi",
+      "diamati tetesan air dari ujung tube pada tubesheet"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "Pada vessel dengan MAWP 18 bar, set pressure PSV tidak boleh melebihi...",
+    "options": [
+      "2 kali tekanan operasi normal",
+      "tekanan hydrotest",
+      "1,3 kali MAWP",
+      "MAWP, yaitu 18 bar"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "Sebuah tangki silinder tegak berdiameter 2 m terisi cairan setinggi 3 m. Volume cairan dalam tangki adalah (pi = 3,1416)...",
+    "options": [
+      "18,85 m3",
+      "12,57 m3",
+      "9,42 m3",
+      "37,70 m3"
+    ],
+    "correct": "C"
+  },
+  {
+    "text": "Menurut rumus UG-27 untuk shell silinder, t = P·R / (S·E - 0,6·P). Dengan P = 1,5 MPa, R = 500 mm, S = 138 MPa, E = 1,0, ketebalan minimum yang dibutuhkan adalah...",
+    "options": [
+      "5,47 mm",
+      "4,88 mm",
+      "10,94 mm",
+      "5,43 mm"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Joint efficiency (E) untuk sambungan las butt dengan full radiography pada pressure vessel Div. 1 adalah...",
+    "options": [
+      "0,50",
+      "1,0",
+      "1,5",
+      "0,70"
+    ],
+    "correct": "B"
+  },
+  {
+    "text": "Stamp resmi pada nameplate yang menunjukkan vessel dibuat sesuai ASME Section VIII Division 1 adalah...",
+    "options": [
+      "U stamp",
+      "NB stamp saja",
+      "R stamp",
+      "S stamp"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Corrosion allowance desain suatu shell adalah 3,0 mm. Setelah inspeksi, kehilangan ketebalan tercatat 1,2 mm. Corrosion allowance yang tersisa adalah...",
+    "options": [
+      "4,2 mm",
+      "1,8 mm",
+      "1,2 mm",
+      "3,6 mm"
+    ],
+    "correct": "B"
+  },
+  {
+    "text": "Dalam penggantian packing valve, praktik yang benar adalah...",
+    "options": [
+      "menambah ring packing baru di atas packing lama yang masih terpasang",
+      "mengencangkan gland sekeras mungkin supaya valve tidak bocor lagi",
+      "membuang seluruh packing lama lalu memasang ring baru dengan sambungan diselang-seling",
+      "memotong packing seadanya tanpa memperhatikan ukuran stuffing box"
+    ],
+    "correct": "C"
+  },
+  {
+    "text": "Penggunaan feeler gauge pada pemasangan flange bertujuan untuk...",
+    "options": [
+      "mengukur suhu flange",
+      "mengukur celah dan kesejajaran permukaan flange",
+      "mengukur torsi baut",
+      "mengukur ketebalan cat"
+    ],
+    "correct": "B"
+  },
+  {
+    "text": "Pemeriksaan lantai tangki penyimpanan untuk mencari pitting dan penipisan pada plat bottom biasanya dilakukan dengan...",
+    "options": [
+      "penetrant pada seluruh area",
+      "pengukuran dengan meteran",
+      "magnetic flux leakage (MFL)",
+      "tes sabun"
+    ],
+    "correct": "C"
+  },
+  {
+    "text": "Setelah hydrotest selesai pada vessel, tindakan yang perlu dilakukan sebelum pengosongan adalah...",
+    "options": [
+      "menutup drain dan membiarkan vessel penuh berhari-hari",
+      "menutup semua vent rapat-rapat",
+      "langsung mengisi dengan produk tanpa pengeringan",
+      "membuka vent agar tidak terbentuk vakum saat air dikuras"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "Pada pembacaan UT, nilai ketebalan yang tiba-tiba jauh lebih kecil dan tidak stabil pada satu titik dapat mengindikasikan...",
+    "options": [
+      "suhu lingkungan yang rendah",
+      "kalibrasi alat selalu benar",
+      "adanya laminasi atau cacat internal pada material",
+      "ketebalan dinding bertambah"
+    ],
+    "correct": "C"
+  },
+  {
+    "text": "Sebuah flange yang baru dirakit bocor tidak lama setelah start-up. Penyebab yang paling mungkin adalah...",
+    "options": [
+      "gasket terlalu bersih",
+      "flange terlalu rata",
+      "distribusi beban baut tidak merata atau torsi kurang pada gasket",
+      "baut terlalu banyak"
+    ],
+    "correct": "C"
+  }
+]

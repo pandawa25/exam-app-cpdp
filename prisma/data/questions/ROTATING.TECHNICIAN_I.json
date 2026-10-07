@@ -1,0 +1,302 @@
+[
+{
+"text":"Soft foot pada motor atau pompa paling tepat dideteksi dengan cara ...",
+"options":[
+"Mengukur arus motor pada beban penuh dan membandingkannya",
+"Memeriksa warna cat pada kaki mesin dan pelat dasar",
+"Mengukur suhu baut pondasi saat mesin beroperasi",
+"Melonggarkan satu baut kaki sambil memantau dial; bacaan berubah >0,05 mm"
+],
+"correct":"D"
+},
+{
+"text":"Pada metode rim-face, dial rim membaca 0,20 mm (TIR) antara posisi 0° dan 180° pada kopling. Offset paralel yang sebenarnya adalah ...",
+"options":[
+"0,20 mm",
+"0,10 mm",
+"0,40 mm",
+"0,05 mm"
+],
+"correct":"B"
+},
+{
+"text":"Motor diperkirakan naik 0,20 mm lebih tinggi daripada pompa akibat pemuaian termal saat operasi. Pada alignment kondisi dingin, posisi poros motor sebaiknya diset ...",
+"options":[
+"0,20 mm lebih rendah daripada poros pompa",
+"0,20 mm lebih tinggi daripada poros pompa",
+"Sama tinggi dengan poros pompa",
+"0,40 mm lebih tinggi daripada poros pompa"
+],
+"correct":"A"
+},
+{
+"text":"Bearing bore pas (interference fit) pada poros dipasang dengan benar dengan cara ...",
+"options":[
+"Memukul outer ring dengan palu besi secara bergantian",
+"Memanaskan seluruh poros hingga berwarna merah",
+"Menekan inner ring lewat sleeve atau induction heater",
+"Membakar bearing dengan obor hingga muai longgar"
+],
+"correct":"C"
+},
+{
+"text":"Batas suhu pemanasan bearing baja saat dipasang dengan metode pemanasan (oil bath atau induction heater) yang umumnya disarankan adalah ...",
+"options":[
+"40 °C",
+"80 °C",
+"200 °C",
+"110 °C"
+],
+"correct":"D"
+},
+{
+"text":"Saat memasang mechanical seal, perlakuan yang benar terhadap seal face adalah ...",
+"options":[
+"Dibersihkan dan tidak disentuh jari karena merusak film seal",
+"Digosok amplas halus agar permukaan lebih mengilap",
+"Dilumasi grease tebal pada seluruh permukaan face",
+"Dibiarkan kering dan dibersihkan memakai tangan berminyak"
+],
+"correct":"A"
+},
+{
+"text":"Clearance wearing ring diukur dengan cara ...",
+"options":[
+"Menimbang berat ring sebelum dan sesudah dipakai di pompa",
+"Mengukur ID ring dan OD impeller dengan micrometer, ambil selisihnya",
+"Mengukur panjang ring dengan mistar baja biasa",
+"Mengukur suhu ring saat pompa beroperasi penuh"
+],
+"correct":"B"
+},
+{
+"text":"Clearance radial pada journal bearing di lapangan dapat diperiksa dengan material ...",
+"options":[
+"Selotip pelapis",
+"Kapur tulis",
+"Plastigauge",
+"Lem epoxy"
+],
+"correct":"C"
+},
+{
+"text":"Diameter dalam wearing ring casing terukur 100,40 mm dan diameter luar wear ring impeller 99,90 mm. Clearance diametralnya adalah ...",
+"options":[
+"0,25 mm",
+"0,10 mm",
+"0,05 mm",
+"0,50 mm"
+],
+"correct":"D"
+},
+{
+"text":"TIR (Total Indicator Reading) pada pengukuran run-out dengan dial indicator adalah ...",
+"options":[
+"Bacaan rata-rata dari seluruh titik pengukuran",
+"Selisih bacaan maksimum dan minimum dalam satu putaran poros",
+"Bacaan awal dial sebelum poros mulai diputar",
+"Jumlah seluruh bacaan pada setiap sudut putaran"
+],
+"correct":"B"
+},
+{
+"text":"Baut casing pompa multi-baut sebaiknya dikencangkan dengan urutan ...",
+"options":[
+"Bersilang bertahap, misalnya 30%, 60%, lalu 100% torsi",
+"Satu per satu langsung ke torsi penuh secara berurutan",
+"Mulai dari baut terjauh dan berhenti saat terasa rapat",
+"Acak saja asalkan seluruh baut terpasang kencang"
+],
+"correct":"A"
+},
+{
+"text":"Material O-ring yang paling sesuai untuk layanan hidrokarbon bersuhu tinggi pada mechanical seal adalah ...",
+"options":[
+"Karet alam (natural rubber)",
+"EPDM",
+"FKM (Viton)",
+"Silikon"
+],
+"correct":"C"
+},
+{
+"text":"Bearing dipasang dengan cara memukul outer ring ketika fit-nya pada poros. Akibat yang paling mungkin adalah ...",
+"options":[
+"Umur bearing menjadi lebih panjang dari desain",
+"Brinelling atau kerusakan raceway dan rolling element",
+"Suhu bearing turun sehingga pelumasan lebih baik",
+"Clearance bearing menjadi sempurna dan presisi"
+],
+"correct":"B"
+},
+{
+"text":"Bearing dengan kode clearance C3 artinya ...",
+"options":[
+"Clearance lebih kecil dari normal untuk presisi tinggi",
+"Bearing khusus yang dirancang untuk beban aksial saja",
+"Bearing sudah terisi pelumas padat seumur hidup",
+"Clearance lebih besar dari normal untuk pemuaian atau fit"
+],
+"correct":"D"
+},
+{
+"text":"Bearing dengan kode 6310 memiliki diameter bore (lubang dalam) sebesar ...",
+"options":[
+"50 mm",
+"31 mm",
+"63 mm",
+"100 mm"
+],
+"correct":"A"
+},
+{
+"text":"Pompa dioperasikan tanpa fluida (dry run) dengan mechanical seal tunggal. Kerusakan yang paling mungkin terjadi adalah ...",
+"options":[
+"Impeller menjadi lebih tebal akibat panas",
+"Tekanan discharge naik tinggi di atas desain",
+"Seal face terbakar atau retak tanpa film pelumas",
+"Level oli bearing meningkat karena panas berlebih"
+],
+"correct":"C"
+},
+{
+"text":"Jarak gap kopling (DBSE) saat alignment harus diatur sesuai ...",
+"options":[
+"Selera teknisi yang mengerjakan di lapangan",
+"Panjang kabel motor yang tersedia di panel",
+"Lebar pondasi mesin pada base plate",
+"Spesifikasi pabrikan kopling dan end float poros"
+],
+"correct":"D"
+},
+{
+"text":"Clearance wearing ring yang bertambah besar karena aus akan menyebabkan ...",
+"options":[
+"Head dan kapasitas naik karena celah makin longgar",
+"Kapasitas dan efisiensi turun akibat resirkulasi internal",
+"Suhu fluida turun otomatis di dalam casing",
+"Beban aksial hilang sepenuhnya pada rotor"
+],
+"correct":"B"
+},
+{
+"text":"Setelah bearing baru terpasang, poros diputar dengan tangan. Kondisi yang menunjukkan pemasangan baik adalah ...",
+"options":[
+"Berputar halus tanpa tersendat dan tanpa bunyi kasar",
+"Berputar berat dan terasa ada hentakan berkala",
+"Terdengar bunyi kasar periodik saat diputar",
+"Tidak dapat diputar sama sekali karena macet"
+],
+"correct":"A"
+},
+{
+"text":"Pelumas ulir baut memengaruhi pengencangan dengan torque wrench karena ...",
+"options":[
+"Pelumas menaikkan kekuatan tarik material baut",
+"Pelumas tidak berpengaruh sama sekali pada preload",
+"Gesekan berubah sehingga torsi sama beda preload baut",
+"Pelumas memperkecil diameter ulir baut saat dikencangkan"
+],
+"correct":"C"
+},
+{
+"text":"Pitting menyerupai spons pada sisi inlet vane impeller menunjukkan ...",
+"options":[
+"Korosi akibat salah penyimpanan",
+"Kerusakan akibat kavitasi",
+"Keausan akibat grease berlebih",
+"Kelelahan akibat beban kopling"
+],
+"correct":"B"
+},
+{
+"text":"Rotor spare berporos panjang yang disimpan lama sebaiknya ...",
+"options":[
+"Diletakkan langsung di lantai beton tanpa penopang",
+"Diletakkan miring bersandar pada dinding",
+"Diputar berkala dan ditopang pada journal atau cradle yang sesuai",
+"Dibiarkan ditumpuk bersama komponen lain"
+],
+"correct":"D"
+},
+{
+"text":"Pada uji hidrostatik casing pompa, tekanan uji umumnya sebesar ...",
+"options":[
+"1,0 kali tekanan desain",
+"0,8 kali tekanan desain",
+"3,0 kali tekanan desain",
+"1,5 kali tekanan desain"
+],
+"correct":"D"
+},
+{
+"text":"Axial float (end play) rotor pompa diperiksa dengan ...",
+"options":[
+"Mengukur suhu poros saat rotor berputar",
+"Menimbang rotor memakai timbangan presisi",
+"Dial indicator di ujung poros, poros digeser aksial",
+"Mistar baja pada dudukan motor"
+],
+"correct":"C"
+},
+{
+"text":"Pengamanan lock nut bearing yang benar setelah torsi tercapai adalah ...",
+"options":[
+"Menekuk tab lock washer ke alur lock nut",
+"Mengelas lock nut langsung ke poros",
+"Membiarkan lock nut tanpa pengunci tambahan",
+"Menambahkan lem cair biasa pada ulir"
+],
+"correct":"A"
+},
+{
+"text":"Fungsi shaft sleeve pada pompa adalah ...",
+"options":[
+"Menyalurkan torsi dari motor penggerak",
+"Melindungi poros dari aus di area seal/packing",
+"Menahan beban aksial rotor pompa",
+"Mengurangi suhu fluida proses di casing"
+],
+"correct":"B"
+},
+{
+"text":"Fungsi oil ring atau flinger pada bearing housing adalah ...",
+"options":[
+"Menyaring partikel dari oli pelumas",
+"Mengukur level oli di bearing housing",
+"Menahan beban radial poros pompa",
+"Membawa oli dari sump ke bearing"
+],
+"correct":"D"
+},
+{
+"text":"Setelah alignment selesai dan sebelum start pertama pompa overhaul, hal yang wajib dipastikan adalah ...",
+"options":[
+"Guard kopling terpasang dan poros bisa diputar tangan",
+"Cat motor sudah dibersihkan dari debu",
+"Seluruh baut pondasi dilepas sementara",
+"Level oli dikosongkan sebelum start"
+],
+"correct":"A"
+},
+{
+"text":"Praktik shim yang benar saat alignment adalah ...",
+"options":[
+"Menumpuk shim sebanyak mungkin agar lebih stabil",
+"Memakai shim berkarat jika ukurannya kebetulan pas",
+"Memakai shim bersih dan rata, jumlah sesedikit mungkin",
+"Menyisipkan kertas tebal sebagai pengganti shim"
+],
+"correct":"C"
+},
+{
+"text":"Setelah baut pondasi motor dikencangkan penuh, alignment kopling harus diperiksa ulang karena ...",
+"options":[
+"Pengencangan baut dapat menggeser posisi dan mengubah alignment",
+"Baut pondasi mengubah diameter poros motor",
+"Pengencangan menaikkan putaran motor secara langsung",
+"Alignment hanya berubah jika oli bearing diganti"
+],
+"correct":"A"
+}
+]

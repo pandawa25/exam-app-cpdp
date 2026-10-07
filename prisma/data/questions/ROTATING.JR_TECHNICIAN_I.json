@@ -1,0 +1,302 @@
+[
+{
+"text":"Alat pelindung diri (APD) yang wajib dipakai teknisi saat bekerja di dekat pompa dan kompresor yang sedang beroperasi dengan tingkat kebisingan tinggi adalah ...",
+"options":[
+"Kacamata las dengan filter gelap",
+"Ear plug atau ear muff",
+"Sarung tangan karet isolasi tegangan tinggi",
+"Masker debu sekali pakai saja"
+],
+"correct":"B"
+},
+{
+"text":"Tujuan utama penerapan Lock Out Tag Out (LOTO) pada pekerjaan perawatan pompa adalah ...",
+"options":[
+"Mempercepat penyelesaian pekerjaan perawatan di lapangan",
+"Menandai peralatan yang sudah rusak berat dan harus diganti",
+"Mencegah peralatan dipindahkan atau dicuri saat shutdown",
+"Mencegah pelepasan energi berbahaya secara tidak sengaja saat kerja"
+],
+"correct":"D"
+},
+{
+"text":"Komponen pompa sentrifugal yang berputar dan memberikan energi kepada fluida adalah ...",
+"options":[
+"Impeller",
+"Casing atau volute",
+"Stuffing box",
+"Bearing housing"
+],
+"correct":"A"
+},
+{
+"text":"Alat ukur yang paling tepat untuk mengukur diameter luar poros dengan ketelitian 0,01 mm adalah ...",
+"options":[
+"Mistar baja",
+"Feeler gauge",
+"Micrometer luar",
+"Tachometer"
+],
+"correct":"C"
+},
+{
+"text":"Bagian motor listrik induksi yang ikut berputar bersama poros adalah ...",
+"options":[
+"Stator",
+"Rotor",
+"Terminal box",
+"Fan cover"
+],
+"correct":"B"
+},
+{
+"text":"Pelumas berkonsistensi semi-padat yang umum dipakai untuk bearing motor listrik kecil adalah ...",
+"options":[
+"Gemuk (grease)",
+"Minyak tanah",
+"Air bersih",
+"Cairan pendingin radiator"
+],
+"correct":"A"
+},
+{
+"text":"Satuan tekanan dalam sistem SI adalah ...",
+"options":[
+"Hertz (Hz)",
+"Watt (W)",
+"Joule (J)",
+"Pascal (Pa)"
+],
+"correct":"D"
+},
+{
+"text":"Alat yang digunakan untuk mengencangkan baut sesuai nilai torsi yang ditentukan adalah ...",
+"options":[
+"Kunci inggris",
+"Kunci pipa",
+"Torque wrench",
+"Palu konde"
+],
+"correct":"C"
+},
+{
+"text":"Sebelum memulai pekerjaan perbaikan pada pompa, dokumen yang harus tersedia dan disetujui adalah ...",
+"options":[
+"Izin kerja (work permit)",
+"Slip gaji bulanan",
+"Surat pengajuan cuti",
+"Formulir absensi harian"
+],
+"correct":"A"
+},
+{
+"text":"Fungsi utama wearing ring pada pompa sentrifugal adalah ...",
+"options":[
+"Menahan beban aksial rotor selama pompa beroperasi",
+"Menjaga celah sempit impeller-casing agar kebocoran internal kecil",
+"Meneruskan torsi dari motor penggerak ke impeller pompa",
+"Menyekat poros terhadap kebocoran ke arah atmosfer"
+],
+"correct":"B"
+},
+{
+"text":"Alat yang digunakan untuk mengukur kecepatan putar poros (rpm) adalah ...",
+"options":[
+"Manometer",
+"Termometer",
+"Ampere meter",
+"Tachometer"
+],
+"correct":"D"
+},
+{
+"text":"Pressure gauge yang terpasang pada sisi discharge pompa menunjukkan ...",
+"options":[
+"Kecepatan aliran fluida",
+"Suhu fluida yang dipompa",
+"Tekanan fluida pada sisi keluar pompa",
+"Ketinggian cairan dalam tangki"
+],
+"correct":"C"
+},
+{
+"text":"Pekerjaan pada ketinggian di atas 1,8 meter tanpa pagar pengaman mewajibkan pekerja memakai ...",
+"options":[
+"Full body harness yang dikaitkan ke titik angkur kuat",
+"Sarung tangan kulit tebal dan sepatu pengaman biasa",
+"Sepatu karet anti listrik dengan sol anti slip",
+"Ear plug dan helm pengaman standar saja"
+],
+"correct":"A"
+},
+{
+"text":"Fungsi utama bearing pada rotating equipment adalah ...",
+"options":[
+"Menambah kecepatan putar poros secara bertahap",
+"Menaikkan tekanan fluida yang melewati pompa",
+"Memutar impeller secara langsung tanpa poros",
+"Menopang poros dan mengurangi gesekan putaran"
+],
+"correct":"D"
+},
+{
+"text":"Fungsi kopling (coupling) antara motor dan pompa adalah ...",
+"options":[
+"Mengubah tekanan fluida menjadi putaran poros",
+"Meneruskan torsi antara poros penggerak dan yang digerakkan",
+"Menahan beban radial dan aksial rotor pompa",
+"Menyaring kotoran padat pada aliran fluida"
+],
+"correct":"B"
+},
+{
+"text":"Alat pemadam api ringan (APAR) yang sesuai untuk kebakaran pada panel dan motor listrik bertegangan adalah ...",
+"options":[
+"Air bertekanan dari hydrant",
+"Busa (foam) cair AFFF",
+"CO2 atau dry chemical",
+"Pasir basah lembap"
+],
+"correct":"C"
+},
+{
+"text":"Alat yang praktis untuk memeriksa suhu permukaan housing bearing tanpa menyentuhnya adalah ...",
+"options":[
+"Micrometer luar presisi",
+"Infrared thermometer",
+"Feeler gauge baja",
+"Dial indicator magnet"
+],
+"correct":"B"
+},
+{
+"text":"Kekentalan minyak pelumas industri umumnya dinyatakan dengan klasifikasi ...",
+"options":[
+"ISO VG (viscosity grade)",
+"Pour point (titik tuang)",
+"Flash point (titik nyala)",
+"Total Base Number (TBN)"
+],
+"correct":"A"
+},
+{
+"text":"Teknisi menemukan ceceran oli di lantai area pompa. Tindakan yang paling tepat adalah ...",
+"options":[
+"Membiarkannya karena belum mengganggu kerja pompa",
+"Menutup dengan kain lalu meninggalkannya begitu saja",
+"Membersihkan atau membatasi area, lalu lapor ke supervisor",
+"Menunggu pergantian shift berikutnya untuk menangani"
+],
+"correct":"C"
+},
+{
+"text":"Gasket pada sambungan flange pipa pompa berfungsi untuk ...",
+"options":[
+"Menambah kekuatan baut flange terhadap getaran",
+"Mengatur laju aliran fluida yang melewati sambungan",
+"Menyaring partikel padat pada fluida proses",
+"Menyekat celah sambungan agar tidak bocor"
+],
+"correct":"D"
+},
+{
+"text":"Arah putaran motor perlu diperiksa sebelum pompa dijalankan pertama kali karena ...",
+"options":[
+"Putaran terbalik dapat merusak pompa tertentu dan membuat kinerjanya sangat buruk",
+"Arah putaran menentukan warna kabel motor",
+"Arah putaran hanya mempengaruhi suara motor",
+"Arah putaran tidak berpengaruh pada pompa sentrifugal"
+],
+"correct":"A"
+},
+{
+"text":"Alat yang tepat untuk melepas bearing dari poros tanpa merusak poros adalah ...",
+"options":[
+"Mesin gerinda",
+"Bearing puller",
+"Obeng pipih",
+"Tang potong"
+],
+"correct":"B"
+},
+{
+"text":"Berikut ini yang termasuk pompa positive displacement adalah ...",
+"options":[
+"Pompa sentrifugal satu tingkat",
+"Pompa aliran aksial (axial flow)",
+"Pompa aliran campuran (mixed flow)",
+"Pompa roda gigi (gear pump)"
+],
+"correct":"D"
+},
+{
+"text":"Komponen yang berfungsi mencegah kebocoran fluida proses di sepanjang poros pompa adalah ...",
+"options":[
+"Wearing ring",
+"Kopling fleksibel",
+"Mechanical seal",
+"Shaft key"
+],
+"correct":"C"
+},
+{
+"text":"Daya motor listrik pada nameplate umumnya dinyatakan dalam satuan ...",
+"options":[
+"Kilowatt (kW)",
+"Kilopascal (kPa)",
+"Kilogram (kg)",
+"Kilohertz (kHz)"
+],
+"correct":"A"
+},
+{
+"text":"Jika melihat kondisi berbahaya pada mesin yang sedang berjalan, tindakan awal yang benar adalah ...",
+"options":[
+"Mendekat untuk memperbaikinya sambil mesin berjalan",
+"Mengabaikannya sampai akhir shift",
+"Memotret lalu meninggalkan area",
+"Menekan emergency stop bila perlu dan segera melapor kepada atasan"
+],
+"correct":"D"
+},
+{
+"text":"Satuan torsi yang benar adalah ...",
+"options":[
+"Newton (N)",
+"Newton meter (N·m)",
+"Newton per meter (N/m)",
+"Watt per meter (W/m)"
+],
+"correct":"B"
+},
+{
+"text":"Sebelum membuka casing pompa yang pernah berisi fluida proses, langkah yang benar adalah ...",
+"options":[
+"Langsung membuka semua baut casing",
+"Membuka satu baut dahulu lalu menunggu cairan keluar",
+"Mengisolasi, menurunkan tekanan, mengosongkan (drain) dan melakukan vent",
+"Memanaskan casing agar fluida menguap"
+],
+"correct":"C"
+},
+{
+"text":"Fungsi shaft key (pasak) pada poros adalah ...",
+"options":[
+"Mengunci hub kopling atau impeller ke poros agar torsi diteruskan",
+"Menyekat fluida proses yang bocor di sepanjang poros",
+"Menyaring partikel pelumas pada bearing housing",
+"Menahan beban aksial rotor pompa selama operasi"
+],
+"correct":"A"
+},
+{
+"text":"Dalam budaya kerja 5R, 'Resik' berarti ...",
+"options":[
+"Menyusun alat sesuai urutan pemakaian",
+"Membuang barang yang tidak diperlukan",
+"Menjalankan aturan dengan disiplin",
+"Membersihkan area kerja dan peralatan secara rutin"
+],
+"correct":"D"
+}
+]

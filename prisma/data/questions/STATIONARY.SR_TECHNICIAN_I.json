@@ -1,0 +1,302 @@
+[
+  {
+    "text": "Dalam pendekatan Risk Based Inspection (RBI), risiko suatu peralatan dinyatakan sebagai...",
+    "options": [
+      "jumlah inspeksi yang telah dilakukan sepanjang umur peralatan",
+      "kombinasi Probability of Failure (PoF) dan Consequence of Failure (CoF)",
+      "harga peralatan dikalikan lamanya peralatan telah beroperasi",
+      "umur desain dibagi laju korosi pada kondisi operasi terakhir"
+    ],
+    "correct": "B"
+  },
+  {
+    "text": "Perbedaan utama antara API RP 580 dan API RP 581 adalah...",
+    "options": [
+      "API 580 menetapkan tebal minimum shell, API 581 menetapkan jenis las",
+      "API 580 hanya berlaku untuk tangki, API 581 hanya untuk boiler dan heater",
+      "API 580 memberi prinsip kerangka RBI, API 581 memberi metodologi kuantitatif risiko",
+      "keduanya identik dan dapat saling menggantikan dalam semua program"
+    ],
+    "correct": "C"
+  },
+  {
+    "text": "Standar yang menjadi acuan inspeksi, rating, perbaikan, dan alterasi sistem perpipaan in-service adalah...",
+    "options": [
+      "API 653",
+      "API 510",
+      "API 650",
+      "API 570"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "Dokumen yang digunakan untuk menilai kelayakan peralatan yang mengalami local thin area atau pitting tanpa langsung diganti adalah...",
+    "options": [
+      "API 579-1/ASME FFS-1",
+      "API 526",
+      "API 598",
+      "ASME B16.5"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Menurut ASME B31.3, tekanan hydrotest = 1,5 x P x (ST/S). Untuk design pressure 30 bar dan ST/S = 1,1, tekanan hydrotest minimum adalah...",
+    "options": [
+      "39,0 bar",
+      "33,0 bar",
+      "45,0 bar",
+      "49,5 bar"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "Untuk pneumatic leak test pada sistem perpipaan ASME B31.3, tekanan uji yang diizinkan adalah...",
+    "options": [
+      "110% dari design pressure",
+      "150% dari design pressure",
+      "setara tekanan hidrostatik penuh",
+      "200% dari design pressure"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Ketebalan aktual 12,5 mm, minimum 10,0 mm. Laju korosi long-term 0,20 mm/tahun, namun short-term 0,35 mm/tahun karena kondisi proses berubah dan mewakili kondisi sekarang. Estimasi sisa umur yang konservatif adalah...",
+    "options": [
+      "3,6 tahun",
+      "9,1 tahun",
+      "7,1 tahun",
+      "12,5 tahun"
+    ],
+    "correct": "C"
+  },
+  {
+    "text": "Dalam API 579 Level 2 untuk local thin area, remaining strength factor (RSF) yang dapat diterima pada umumnya adalah...",
+    "options": [
+      "RSF 0,10 atau lebih besar",
+      "RSF tidak relevan untuk penilaian",
+      "RSF 0,50 saja tanpa syarat",
+      "RSF 0,90 atau lebih besar"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "Menurut API 653, ketebalan minimum sisa pelat bottom tangki pada akhir periode operasi tanpa release prevention barrier adalah...",
+    "options": [
+      "1,00 in (25 mm)",
+      "0,10 in (2,5 mm)",
+      "0,01 in (0,25 mm)",
+      "0,50 in (12,7 mm)"
+    ],
+    "correct": "B"
+  },
+  {
+    "text": "Menurut API 510, interval inspeksi pressure relief device pada layanan proses umum biasanya tidak melebihi...",
+    "options": [
+      "20 tahun tanpa syarat apa pun dalam kondisi layanan",
+      "hanya dilakukan setelah terjadi kebocoran atau lifting",
+      "5 tahun, hingga 10 tahun untuk layanan bersih dengan dokumentasi",
+      "1 bulan untuk semua jenis layanan proses"
+    ],
+    "correct": "C"
+  },
+  {
+    "text": "Pada klasifikasi API 570, piping dengan potensi konsekuensi kegagalan paling tinggi dikelompokkan dalam...",
+    "options": [
+      "Class 1",
+      "Class 3 saja",
+      "kelas yang tidak ada dalam standar",
+      "Class 4"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Austenitic stainless steel yang terpapar chloride pada temperatur di atas sekitar 60 °C dengan tegangan tarik sangat rentan terhadap...",
+    "options": [
+      "brittle fracture akibat suhu lingkungan",
+      "korosi galvanik akibat kontak dengan cat",
+      "chloride stress corrosion cracking (Cl-SCC)",
+      "creep akibat suhu kriogenik yang rendah"
+    ],
+    "correct": "C"
+  },
+  {
+    "text": "Pada carbon steel dalam layanan wet H2S, mekanisme kerusakan yang ditandai blister dan retak bertahap akibat hidrogen adalah...",
+    "options": [
+      "hydrogen induced cracking (HIC)",
+      "korosi atmosferik pada permukaan luar",
+      "fatigue termal akibat siklus start-stop",
+      "oksidasi pada suhu sangat tinggi"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Risiko brittle fracture pada vessel carbon steel paling relevan dikaitkan dengan...",
+    "options": [
+      "kecepatan fluida di dalam pipa inlet vessel",
+      "tekanan operasi di atas tekanan atmosfer saja",
+      "kandungan oksigen dalam air umpan boiler",
+      "MDMT dan kondisi pressurization pada suhu rendah"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "Mekanisme creep paling relevan untuk peralatan yang beroperasi pada...",
+    "options": [
+      "temperatur tinggi dalam waktu lama di bawah tegangan, seperti tube fired heater",
+      "temperatur ruang pada tekanan rendah dan stabil",
+      "kondisi vakum penuh pada suhu lingkungan",
+      "temperatur kriogenik dengan siklus tekanan rendah"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Dalam RCA kegagalan, perbedaan antara proximate cause dan root cause adalah...",
+    "options": [
+      "root cause selalu faktor cuaca, proximate cause faktor desain",
+      "proximate cause adalah sebab langsung, root cause adalah sebab mendasar yang bila dikoreksi mencegah kejadian berulang",
+      "proximate cause selalu kesalahan operator, root cause selalu material",
+      "keduanya sama dan dapat saling dipertukarkan dalam laporan"
+    ],
+    "correct": "B"
+  },
+  {
+    "text": "Dalam API 579, Level 1 assessment berbeda dari Level 2 dan 3 karena Level 1...",
+    "options": [
+      "hanya berlaku untuk peralatan yang baru dibuat",
+      "wajib memakai finite element analysis yang rinci",
+      "memakai kriteria konservatif sederhana dengan data terbatas",
+      "tidak membutuhkan data ketebalan sama sekali"
+    ],
+    "correct": "C"
+  },
+  {
+    "text": "Perubahan kondisi proses seperti kenaikan temperatur desain pada vessel eksisting seharusnya melalui...",
+    "options": [
+      "pencatatan di logbook tanpa evaluasi lebih lanjut",
+      "persetujuan lisan operator shift yang sedang bertugas",
+      "langsung dilaksanakan bila tekanan masih terlihat aman",
+      "Management of Change (MOC) dan evaluasi engineer sebelum diterapkan"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "Setelah kegagalan peralatan terjadi, langkah awal penting dalam investigasi adalah...",
+    "options": [
+      "menentukan pihak yang bersalah sebelum data terkumpul",
+      "mengamankan area dan mempertahankan bukti sebelum dibersihkan",
+      "segera memotong dan membuang komponen rusak agar area bersih",
+      "mengganti komponen dan menunggu laporan setelah start-up"
+    ],
+    "correct": "B"
+  },
+  {
+    "text": "Dalam RBI, tujuan utama perencanaan inspeksi adalah...",
+    "options": [
+      "mengurangi ketidakpastian kondisi agar PoF dapat dikelola",
+      "menambah jumlah inspeksi sama rata pada semua peralatan",
+      "mengganti seluruh peralatan secara berkala tanpa evaluasi",
+      "menghilangkan seluruh risiko hingga mencapai nol"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Dalam menyusun prioritas pekerjaan turnaround, urutan prioritas yang paling tepat adalah...",
+    "options": [
+      "item dengan biaya paling murah dikerjakan lebih dahulu",
+      "item yang diusulkan paling awal oleh bagian produksi",
+      "item yang paling mudah dikerjakan tim lapangan lebih dahulu",
+      "item wajib regulasi dan keselamatan serta peralatan berisiko tinggi lebih dahulu"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "Dalam membimbing teknisi junior untuk pekerjaan berisiko, pendekatan yang paling efektif adalah...",
+    "options": [
+      "memberi pekerjaan tersulit tanpa pengawasan agar cepat belajar",
+      "mendemonstrasikan, mengawasi saat dia praktik, lalu memberi umpan balik",
+      "memberikan instruksi singkat lalu meninggalkannya bekerja sendiri",
+      "mengabaikan kesalahan kecil agar suasana kerja tetap nyaman"
+    ],
+    "correct": "B"
+  },
+  {
+    "text": "Sebelum line breaking pada pipa proses yang pernah berisi hidrokarbon, kontrol isolasi yang direkomendasikan adalah...",
+    "options": [
+      "double block and bleed atau blind positif dengan permit line breaking",
+      "satu valve tertutup saja tanpa permit tambahan",
+      "cukup memasang tag di valve tanpa isolasi fisik tambahan",
+      "menunggu pressure gauge turun sedikit lalu membuka flange"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Menurut API 510, kenaikan design pressure pada vessel yang sudah beroperasi termasuk kategori...",
+    "options": [
+      "penggantian gasket yang tidak perlu evaluasi",
+      "perawatan harian oleh operator lapangan",
+      "rerating, yang dihitung dan disetujui engineer serta pihak berwenang",
+      "perbaikan rutin tanpa dokumen yang perlu disiapkan"
+    ],
+    "correct": "C"
+  },
+  {
+    "text": "Menurut ASME VIII Div. 1, PWHT pada carbon steel P-No. 1 umumnya diwajibkan bila ketebalan nominal sambungan melebihi...",
+    "options": [
+      "semua ketebalan wajib PWHT tanpa terkecuali",
+      "sekitar 1,25 in (32 mm) tanpa preheat",
+      "0,1 in (2,5 mm) pada semua kondisi",
+      "0,5 in (12 mm) pada semua kondisi"
+    ],
+    "correct": "B"
+  },
+  {
+    "text": "Dibandingkan ASME VIII Div. 1, ASME VIII Div. 2 dikenal karena...",
+    "options": [
+      "tidak mengharuskan pengujian apa pun setelah fabrikasi",
+      "faktor desain lebih besar tanpa memerlukan analisis tegangan",
+      "hanya berlaku untuk vessel yang tidak bertekanan",
+      "design-by-analysis, faktor keamanan lebih rendah, serta NDT dan dokumentasi lebih ketat"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "Pada layanan sour (H2S) menurut NACE MR0175/ISO 15156, kekerasan las carbon steel biasanya dibatasi maksimum sekitar...",
+    "options": [
+      "22 HRC (sekitar 248 HV)",
+      "45 HRC (sekitar 450 HV)",
+      "60 HRC (sekitar 700 HV)",
+      "tidak ada batas kekerasan yang diatur"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Pada program inspeksi CUI berbasis risiko, prioritas pemeriksaan paling tepat ditujukan pada...",
+    "options": [
+      "vessel yang baru selesai dicat ulang",
+      "pipa tanpa insulasi yang terpapar langsung udara",
+      "area dengan insulasi rusak, penetrasi air, dan temperatur kritis",
+      "semua pipa yang dipilih secara acak"
+    ],
+    "correct": "C"
+  },
+  {
+    "text": "Dibandingkan hydrotest, pneumatic test pada vessel bertekanan tinggi memerlukan kontrol keselamatan lebih ketat karena...",
+    "options": [
+      "hanya memerlukan tekanan yang jauh lebih rendah dari desain",
+      "gas lebih berat dari air sehingga membebani fondasi",
+      "gas tidak dapat bocor melalui sambungan sehingga tidak terdeteksi",
+      "energi tersimpan gas terkompresi jauh lebih besar sehingga ledakan lebih berbahaya"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "Pada circuit piping dengan injection point (misalnya water wash), inspeksi diprioritaskan di area downstream injection karena...",
+    "options": [
+      "aliran di area tersebut selalu laminer dan tenang",
+      "korosi dan erosi lokal tinggi akibat pencampuran dan pendinginan fluida",
+      "tidak ada risiko apa pun pada area downstream tersebut",
+      "temperatur fluida selalu stabil pada seluruh jalur"
+    ],
+    "correct": "B"
+  }
+]

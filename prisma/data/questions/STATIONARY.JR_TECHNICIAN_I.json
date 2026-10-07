@@ -1,0 +1,302 @@
+[
+  {
+    "text": "Lubang akses berukuran cukup besar pada shell pressure vessel yang digunakan pekerja untuk masuk ke bagian dalam vessel disebut...",
+    "options": [
+      "Vent coupling",
+      "Manway",
+      "Drain boss",
+      "Nozzle instrumen"
+    ],
+    "correct": "B"
+  },
+  {
+    "text": "Perangkat pengaman yang membuka otomatis untuk membuang fluida ketika tekanan di dalam vessel melebihi batas set pressure adalah...",
+    "options": [
+      "Globe valve pada jalur outlet",
+      "Strainer pada sisi hisap",
+      "Check valve (non-return valve)",
+      "Pressure Safety Valve (PSV)"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "Tujuan utama prosedur Lock Out Tag Out (LOTO) sebelum pekerjaan perawatan peralatan adalah...",
+    "options": [
+      "mencatat jam kerja teknisi pada peralatan yang sedang diperbaiki",
+      "mengisolasi dan mengunci sumber energi berbahaya agar peralatan tidak aktif tiba-tiba",
+      "mempercepat proses start-up peralatan setelah selesai diperbaiki",
+      "memberi tanda warna pada peralatan yang baru selesai dicat"
+    ],
+    "correct": "B"
+  },
+  {
+    "text": "Sebelum pekerja masuk ke confined space, pengujian atmosfer yang wajib dilakukan mencakup kadar oksigen, gas mudah terbakar (LEL), dan...",
+    "options": [
+      "gas beracun seperti H2S",
+      "kebisingan area sekitar",
+      "kecepatan angin di luar vessel",
+      "kelembapan relatif ruangan"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Pekerjaan berikut yang termasuk hot work dan membutuhkan hot work permit adalah...",
+    "options": [
+      "pengukuran ketebalan dinding dengan alat UT",
+      "pengelasan dan grinding yang menghasilkan percikan api",
+      "pemasangan label tag number pada pipa proses",
+      "pembacaan pressure gauge di lapangan secara rutin"
+    ],
+    "correct": "B"
+  },
+  {
+    "text": "Setelah pekerjaan hot work selesai, petugas fire watch umumnya tetap berjaga di lokasi paling sedikit selama...",
+    "options": [
+      "Tidak perlu berjaga",
+      "5 menit",
+      "1 menit",
+      "30 menit"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "Fungsi utama gasket yang dipasang di antara dua flange adalah...",
+    "options": [
+      "menutup celah antar permukaan flange agar tidak terjadi kebocoran fluida",
+      "menahan beban berat pipa di pipe support",
+      "mengurangi getaran pompa yang terhubung ke pipa",
+      "menambah kekuatan baut agar tidak patah"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Alat tangan yang dipakai untuk mengencangkan baut sesuai nilai torsi tertentu adalah...",
+    "options": [
+      "tang kombinasi",
+      "kunci pas biasa",
+      "torque wrench",
+      "palu godam"
+    ],
+    "correct": "B"
+  },
+  {
+    "text": "Pada heat exchanger tipe shell and tube, kumpulan pipa kecil tempat fluida mengalir di dalamnya disebut...",
+    "options": [
+      "tubesheet",
+      "baffle plate",
+      "tube bundle",
+      "tie rod"
+    ],
+    "correct": "C"
+  },
+  {
+    "text": "Standar yang umum digunakan untuk desain dan konstruksi tangki penyimpanan atmosferik berdinding las adalah...",
+    "options": [
+      "API 526",
+      "ASME Section I",
+      "ASME B16.5",
+      "API 650"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "Perlengkapan APD minimal yang wajib dipakai saat bekerja di area plant adalah...",
+    "options": [
+      "jaket tebal dan sepatu olahraga",
+      "helm, sepatu safety, dan kacamata pelindung",
+      "sandal karet dan topi kain",
+      "sarung tangan kain dan kaos oblong"
+    ],
+    "correct": "B"
+  },
+  {
+    "text": "Gas H2S berbahaya karena pada konsentrasi tinggi dapat...",
+    "options": [
+      "melumpuhkan indera penciuman sehingga bau telur busuknya tidak lagi tercium",
+      "menyebabkan baja menjadi lunak seketika",
+      "membuat udara menjadi lebih ringan dan mudah naik",
+      "berubah menjadi cairan pada suhu ruang"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Gate valve pada umumnya digunakan untuk...",
+    "options": [
+      "mencegah aliran balik fluida",
+      "membuka atau menutup aliran sepenuhnya (on-off)",
+      "mengurangi tekanan secara otomatis",
+      "mengatur laju aliran secara halus pada posisi setengah terbuka"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "Dari pasangan satuan berikut, yang merupakan satuan tekanan adalah...",
+    "options": [
+      "watt",
+      "derajat Celsius",
+      "bar",
+      "newton meter"
+    ],
+    "correct": "C"
+  },
+  {
+    "text": "Korosi pada logam didefinisikan sebagai...",
+    "options": [
+      "perubahan warna cat karena sinar matahari",
+      "degradasi material akibat reaksi dengan lingkungannya",
+      "pemuaian logam karena kenaikan suhu",
+      "retak akibat benturan mekanis langsung"
+    ],
+    "correct": "B"
+  },
+  {
+    "text": "Jenis flange yang memiliki leher panjang dan dilas butt ke pipa sehingga cocok untuk layanan tekanan tinggi adalah...",
+    "options": [
+      "slip-on flange",
+      "weld neck flange",
+      "lap joint flange",
+      "threaded flange"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "Blind flange dipasang pada ujung pipa atau nozzle dengan tujuan...",
+    "options": [
+      "mengukur tekanan di dalam pipa",
+      "mengalirkan fluida ke dua arah",
+      "menyaring kotoran dari fluida",
+      "menutup ujung pipa atau nozzle agar tidak ada aliran keluar"
+    ],
+    "correct": "B"
+  },
+  {
+    "text": "Bekerja pada ketinggian 1,8 meter atau lebih tanpa pagar pengaman mewajibkan pekerja menggunakan...",
+    "options": [
+      "penutup telinga",
+      "sarung tangan tebal",
+      "masker debu",
+      "full body harness yang dikaitkan ke titik angkur kuat"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "Jenis APAR yang paling tepat untuk kebakaran peralatan listrik bertegangan adalah...",
+    "options": [
+      "APAR busa (foam)",
+      "air dari hydrant",
+      "pasir basah",
+      "APAR CO2 atau dry chemical powder"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Instrumen yang dipakai untuk menunjukkan nilai tekanan fluida di dalam pipa atau vessel adalah...",
+    "options": [
+      "level glass",
+      "flow totalizer",
+      "thermometer",
+      "pressure gauge"
+    ],
+    "correct": "C"
+  },
+  {
+    "text": "Alat yang umum digunakan untuk mengukur sisa ketebalan dinding pipa atau vessel tanpa merusaknya adalah...",
+    "options": [
+      "jangka sorong biasa",
+      "ultrasonic thickness gauge",
+      "mistar baja",
+      "pita ukur (meteran)"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Gland packing pada valve berfungsi untuk...",
+    "options": [
+      "mengatur arah putaran handwheel",
+      "mencegah kebocoran fluida di sekitar stem valve",
+      "menahan beban pipa pada valve body",
+      "menghubungkan valve dengan flange pipa"
+    ],
+    "correct": "C"
+  },
+  {
+    "text": "Safety Data Sheet (SDS) berisi informasi mengenai...",
+    "options": [
+      "jadwal shift kerja operator",
+      "dimensi peralatan proses",
+      "bahaya, penanganan, dan tindakan darurat suatu bahan kimia",
+      "harga bahan kimia di pasaran"
+    ],
+    "correct": "C"
+  },
+  {
+    "text": "Salah satu fungsi insulasi pada pipa bersuhu tinggi adalah...",
+    "options": [
+      "menambah tekanan kerja pipa",
+      "mengurangi kehilangan panas sekaligus melindungi personel dari permukaan panas",
+      "mencegah terjadinya pengelasan",
+      "mempercepat pendinginan fluida di dalam pipa"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "Menambah pipa panjang pada gagang kunci (cheater pipe) untuk mengencangkan baut sebaiknya tidak dilakukan karena...",
+    "options": [
+      "baut akan menjadi terlalu dingin",
+      "beban dan torsi menjadi tidak terkendali sehingga kunci dapat slip atau baut rusak",
+      "pipa tambahan terlalu mahal",
+      "kunci akan menjadi lebih ringan"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Bagian pada vessel yang berfungsi sebagai tempat sambungan pipa untuk masuk atau keluarnya fluida disebut...",
+    "options": [
+      "lifting lug",
+      "skirt",
+      "saddle",
+      "nozzle"
+    ],
+    "correct": "B"
+  },
+  {
+    "text": "Fungsi utama boiler di plant adalah...",
+    "options": [
+      "menghasilkan steam dengan memanaskan air",
+      "mendinginkan fluida proses",
+      "memompa fluida bertekanan tinggi",
+      "menyimpan minyak mentah"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Pada fired heater, bagian tempat bahan bakar dibakar untuk menghasilkan panas disebut...",
+    "options": [
+      "burner",
+      "tube support",
+      "manifold",
+      "stack damper"
+    ],
+    "correct": "C"
+  },
+  {
+    "text": "Fungsi check valve pada sistem perpipaan adalah...",
+    "options": [
+      "membuang gas berlebih ke atmosfer",
+      "mencegah aliran balik (reverse flow)",
+      "menyaring partikel padat",
+      "mengatur laju aliran secara manual"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "Dinding tanggul (dike atau bund wall) di sekeliling tangki penyimpanan berfungsi untuk...",
+    "options": [
+      "menampung cairan jika terjadi tumpahan atau kebocoran tangki",
+      "menghalangi pandangan ke area tangki",
+      "menambah kekuatan struktur dinding tangki",
+      "menahan angin agar tangki tidak bergetar"
+    ],
+    "correct": "C"
+  }
+]

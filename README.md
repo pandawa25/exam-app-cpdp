@@ -1,6 +1,6 @@
 # Sistem Ujian Kompetensi Internal
 
-Aplikasi web ujian kompetensi untuk teknisi 4 disiplin — **Instrumentasi, Electrical, Stationary, Rotating** — dengan bank soal, exam difilter otomatis sesuai disiplin & jabatan peserta, timer server-side, anti-cheat (randomize soal/opsi, deteksi tab-switch, fullscreen lock, auto-submit), dan review supervisor.
+Aplikasi web ujian kompetensi untuk teknisi 5 disiplin — **Instrumentasi, Electrical, Stationary, Rotating, Civil** — dengan bank soal, exam difilter otomatis sesuai disiplin & jabatan peserta, timer server-side, anti-cheat (randomize soal/opsi, deteksi tab-switch, fullscreen lock, auto-submit), dan review supervisor.
 
 Dibangun mengikuti skill `online-exam-system-builder` (lihat `references/` di skill tersebut untuk penjelasan desain lengkap).
 
@@ -30,8 +30,8 @@ Buka `http://localhost:3000/login`. Akun contoh dari seed (password sama semua: 
 |---|---|
 | Admin | admin@perusahaan.com |
 | Supervisor | supervisor@perusahaan.com |
-| Peserta (Instrumentasi, Teknisi Senior) | teknisi.instrumentasi@perusahaan.com |
-| Peserta (Electrical, Teknisi Senior) | teknisi.electrical@perusahaan.com |
+| Peserta (Instrumentasi, Sr. Technician I) | teknisi.instrumentasi@perusahaan.com |
+| Peserta (Electrical, Sr. Technician I) | teknisi.electrical@perusahaan.com |
 
 Login sebagai peserta Instrumentasi langsung bisa coba exam contoh yang sudah di-publish oleh seed.
 
@@ -45,7 +45,7 @@ Login sebagai peserta Instrumentasi langsung bisa coba exam contoh yang sudah di
 ## Manajemen user & password
 
 - **Admin → menu User**: cari/filter, tambah satu user, edit (nama, role, disiplin, jabatan, departemen), reset password, nonaktifkan/aktifkan, hapus (hanya untuk user tanpa riwayat ujian).
-- **Import CSV** (Admin → User → Import CSV): kolom wajib `nama,email,role`; role PESERTA wajib juga `disiplin,jabatan`; `departemen` dan `password` opsional. Delimiter koma/titik koma/tab dikenali otomatis, jadi hasil copy dari Excel bisa langsung ditempel. Password yang dikosongkan dibuatkan acak dan ditampilkan **sekali** (bisa diunduh sebagai CSV). Import bersifat all-or-nothing: satu baris salah = tidak ada user yang dibuat, semua error ditampilkan per baris.
+- **Import CSV** (Admin → User → Import CSV): kolom wajib `nama,email,role`; role PESERTA wajib juga `disiplin,jabatan` (disiplin: Instrumentasi, Electrical, Stationary Equipment, Rotating Equipment, Civil; jabatan: Jr. Technician I, Jr. Technician II, Technician I, Technician II, Sr. Technician I, penulisan titik/spasi/huruf besar bebas); `departemen` dan `password` opsional. Delimiter koma/titik koma/tab dikenali otomatis, jadi hasil copy dari Excel bisa langsung ditempel. Password yang dikosongkan dibuatkan acak dan ditampilkan **sekali** (bisa diunduh sebagai CSV). Import bersifat all-or-nothing: satu baris salah = tidak ada user yang dibuat, semua error ditampilkan per baris.
 - **Ganti password mandiri**: semua role, menu "Ganti Password" (`/akun/password`), wajib memasukkan password lama.
 - User yang dinonaktifkan tidak bisa login baru; sesi yang sudah berjalan berakhir maksimal 12 jam. Admin tidak bisa menonaktifkan/menghapus akunnya sendiri atau admin aktif terakhir.
 - Belum ada "lupa password" mandiri (via email); reset dilakukan admin lewat halaman Edit User.
@@ -69,6 +69,13 @@ Lihat `references/deployment.md` di skill `online-exam-system-builder` untuk lan
 6. Akses lewat `https://<domain>/` — root otomatis diarahkan ke `/login` atau dashboard sesuai role.
 
 Catatan: waktu buka/tutup exam diinput sesuai zona waktu browser admin dan ditampilkan dalam WIB. Setiap perubahan `schema.prisma` harus disertai migration baru (`npx prisma migrate dev --name <nama>` di lokal, commit folder `prisma/migrations/`).
+
+## Jabatan dan soal dummy
+
+- Jabatan = jenjang + disiplin, mis. "Jr. Technician I Instrument". Jenjang: Jr. Technician I, Jr. Technician II, Technician I, Technician II, Sr. Technician I. Disiplin: Instrumentasi, Electrical, Stationary, Rotating, Civil (5 x 5 = 25 jabatan).
+- Soal dummy: 30 soal per jabatan (750 soal) di `prisma/data/questions/<DISIPLIN>.<JENJANG>.json`. Dijalankan oleh `npm run prisma:seed` atau hanya soalnya dengan `npm run prisma:seed-questions`. Idempotent: bank bernama "<Disiplin> - <Jenjang> (dummy)" yang sudah ada dilewati.
+- Soal dummy dibuat untuk uji alur aplikasi, belum diverifikasi SME. Ganti dengan soal resmi sebelum dipakai menilai peserta.
+- Migrasi `position_levels` memetakan data lama: Teknisi Junior menjadi Jr. Technician I; Teknisi Senior, Supervisor Lapangan, dan Engineer menjadi Sr. Technician I. Periksa ulang jabatan user yang sudah ada.
 
 ## Hasil ujian
 

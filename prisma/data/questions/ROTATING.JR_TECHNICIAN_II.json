@@ -1,0 +1,302 @@
+[
+{
+"text":"Nameplate motor induksi 50 Hz tertulis putaran 1450 rpm. Jumlah kutub motor tersebut adalah ...",
+"options":[
+"2 kutub",
+"6 kutub",
+"4 kutub",
+"8 kutub"
+],
+"correct":"C"
+},
+{
+"text":"Kode IP 55 pada nameplate motor menunjukkan ...",
+"options":[
+"Tingkat proteksi casing terhadap debu dan semprotan air",
+"Kelas isolasi belitan stator terhadap panas",
+"Faktor daya motor pada saat beban penuh",
+"Jumlah fasa suplai listrik dan frekuensinya"
+],
+"correct":"A"
+},
+{
+"text":"Pada P&ID, tag instrumen PI-101 umumnya berarti ...",
+"options":[
+"Temperature Indicator loop 101",
+"Flow Indicator loop 101",
+"Level Indicator loop 101",
+"Pressure Indicator loop 101"
+],
+"correct":"D"
+},
+{
+"text":"Mencampur dua jenis grease dengan thickener yang tidak kompatibel dalam satu bearing dapat menyebabkan ...",
+"options":[
+"Umur grease menjadi lebih panjang dua kali lipat",
+"Konsistensi berubah, grease melunak atau mengeras, pelumasan terganggu",
+"Suhu bearing otomatis turun karena grease lebih banyak",
+"Viskositas minyak dasar naik sehingga bearing lebih awet"
+],
+"correct":"B"
+},
+{
+"text":"Pada bearing housing dengan constant level oiler, level oli normalnya diatur setinggi ...",
+"options":[
+"Seluruh bagian atas bearing terendam",
+"Hanya menyentuh dasar sump",
+"Titik tengah rolling element terbawah",
+"Setengah tinggi sight glass bagian atas"
+],
+"correct":"C"
+},
+{
+"text":"Oli di sight glass bearing housing tampak putih susu. Hal ini paling mungkin menandakan ...",
+"options":[
+"Oli baru saja diganti",
+"Viskositas oli terlalu rendah",
+"Oli teroksidasi berat",
+"Oli terkontaminasi air (emulsi)"
+],
+"correct":"D"
+},
+{
+"text":"Saat inspeksi rutin ditemukan mechanical seal pompa bocor melebihi batas yang diperbolehkan. Tindakan yang benar adalah ...",
+"options":[
+"Melaporkan dan mencatat dalam work request agar perbaikan dijadwalkan",
+"Mengencangkan baut gland seal sampai kebocoran berhenti",
+"Menambah tekanan flush sebesar mungkin",
+"Membiarkannya sampai seal benar-benar macet"
+],
+"correct":"A"
+},
+{
+"text":"Tujuan memberi match mark (tanda) pada komponen sebelum pembongkaran adalah ...",
+"options":[
+"Menghemat waktu pembersihan semua komponen",
+"Memudahkan pemasangan kembali pada posisi dan orientasi semula",
+"Menambah kekuatan sambungan baut antar komponen",
+"Menandai komponen yang harus segera dibuang"
+],
+"correct":"B"
+},
+{
+"text":"Pengencangan baut flange atau casing yang benar dilakukan dengan pola ...",
+"options":[
+"Searah jarum jam dari baut pertama langsung ke torsi penuh",
+"Dari baut terdekat saja sampai kencang",
+"Acak sesuai kemudahan akses",
+"Bersilang (star/cross pattern) secara bertahap"
+],
+"correct":"D"
+},
+{
+"text":"Pompa cadangan (standby) sebaiknya diputar atau dijalankan berkala agar ...",
+"options":[
+"Konsumsi listrik lebih hemat saat pompa utama bekerja",
+"Suhu bearing selalu terjaga pada nol derajat",
+"Mencegah brinelling bearing dan memastikan siap start",
+"Fluida proses selalu terjaga tetap dingin di casing"
+],
+"correct":"C"
+},
+{
+"text":"Penggantian oli bearing housing pompa yang paling tepat dilakukan berdasarkan ...",
+"options":[
+"Jadwal preventive maintenance atau hasil analisis oli",
+"Warna cat pada permukaan bearing housing",
+"Keinginan operator pada shift malam saja",
+"Hanya setelah bearing sudah rusak total"
+],
+"correct":"A"
+},
+{
+"text":"Alat yang tepat untuk mengukur celah sempit sekitar 0,05 mm antara dua permukaan adalah ...",
+"options":[
+"Mistar baja",
+"Feeler gauge",
+"Pita ukur",
+"Pressure gauge"
+],
+"correct":"B"
+},
+{
+"text":"Pemberian grease berlebihan (over-greasing) pada bearing motor dapat menyebabkan ...",
+"options":[
+"Umur bearing pasti lebih panjang",
+"Putaran motor menjadi lebih cepat",
+"Suhu bearing naik akibat churning grease",
+"Level suara motor turun drastis"
+],
+"correct":"C"
+},
+{
+"text":"Nilai head 50 m pada nameplate pompa berarti ...",
+"options":[
+"Tinggi energi per berat fluida pada titik desain pompa",
+"Panjang pipa discharge maksimum yang diizinkan",
+"Tinggi tangki hisap yang disyaratkan pabrikan",
+"Berat total pompa beserta motor dalam ton"
+],
+"correct":"A"
+},
+{
+"text":"Strainer suction pompa yang tersumbat dapat menyebabkan ...",
+"options":[
+"Tekanan discharge naik jauh melebihi desain",
+"Arus motor turun menjadi nol saat flow normal",
+"Suhu fluida turun",
+"Penurunan tekanan suction yang dapat memicu kavitasi"
+],
+"correct":"D"
+},
+{
+"text":"Motor bernameplate 380/660 V Δ/Y dipasok dari jaringan 380 V. Hubungan terminal belitan yang benar adalah ...",
+"options":[
+"Star (Y)",
+"Delta (Δ)",
+"Seri-paralel campuran",
+"Dahlander"
+],
+"correct":"B"
+},
+{
+"text":"Pada P&ID, keterangan NC di samping simbol katup berarti ...",
+"options":[
+"Normally Closed",
+"Not Controlled",
+"Non Corrosive",
+"New Construction"
+],
+"correct":"A"
+},
+{
+"text":"Fungsi check valve pada sisi discharge pompa adalah ...",
+"options":[
+"Mengatur kapasitas pompa secara halus",
+"Menyaring kotoran dari fluida",
+"Mencegah aliran balik saat pompa berhenti",
+"Mengukur tekanan discharge"
+],
+"correct":"C"
+},
+{
+"text":"Membuka vent pada casing sebelum pompa distart bertujuan untuk ...",
+"options":[
+"Menurunkan suhu fluida di dalam casing pompa",
+"Mengurangi bunyi pompa saat dijalankan pertama",
+"Menambah tekanan suction sebelum start motor",
+"Membuang udara agar pompa terisi penuh fluida"
+],
+"correct":"D"
+},
+{
+"text":"Grease dengan NLGI grade 2 memiliki konsistensi mendekati ...",
+"options":[
+"Lilin yang sangat keras",
+"Selai kacang (semi-padat)",
+"Minyak cair yang mudah mengalir",
+"Sabun batang yang padat"
+],
+"correct":"B"
+},
+{
+"text":"Satuan kapasitas (flow rate) pompa yang umum tertera pada nameplate adalah ...",
+"options":[
+"kg/cm²",
+"kW/jam",
+"m³/jam",
+"rpm/menit"
+],
+"correct":"C"
+},
+{
+"text":"APD yang sesuai saat menangani oli bekas dan pelumas adalah ...",
+"options":[
+"Sarung tangan nitril tahan minyak dan kacamata pengaman",
+"Sarung tangan kain tipis tanpa pelindung mata",
+"Helm las dengan filter gelap penuh",
+"Tanpa APD karena oli bekas tidak berbahaya"
+],
+"correct":"A"
+},
+{
+"text":"Service factor 1,15 pada nameplate motor berarti ...",
+"options":[
+"Motor selalu menarik arus 15% lebih besar dari rating",
+"Motor boleh dibebani hingga 115% rating pada kondisi diizinkan",
+"Efisiensi motor mencapai 115% pada beban penuh",
+"Putaran motor boleh dinaikkan 15% dari nameplate"
+],
+"correct":"B"
+},
+{
+"text":"Packing gland yang dikencangkan terlalu kuat dapat menyebabkan ...",
+"options":[
+"Kebocoran semakin besar lewat gland packing",
+"Tekanan discharge turun drastis seketika",
+"Aliran fluida berbalik arah di dalam casing",
+"Panas berlebih dan keausan cepat pada sleeve"
+],
+"correct":"D"
+},
+{
+"text":"Grease nipple dibersihkan terlebih dahulu sebelum pengisian grease supaya ...",
+"options":[
+"Kotoran tidak terdorong masuk ke dalam bearing",
+"Grease menjadi lebih encer saat dipompa",
+"Tekanan grease gun menjadi lebih rendah",
+"Warna grease tidak berubah selama pemakaian"
+],
+"correct":"A"
+},
+{
+"text":"Alat yang digunakan untuk memeriksa run-out poros atau permukaan kopling adalah ...",
+"options":[
+"Termometer inframerah",
+"Pressure gauge",
+"Dial indicator",
+"Clamp meter"
+],
+"correct":"C"
+},
+{
+"text":"Penulisan P-101A/B pada P&ID menunjukkan ...",
+"options":[
+"Satu pompa dengan dua motor penggerak berbeda",
+"Pompa bertingkat dengan dua tahap berurutan",
+"Dua pompa berbeda fungsi pada satu line proses",
+"Dua pompa identik, umumnya satu operasi satu standby"
+],
+"correct":"D"
+},
+{
+"text":"Pompa yang sedang beroperasi mengeluarkan suara seperti kerikil di dalam casing. Dugaan penyebab yang paling mungkin adalah ...",
+"options":[
+"Level oli terlalu tinggi",
+"Kavitasi",
+"Tegangan listrik terlalu rendah",
+"Gasket flange bocor"
+],
+"correct":"B"
+},
+{
+"text":"Dalam LOTO untuk pekerjaan oleh beberapa orang, setiap pekerja sebaiknya ...",
+"options":[
+"Memasang gembok pribadi pada titik isolasi sebelum bekerja",
+"Menitipkan kunci kepada teman satu tim",
+"Menggunakan satu gembok untuk seluruh pekerja tanpa label",
+"Cukup menempelkan tag tanpa gembok"
+],
+"correct":"A"
+},
+{
+"text":"Alat yang tepat untuk mengukur arus motor saat beroperasi tanpa memutus kabel adalah ...",
+"options":[
+"Megger",
+"Multimeter pada mode ohm",
+"Voltage tester",
+"Clamp meter (tang ampere)"
+],
+"correct":"D"
+}
+]

@@ -1,0 +1,302 @@
+[
+  {
+    "text": "Pola pengencangan baut flange yang benar untuk memperoleh tekanan gasket merata adalah...",
+    "options": [
+      "searah jarum jam dari baut pertama sampai terakhir langsung penuh",
+      "pola bintang (cross pattern) secara bertahap dalam beberapa pass",
+      "mengencangkan baut yang paling mudah dijangkau terlebih dahulu",
+      "mengencangkan satu sisi flange sampai kencang baru sisi lainnya"
+    ],
+    "correct": "B"
+  },
+  {
+    "text": "Sebelum baut manway vessel dibuka, kondisi yang harus dipastikan terlebih dahulu adalah...",
+    "options": [
+      "cukup ada izin lisan dari rekan kerja tanpa dokumen permit",
+      "hanya pressure gauge lokal yang menunjuk angka nol tanpa isolasi",
+      "vessel masih beroperasi pada tekanan normal selama pekerjaan persiapan",
+      "vessel sudah terisolasi, tekanan nol, dan permit kerja disetujui"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "Gasket spiral wound terdiri atas...",
+    "options": [
+      "cincin logam padat berpenampang oval yang duduk pada alur",
+      "satu lembar karet tebal tanpa penguat logam di dalamnya",
+      "lilitan strip logam berbentuk V dengan filler lunak seperti grafit atau PTFE",
+      "kertas fiber tipis berlapis perekat dan dipotong sesuai flange"
+    ],
+    "correct": "C"
+  },
+  {
+    "text": "Praktik yang benar mengenai gasket saat flange dibuka kembali untuk perawatan adalah...",
+    "options": [
+      "menggunakan gasket baru setiap flange dibongkar dan dipasang kembali",
+      "membalik gasket lama agar sisi yang belum terpakai menghadap seat",
+      "menambah sealant tebal pada gasket lama agar kembali kedap",
+      "memakai ulang gasket lama selama masih terlihat utuh dan tidak sobek"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Pada P&ID, kode instrumen PI menunjukkan...",
+    "options": [
+      "process interlock",
+      "pipe insulation",
+      "pump inlet",
+      "pressure indicator"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "Pada simbol valve di P&ID, tulisan FC berarti valve akan...",
+    "options": [
+      "terbuka penuh (fail open) saat suplai udara atau sinyal hilang",
+      "tetap di posisi terakhir (fail last) saat sinyal hilang",
+      "menutup (fail closed) saat suplai udara atau sinyal hilang",
+      "berpindah otomatis ke posisi manual saat sinyal hilang"
+    ],
+    "correct": "C"
+  },
+  {
+    "text": "Korosi galvanik terjadi ketika...",
+    "options": [
+      "dua logam berbeda potensial terhubung dalam elektrolit sehingga logam anodik terkorosi",
+      "logam menerima tekanan mekanis berulang pada kondisi kering",
+      "logam bersentuhan dengan logam sejenis di udara yang kering",
+      "logam terkena panas langsung dari api dalam waktu cukup lama"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Korosi seragam (uniform corrosion) dicirikan oleh...",
+    "options": [
+      "pengelupasan lokal yang hanya terjadi di daerah las",
+      "penipisan yang relatif merata pada seluruh permukaan",
+      "retak halus yang menembus batas butir logam",
+      "lubang kecil yang dalam pada satu titik tertentu"
+    ],
+    "correct": "B"
+  },
+  {
+    "text": "Korosi berbentuk lubang kecil dan dalam yang bersifat lokal pada permukaan logam disebut...",
+    "options": [
+      "pitting",
+      "korosi seragam",
+      "korosi celah",
+      "erosi"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "CUI adalah singkatan dari...",
+    "options": [
+      "coating under inspection",
+      "critical usage index",
+      "corrosion under insulation",
+      "corrosion under impact"
+    ],
+    "correct": "C"
+  },
+  {
+    "text": "Perawatan rutin yang tepat untuk manual valve yang sering dioperasikan adalah...",
+    "options": [
+      "melumasi stem serta memeriksa dan menyetel gland packing",
+      "membongkar valve setiap minggu tanpa mengikuti jadwal",
+      "mengecat seluruh stem dengan cat tebal agar tidak berkarat",
+      "melepas handwheel agar valve tidak diputar sembarang orang"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Saat membuka flange atau penutup yang mungkin masih menyimpan sisa fluida, cara yang aman adalah...",
+    "options": [
+      "berdiri tepat di depan flange agar mudah memantau sisa fluida",
+      "mengendurkan baut lalu membuka celah dari sisi terjauh dari pekerja",
+      "membuka flange dengan memukul memakai palu agar cepat terlepas",
+      "melepas semua baut sekaligus lalu menarik flange dengan cepat"
+    ],
+    "correct": "B"
+  },
+  {
+    "text": "Ciri flange face jenis ring type joint (RTJ) adalah...",
+    "options": [
+      "memakai gasket kertas tipis yang diletakkan di dalam baut",
+      "permukaan bergerigi halus tanpa menggunakan gasket",
+      "memakai cincin logam yang duduk pada alur (groove) flange",
+      "permukaan datar penuh dengan gasket karet selebar flange"
+    ],
+    "correct": "C"
+  },
+  {
+    "text": "Spectacle blind atau spade dipasang pada flange untuk...",
+    "options": [
+      "isolasi positif aliran sehingga pekerjaan di hilirnya aman",
+      "mengurangi getaran pipa saat pompa bekerja pada beban penuh",
+      "mengatur tekanan di dalam pipa secara otomatis dan stabil",
+      "mengukur laju aliran fluida yang melewati sambungan flange"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Strainer pada sisi hisap pompa berfungsi untuk...",
+    "options": [
+      "mengukur temperatur fluida yang masuk ke dalam pompa",
+      "mencegah korosi pada seluruh pipa sisi hisap pompa",
+      "menyaring partikel padat agar tidak merusak pompa",
+      "menaikkan tekanan fluida sebelum masuk ke impeller pompa"
+    ],
+    "correct": "C"
+  },
+  {
+    "text": "Steam trap berfungsi untuk...",
+    "options": [
+      "mengukur laju aliran steam pada jalur utama distribusi",
+      "menaikkan temperatur steam yang mengalir di dalam pipa",
+      "menyimpan steam bertekanan tinggi sebagai cadangan sistem",
+      "membuang kondensat dari jalur steam tanpa melepas steam"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "Sebelum gasket dipasang, kondisi permukaan seating flange yang tidak dapat diterima adalah...",
+    "options": [
+      "permukaan bebas dari sisa-sisa gasket lama dan kotoran",
+      "goresan radial dalam yang melintasi lebar permukaan seating",
+      "permukaan dengan serrated finish yang merata dan bersih",
+      "permukaan kering tanpa residu minyak atau pelumas"
+    ],
+    "correct": "B"
+  },
+  {
+    "text": "Pelumas atau anti-seize pada ulir stud bolt akan mempengaruhi torsi karena...",
+    "options": [
+      "gesekan berkurang sehingga pada torsi sama gaya jepit baut lebih besar",
+      "torsi tidak pernah berpengaruh terhadap gesekan pada ulir baut",
+      "baut menjadi lebih lentur tanpa mengubah gaya jepit sama sekali",
+      "gesekan bertambah sehingga baut menjadi lebih mudah longgar"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Drain valve pada titik terendah vessel digunakan untuk...",
+    "options": [
+      "menambah tekanan gas ke dalam vessel saat start-up",
+      "menyambung vessel langsung ke pipa relief menuju flare",
+      "memasang instrumen pengukur level secara permanen",
+      "membuang cairan sisa dari dalam vessel"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "Sebelum pengecatan dengan coating protektif, permukaan baja umumnya perlu dipersiapkan dengan...",
+    "options": [
+      "dipanaskan hingga berubah warna sebelum pengecatan dimulai",
+      "blasting hingga tingkat kebersihan sesuai spesifikasi coating",
+      "diberi lapisan oli tipis agar cat mudah menempel",
+      "dilap dengan kain basah saja sampai tampak mengkilap"
+    ],
+    "correct": "B"
+  },
+  {
+    "text": "Perbedaan flange rating class 150 dan class 300 terletak pada...",
+    "options": [
+      "kemampuan menahan tekanan pada temperatur tertentu",
+      "warna cat standar yang digunakan pada tiap flange",
+      "jumlah lubang baut yang selalu sama di semua ukuran",
+      "material gasket yang boleh dipakai pada tiap kelas"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Erosi-korosi pada pipa biasanya dipicu oleh...",
+    "options": [
+      "tekanan atmosfer yang terlalu rendah di sekitar pipa",
+      "aliran berkecepatan tinggi atau partikel padat yang mengikis lapisan pelindung",
+      "kontak pipa dengan logam sejenis yang terpasang di dekatnya",
+      "suhu lingkungan yang dingin pada malam hari"
+    ],
+    "correct": "B"
+  },
+  {
+    "text": "Pada pipa panas berinsulasi, jaket pelindung (cladding) harus dipasang rapat dengan sealant agar...",
+    "options": [
+      "suhu fluida di dalam pipa meningkat secara signifikan",
+      "pipa tampak lebih mengkilap dan menarik dari kejauhan",
+      "air hujan tidak masuk dan memicu korosi di bawah insulasi",
+      "tekanan kerja pipa naik sampai batas maksimum desain"
+    ],
+    "correct": "C"
+  },
+  {
+    "text": "Informasi yang pada umumnya tercantum di nameplate pressure vessel adalah...",
+    "options": [
+      "harga pembelian vessel beserta nama pemasoknya saja",
+      "design pressure, design temperature, dan nomor seri",
+      "jadwal cuti teknisi yang bertanggung jawab merawat vessel",
+      "nama operator shift yang bertugas pada vessel tersebut"
+    ],
+    "correct": "B"
+  },
+  {
+    "text": "Pressure Vacuum Relief Valve (breather valve) pada atmospheric storage tank berfungsi untuk...",
+    "options": [
+      "menahan beban atap tangki saat terjadi hujan deras",
+      "menyaring kotoran yang terbawa dalam produk tangki",
+      "mengukur level cairan di dalam tangki secara kontinu",
+      "menjaga tekanan dan vakum tangki dalam batas aman saat isi dan kuras"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "Pada floating roof tank, atap dibuat mengapung di atas permukaan produk terutama untuk...",
+    "options": [
+      "mengurangi ruang uap sehingga emisi dan risiko kebakaran berkurang",
+      "mempermudah pengecatan seluruh bagian dalam tangki",
+      "menambah volume tangki secara signifikan tanpa tambahan shell",
+      "mengurangi ketebalan dinding tangki yang dibutuhkan desain"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Pada sambungan baut-mur, penyambungan dianggap memadai jika ujung stud...",
+    "options": [
+      "terletak lebih pendek dari permukaan mur yang terpasang",
+      "tidak perlu diperiksa karena torsi sudah mencukupi",
+      "menonjol melewati mur sedikitnya satu ulir penuh",
+      "hanya masuk setengah ulir ke dalam mur penjepit"
+    ],
+    "correct": "C"
+  },
+  {
+    "text": "Pada P&ID, singkatan NC pada sebuah valve berarti...",
+    "options": [
+      "needs calibration",
+      "normal capacity",
+      "non-corrosive",
+      "normally closed"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "Gate valve sebaiknya dipakai pada posisi terbuka penuh atau tertutup penuh karena...",
+    "options": [
+      "aliran fluida akan berbalik arah pada posisi setengah terbuka",
+      "stem akan memuai berlebihan pada posisi setengah terbuka",
+      "posisi setengah terbuka menimbulkan getaran dan erosi pada disc dan seat",
+      "valve akan langsung patah bila diputar setengah terbuka"
+    ],
+    "correct": "C"
+  },
+  {
+    "text": "Metode yang umum dipakai untuk membersihkan bagian dalam tube bundle heat exchanger dari deposit adalah...",
+    "options": [
+      "hydrojetting bertekanan tinggi",
+      "pemukulan dinding tube dengan palu",
+      "pengecatan ulang bagian dalam tube",
+      "pembakaran deposit dengan torch gas"
+    ],
+    "correct": "A"
+  }
+]

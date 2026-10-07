@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { DISCIPLINES, disciplineLabel, positionLabel } from "@/lib/constants";
+import { DISCIPLINES, jobTitle } from "@/lib/constants";
 import { ATTEMPT_STATUSES, RESULTS_LIMIT, type ResultFilters, type ResultRow } from "@/lib/results";
 import { formatClock, formatDate, formatDuration, summarize } from "@/lib/result-stats";
 
@@ -124,7 +124,7 @@ export function ResultsView({
           <thead>
             <tr className="border-b border-panel-line text-left text-ink-mute">
               <th scope="col" className="min-w-[13rem] px-4 py-3 font-medium">Peserta</th>
-              <th scope="col" className="min-w-[12rem] px-4 py-3 font-medium">Disiplin dan jabatan</th>
+              <th scope="col" className="min-w-[12rem] px-4 py-3 font-medium">Jabatan</th>
               <th scope="col" className="min-w-[10rem] px-4 py-3 font-medium">Exam</th>
               <th scope="col" className="min-w-[13rem] px-4 py-3 font-medium">Waktu pengerjaan</th>
               <th scope="col" className="px-4 py-3 text-right font-medium">Skor</th>
@@ -150,10 +150,8 @@ export function ResultsView({
                     <p className="text-xs text-ink-mute">{r.email}</p>
                   </td>
                   <td className="px-4 py-3 text-ink-soft">
-                    <p>{r.position ? positionLabel(r.position) : "-"}</p>
-                    <p className="text-xs text-ink-mute">
-                      {[r.discipline ? disciplineLabel(r.discipline) : null, r.department].filter(Boolean).join(", ") || "-"}
-                    </p>
+                    <p>{jobTitle(r.discipline, r.position)}</p>
+                    {r.department && <p className="text-xs text-ink-mute">{r.department}</p>}
                   </td>
                   <td className="px-4 py-3 text-ink-soft">
                     <p className="max-w-[14rem]">{r.examTitle}</p>

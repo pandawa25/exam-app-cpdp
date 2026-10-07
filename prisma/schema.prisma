@@ -14,20 +14,23 @@ enum Role {
   SUPERVISOR
 }
 
-// 4 disiplin teknik sesuai kebutuhan: Instrumentasi, Electrical, Stationary, Rotating
+// Disiplin teknik: Instrumentasi, Electrical, Stationary, Rotating, Civil
 enum Discipline {
   INSTRUMENTASI
   ELECTRICAL
   STATIONARY
   ROTATING
+  CIVIL
 }
 
-// Jabatan/level kompetensi - soal & exam difilter berdasarkan ini + disiplin
+// Jenjang jabatan teknisi - soal & exam difilter berdasarkan ini + disiplin
+// (jabatan lengkap = jenjang + disiplin, mis. "Jr. Technician I Instrument")
 enum Position {
-  TEKNISI_JUNIOR
-  TEKNISI_SENIOR
-  SUPERVISOR_LAPANGAN
-  ENGINEER
+  JR_TECHNICIAN_I
+  JR_TECHNICIAN_II
+  TECHNICIAN_I
+  TECHNICIAN_II
+  SR_TECHNICIAN_I
 }
 
 enum ExamStatus {

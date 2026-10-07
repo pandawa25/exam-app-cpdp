@@ -1,0 +1,302 @@
+[
+{
+"text":"Standar API yang mengatur pompa sentrifugal untuk layanan industri minyak, petrokimia, dan gas adalah ...",
+"options":[
+"API 617",
+"API 682",
+"API 610",
+"API 670"
+],
+"correct":"C"
+},
+{
+"text":"API 670 pada rotating equipment mencakup ...",
+"options":[
+"Sistem proteksi mesin: probe vibrasi, posisi aksial, suhu bearing",
+"Desain mechanical seal dan sistem pendukungnya di pompa",
+"Spesifikasi pompa reciprocating untuk layanan proses",
+"Persyaratan kopling gear untuk layanan khusus industri"
+],
+"correct":"A"
+},
+{
+"text":"Pada API 682, API Plan 53B pada dual seal bertekanan menggunakan ...",
+"options":[
+"Resirkulasi dari discharge melalui orifice ke seal chamber",
+"Quench uap pada sisi atmosfer seal dengan kondensat",
+"Tangki buffer tanpa tekanan yang berventilasi ke flare",
+"Accumulator bladder menekan barrier fluid, disirkulasi pumping ring"
+],
+"correct":"D"
+},
+{
+"text":"API Plan yang mensirkulasikan fluida seal chamber dengan pumping ring melalui cooler untuk layanan panas (hanya mendinginkan seal) adalah ...",
+"options":[
+"Plan 11",
+"Plan 23",
+"Plan 61",
+"Plan 72"
+],
+"correct":"B"
+},
+{
+"text":"Langkah pertama yang paling tepat dalam RCA kegagalan bearing atau seal adalah ...",
+"options":[
+"Segera mengganti komponen dan membuang yang rusak",
+"Mengamankan bukti fisik dan data operasi sebelum dibongkar lebih jauh",
+"Menentukan pelaku kesalahan dari shift terakhir bertugas",
+"Menyimpulkan penyebab dari pengalaman sebelumnya tanpa data"
+],
+"correct":"B"
+},
+{
+"text":"Pola frosting atau fluting (alur halus berulang) pada raceway bearing motor yang digerakkan VFD paling mungkin disebabkan oleh ...",
+"options":[
+"Pelumas yang terlalu kental pada suhu operasi",
+"Beban aksial berlebih pada bearing penahan",
+"Overgreasing pada bearing housing motor",
+"Arus listrik melewati bearing (EDM) akibat common-mode"
+],
+"correct":"D"
+},
+{
+"text":"Interval P-F pada strategi condition monitoring adalah ...",
+"options":[
+"Waktu dari cacat terdeteksi (P) hingga gagal fungsi (F)",
+"Waktu antara dua kali overhaul besar berturut-turut",
+"Waktu dari pengisian grease terakhir hingga berikutnya",
+"Umur desain pompa sesuai data dari pabrik"
+],
+"correct":"A"
+},
+{
+"text":"Pada API 682, Arrangement 3 untuk mechanical seal adalah ...",
+"options":[
+"Seal tunggal tanpa sistem pendukung apa pun",
+"Dual seal tanpa tekanan dengan buffer fluid",
+"Dual seal bertekanan dengan barrier fluid di atas tekanan proses",
+"Seal tunggal dengan quench uap pada sisi atmosfer"
+],
+"correct":"C"
+},
+{
+"text":"Dalam menentukan prioritas program condition monitoring online, pendekatan yang paling tepat adalah ...",
+"options":[
+"Memasang sensor pada semua mesin dengan jumlah sama",
+"Memilih mesin berdasarkan usia terlama saja",
+"Memprioritaskan mesin kritikal berdasarkan kekritisan dan FMEA",
+"Memilih mesin yang paling mudah dijangkau teknisi"
+],
+"correct":"C"
+},
+{
+"text":"Dalam perencanaan turnaround, spare berlead time panjang seperti rotor cadangan harus ...",
+"options":[
+"Dipesan dan dikonfirmasi jauh sebelum shutdown sesuai scope beku",
+"Dipesan setelah shutdown dimulai dan pekerjaan berjalan",
+"Dipesan hanya jika ditemukan rusak saat dibongkar",
+"Diabaikan karena dapat dibuat di lokasi proyek"
+],
+"correct":"A"
+},
+{
+"text":"Seal pompa LPG bocor kecil namun bertambah besar saat pompa beroperasi. Tindakan paling aman adalah ...",
+"options":[
+"Memperbaiki seal sambil pompa beroperasi dengan APD standar",
+"Eskalasi, isolasi atau hentikan pompa sesuai prosedur, amankan area",
+"Menutup kebocoran dengan kain serap lalu melanjutkan operasi",
+"Menunggu hingga akhir bulan untuk dijadwalkan perbaikan"
+],
+"correct":"B"
+},
+{
+"text":"Seorang teknisi junior salah memasang mechanical seal sehingga bocor. Cara membimbing yang paling efektif adalah ...",
+"options":[
+"Menegur keras di depan tim agar tidak mengulang",
+"Mengambil alih seluruh pekerjaan seal darinya selamanya",
+"Tidak membahasnya demi menjaga suasana kerja tetap baik",
+"Mereviu bersama sebabnya tanpa menyalahkan, lalu mendampingi"
+],
+"correct":"D"
+},
+{
+"text":"Penggunaan voting 2oo3 pada trip vibrasi tinggi kompresor bertujuan untuk ...",
+"options":[
+"Menurunkan trip palsu dengan tetap menjaga proteksi",
+"Menonaktifkan proteksi vibrasi saat start-up",
+"Menghemat jumlah sensor menjadi hanya satu unit",
+"Meningkatkan frekuensi trip palsu pada mesin"
+],
+"correct":"A"
+},
+{
+"text":"Proximity probe lebih tepat dibanding accelerometer pada casing untuk turbomachinery dengan journal bearing karena ...",
+"options":[
+"Harganya selalu jauh lebih murah dari accelerometer",
+"Hanya bekerja pada frekuensi tinggi di atas 10 kHz",
+"Tidak memerlukan kalibrasi sama sekali selama pemakaian",
+"Mengukur gerak poros relatif terhadap bearing, termasuk gap DC"
+],
+"correct":"D"
+},
+{
+"text":"Kode kebersihan oli ISO 4406 pada dua sampel adalah 21/19/16 dan 18/16/13. Interpretasi yang benar adalah ...",
+"options":[
+"Sampel 21/19/16 lebih bersih",
+"Keduanya sama bersih",
+"Sampel 18/16/13 lebih bersih karena jumlah partikelnya lebih sedikit",
+"Kode tidak ada hubungannya dengan jumlah partikel"
+],
+"correct":"C"
+},
+{
+"text":"Kompresor sentrifugal mengalami beberapa kali surge. Investigasi yang paling tepat adalah ...",
+"options":[
+"Mengganti oli pelumas segera tanpa investigasi lain",
+"Meninjau anti-surge (tuning, transmitter, respons valve), cek thrust bearing",
+"Menurunkan suhu ruang kompresor dengan ventilasi tambahan",
+"Menambah beban kompresor secara bertahap sampai stabil"
+],
+"correct":"B"
+},
+{
+"text":"Pada kompresor reciprocating, parameter yang membatasi kenaikan tekanan discharge terhadap kekuatan mekanis adalah ...",
+"options":[
+"Warna cat pada silinder dan crankcase",
+"Panjang pipa suction dari suction vessel",
+"Suhu ruang kontrol di area proses unit",
+"Rod load (gas dan inersia) pada piston rod"
+],
+"correct":"D"
+},
+{
+"text":"Hasil RCA menunjukkan akar latent: prosedur alignment tidak mensyaratkan pemeriksaan soft foot. Tindakan korektif yang paling efektif adalah ...",
+"options":[
+"Mengganti bearing yang rusak dengan merek lain",
+"Menambah frekuensi penggantian oli secara rutin",
+"Memperbarui prosedur dan pelatihan, lalu verifikasi implementasi",
+"Menyalahkan teknisi yang terakhir mengerjakan alignment"
+],
+"correct":"C"
+},
+{
+"text":"Sebuah pompa mengalami 5 kegagalan dalam 20.000 jam operasi. MTBF pompa tersebut adalah ...",
+"options":[
+"4.000 jam",
+"5.000 jam",
+"1.000 jam",
+"15.000 jam"
+],
+"correct":"A"
+},
+{
+"text":"Dengan MTBF 4.000 jam dan MTTR 100 jam, availability inheren peralatan adalah ...",
+"options":[
+"96,0%",
+"97,6%",
+"99,0%",
+"95,2%"
+],
+"correct":"B"
+},
+{
+"text":"Pada bearing, vibrasi overall masih stabil tetapi crest factor dan kurtosis meningkat. Interpretasi yang paling tepat adalah ...",
+"options":[
+"Indikasi awal cacat bearing (impacting) sebelum overall naik",
+"Bearing dalam kondisi sangat baik dan stabil",
+"Terjadi unbalance berat pada rotor motor",
+"Level oli bearing terlalu tinggi dari normal"
+],
+"correct":"A"
+},
+{
+"text":"Peralihan dari perawatan berbasis waktu ke berbasis kondisi valid jika ...",
+"options":[
+"Anggaran perawatan dipotong tanpa kajian risiko",
+"Seluruh jadwal overhaul dihapus tanpa data",
+"Data tren andal, cacat terdeteksi dalam interval P-F",
+"Operator merasa mesin masih terdengar baik"
+],
+"correct":"C"
+},
+{
+"text":"Pekerjaan melibatkan beberapa tim pada pompa yang sama. Pendekatan LOTO yang benar adalah ...",
+"options":[
+"Satu orang memasang gembok dan membawa kunci semua tim",
+"Cukup memasang tag tanpa gembok pada titik isolasi",
+"Tim terakhir memasang gembok sebagai perwakilan semua",
+"Group lockout multi-lock hasp, gembok per pekerja, verifikasi zero energy"
+],
+"correct":"D"
+},
+{
+"text":"Membongkar pompa yang melayani fluida mengandung H2S, tindakan yang benar adalah ...",
+"options":[
+"Langsung membuka flange karena pompa sudah berhenti",
+"Flushing atau purging, uji gas, gas detector personal dan RPE",
+"Membuka flange perlahan tanpa uji gas terlebih dahulu",
+"Menggunakan masker debu biasa selama pembongkaran"
+],
+"correct":"B"
+},
+{
+"text":"Overspeed trip turbin uap umumnya diset pada sekitar ...",
+"options":[
+"90% kecepatan operasi maksimum kontinu",
+"100% kecepatan operasi maksimum kontinu",
+"110% kecepatan operasi maksimum kontinu",
+"150% kecepatan operasi maksimum kontinu"
+],
+"correct":"C"
+},
+{
+"text":"Babbitt wiping berulang terjadi pada journal bearing setiap start-up. Pemeriksaan RCA yang paling tepat adalah ...",
+"options":[
+"Mengganti babbitt dengan material yang lebih tipis",
+"Memeriksa pre-lube atau auxiliary oil pump dan tekanan oli saat start",
+"Menurunkan beban pada kondisi stabil setelah start",
+"Menambah grease pada housing bearing secara berkala"
+],
+"correct":"B"
+},
+{
+"text":"Pompa API 610 untuk layanan panas memakai tumpuan centerline (centerline support) agar ...",
+"options":[
+"Pertumbuhan termal casing tidak menggeser elevasi poros",
+"Pompa menjadi lebih murah dan mudah dibuat",
+"Suhu fluida menjadi lebih rendah saat operasi",
+"Bunyi pompa berhenti total ketika beroperasi"
+],
+"correct":"A"
+},
+{
+"text":"Komponen yang paling tepat dijadikan insurance spare adalah ...",
+"options":[
+"Baut dan mur standar yang sering dipakai",
+"Gasket dan O-ring habis pakai tiap overhaul",
+"Grease dan oli yang mudah dibeli di pasaran",
+"Komponen mahal, lead time panjang, dampak besar, mis. rotor"
+],
+"correct":"D"
+},
+{
+"text":"Pompa dengan VFD bergetar tinggi hanya pada rentang rpm tertentu. Dugaan terbaik adalah ...",
+"options":[
+"Impeller terlalu bersih pada permukaan vane",
+"Bearing selalu kekurangan grease pada putaran rendah",
+"Resonansi saat putaran bertemu frekuensi natural; skip frequency",
+"Tegangan fase terlalu seimbang pada keluaran VFD"
+],
+"correct":"C"
+},
+{
+"text":"Bukti paling objektif bahwa overhaul kompresor berhasil pada acceptance test adalah ...",
+"options":[
+"Operator menyatakan suaranya terdengar baik",
+"Waktu pengerjaan lebih singkat dari rencana",
+"Mesin dapat dinyalakan tanpa mengalami trip",
+"Perbandingan vibrasi, suhu, performa dengan baseline terdokumentasi"
+],
+"correct":"D"
+}
+]

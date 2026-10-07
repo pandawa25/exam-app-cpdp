@@ -1,0 +1,302 @@
+[
+  {
+    "text": "Pada heat exchanger shell and tube dengan tekanan tube side lebih tinggi daripada shell side, tanda yang paling mengindikasikan tube bocor adalah...",
+    "options": [
+      "tidak ada perubahan apa pun pada kualitas produk",
+      "suhu keluaran sisi shell turun terus tanpa sebab lain",
+      "produk di sisi shell terkontaminasi fluida dari sisi tube",
+      "tekanan sisi tube naik drastis"
+    ],
+    "correct": "C"
+  },
+  {
+    "text": "Indikasi operasional heat exchanger yang mengalami fouling adalah...",
+    "options": [
+      "suhu outlet fluida dingin makin mendekati suhu masuk fluida panas",
+      "pressure drop naik dan koefisien perpindahan panas (U) menurun",
+      "laju alir otomatis naik tanpa perubahan valve",
+      "pressure drop menurun dan U meningkat"
+    ],
+    "correct": "B"
+  },
+  {
+    "text": "Salah satu penyebab klasik PSV chatter adalah...",
+    "options": [
+      "bonnet PSV diberi vent ke atmosfer",
+      "pemasangan PSV terlalu dekat dengan sumber tekanan yang stabil",
+      "pressure drop pipa inlet PSV yang melebihi sekitar 3% dari set pressure",
+      "set pressure PSV terlalu jauh di atas tekanan operasi"
+    ],
+    "correct": "C"
+  },
+  {
+    "text": "PSV mengalami simmering atau bocor halus sebelum mencapai set pressure. Penyebab yang paling mungkin adalah...",
+    "options": [
+      "tekanan operasi terlalu dekat dengan set pressure atau seat rusak",
+      "spring terlalu lunak sehingga tidak pernah membuka",
+      "outlet PSV bebas ke atmosfer",
+      "tekanan operasi jauh di bawah set pressure"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Balanced bellows PSV dipilih terutama ketika...",
+    "options": [
+      "tekanan outlet selalu nol dan konstan sepanjang operasi",
+      "fluida proses selalu berupa air dingin bertekanan rendah",
+      "back pressure variabel yang cukup tinggi dan berfluktuasi pada outlet PSV",
+      "vessel sama sekali tidak memiliki sambungan ke flare header"
+    ],
+    "correct": "C"
+  },
+  {
+    "text": "Ketebalan awal shell tahun 2014 adalah 20,0 mm dan hasil pengukuran sekarang 17,6 mm setelah 8 tahun. Laju korosi jangka panjang (long-term corrosion rate) adalah...",
+    "options": [
+      "0,20 mm/tahun",
+      "0,30 mm/tahun",
+      "2,40 mm/tahun",
+      "0,40 mm/tahun"
+    ],
+    "correct": "B"
+  },
+  {
+    "text": "Ketebalan aktual 14,2 mm, ketebalan minimum yang diizinkan 11,0 mm, dan laju korosi short-term 0,4 mm/tahun. Sisa umur vessel adalah...",
+    "options": [
+      "8 tahun",
+      "3,2 tahun",
+      "35 tahun",
+      "12,5 tahun"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Vessel dengan MAWP 20 bar memiliki tegangan ijin pada temperatur uji 138 MPa dan pada temperatur desain 115 MPa. Tekanan hydrotest minimum (1,3 x MAWP x rasio tegangan) adalah...",
+    "options": [
+      "36,0 bar",
+      "26,0 bar",
+      "21,7 bar",
+      "31,2 bar"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "Sisa umur vessel adalah 12 tahun. Menurut API 510, interval inspeksi internal maksimum yang diperbolehkan adalah yang lebih kecil dari setengah sisa umur atau 10 tahun, yaitu...",
+    "options": [
+      "10 tahun",
+      "12 tahun",
+      "6 tahun",
+      "3 tahun"
+    ],
+    "correct": "C"
+  },
+  {
+    "text": "Endapan kerak kalsium karbonat pada tube heat exchanger yang didinginkan air cooling water termasuk jenis fouling...",
+    "options": [
+      "corrosion fouling akibat asam",
+      "particulate fouling oleh pasir",
+      "biological fouling",
+      "scaling (crystallization)"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "Shell side heat exchanger mengalami pressure drop jauh di atas normal. Penyebab yang paling masuk akal adalah...",
+    "options": [
+      "laluan aliran tersumbat deposit atau debris di sekitar baffle",
+      "tube bundle terlalu bersih sehingga aliran menjadi terlalu lancar",
+      "laju alir sudah jauh di bawah nilai normal operasi",
+      "fluida shell terlalu dingin dibandingkan temperatur desain"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Tube heat exchanger pecah di dekat baffle setelah beberapa bulan beroperasi. Mekanisme kerusakan yang patut dicurigai adalah...",
+    "options": [
+      "pemuaian tube akibat paparan sinar matahari langsung",
+      "flow-induced vibration yang menyebabkan fretting atau fatigue",
+      "pembekuan air di dalam tube pada musim dingin",
+      "korosi galvanik akibat cat yang tidak sesuai spesifikasi"
+    ],
+    "correct": "B"
+  },
+  {
+    "text": "Boiler trip karena low-low water level. Penyebab yang paling relevan untuk diperiksa pertama adalah...",
+    "options": [
+      "kegagalan feedwater pump atau control valve feedwater",
+      "kelembapan udara sekitar yang tinggi pada siang hari",
+      "kelebihan bahan bakar pada burner utama saja",
+      "penggantian gasket manway pada steam drum minggu lalu"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Temperatur tube skin fired heater tinggi pada satu sisi tube dan terlihat bintik-bintik terang. Kemungkinan penyebabnya adalah...",
+    "options": [
+      "damper stack terbuka terlalu kecil sehingga tekanan naik",
+      "flame impingement atau coke yang menumpuk di dalam tube",
+      "burner mati total",
+      "fluida proses terlalu dingin"
+    ],
+    "correct": "B"
+  },
+  {
+    "text": "Dalam persiapan turnaround, tujuan scope freeze adalah...",
+    "options": [
+      "menetapkan batas akhir penambahan pekerjaan agar material dan sumber daya siap",
+      "membekukan harga material dari seluruh vendor sampai proyek selesai",
+      "menghentikan semua inspeksi selama turnaround berlangsung penuh",
+      "mengunci akses seluruh area plant bagi pihak kontraktor"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Sebelum vessel entry untuk pekerjaan inspeksi, kombinasi persiapan yang benar adalah...",
+    "options": [
+      "cukup menutup valve inlet lalu menunggu sekitar 5 menit",
+      "membuka manway lalu langsung masuk bila bau tidak menyengat",
+      "mengandalkan pengamatan visual dan penciuman tanpa gas test",
+      "isolasi blind, purging, cleaning, gas test, dan permit confined space"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "Pada hydrotest, tekanan sulit naik meski pompa terus bekerja dan volume air terpakai banyak. Penyebab yang paling mungkin adalah...",
+    "options": [
+      "pressure gauge yang terlalu akurat sehingga pembacaan lambat",
+      "kebocoran besar atau udara terjebak karena vent belum tuntas",
+      "vessel sudah penuh air tanpa udara dan tanpa kebocoran sedikit pun",
+      "air uji yang terlalu bersih sehingga tidak dapat menahan tekanan"
+    ],
+    "correct": "B"
+  },
+  {
+    "text": "Selama hold time hydrotest, tekanan naik sendiri meski pompa dimatikan. Penyebab yang paling mungkin adalah...",
+    "options": [
+      "penyusutan material vessel karena suhu lingkungan turun drastis",
+      "ekspansi termal air karena suhu naik oleh sinar matahari",
+      "kebocoran pada gasket yang membuat tekanan malah bertambah",
+      "gauge yang rusak secara otomatis setiap kali pompa dimatikan"
+    ],
+    "correct": "B"
+  },
+  {
+    "text": "Dead leg pada sistem perpipaan berisiko korosi lebih tinggi karena...",
+    "options": [
+      "aliran fluida di dalamnya selalu terlalu cepat dan turbulen",
+      "selalu bertemperatur tinggi sehingga laju korosi meningkat",
+      "selalu dipasang insulasi tebal sehingga tidak dapat dicek",
+      "fluida stagnan memungkinkan penumpukan air, deposit, dan korosi lokal"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "PSV bocor di bawah set pressure pada pengujian bench test. Tindakan perbaikan yang paling tepat adalah...",
+    "options": [
+      "membongkar, me-lapping seat atau mengganti disc rusak, lalu set ulang",
+      "menaikkan set pressure sampai kebocoran berhenti dengan sendirinya",
+      "mengencangkan spring sampai maksimum tanpa pengujian ulang",
+      "menyumbat outlet dengan blind flange secara permanen di lapangan"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Tangki penyimpanan mengalami differential settlement. Dampak yang paling mungkin terjadi pada shell adalah...",
+    "options": [
+      "perbaikan kerataan lantai tangki secara alami dari waktu ke waktu",
+      "distorsi shell dan out-of-roundness yang dapat merusak floating roof seal",
+      "penambahan kapasitas tangki akibat dasar yang turun merata",
+      "penurunan laju korosi karena permukaan dasar lebih lembap"
+    ],
+    "correct": "B"
+  },
+  {
+    "text": "Menurut API 570/583, rentang temperatur kritis korosi di bawah insulasi pada carbon steel adalah kira-kira...",
+    "options": [
+      "-100 °C sampai -50 °C",
+      "200 °C sampai 400 °C",
+      "-12 °C sampai 175 °C",
+      "500 °C sampai 650 °C"
+    ],
+    "correct": "C"
+  },
+  {
+    "text": "Sebuah cooler mendinginkan 10 kg/s air (cp = 4,18 kJ/kg·K) dari 40 °C menjadi 30 °C. Beban panas (duty) yang dilepas adalah...",
+    "options": [
+      "418 kW",
+      "4.180 kW",
+      "41,8 kW",
+      "836 kW"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Pada heat exchanger counter-current, selisih temperatur terminal 100 K dan 40 K. LMTD-nya adalah...",
+    "options": [
+      "65,5 K",
+      "60,0 K",
+      "70,0 K",
+      "40,0 K"
+    ],
+    "correct": "A"
+  },
+  {
+    "text": "Tebal dinding pipa diukur 10,5 mm, dan enam bulan sebelumnya 10,9 mm. Laju korosi short-term-nya adalah...",
+    "options": [
+      "0,4 mm/tahun",
+      "0,2 mm/tahun",
+      "4,0 mm/tahun",
+      "0,8 mm/tahun"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "Kecepatan aliran sisi tube yang terlalu rendah pada cooling water heat exchanger cenderung menyebabkan...",
+    "options": [
+      "erosi berat pada tube akibat kecepatan berlebih",
+      "korosi galvanik otomatis berhenti",
+      "pengendapan dan fouling karena partikel mudah mengendap",
+      "penurunan pressure drop menjadi nol"
+    ],
+    "correct": "C"
+  },
+  {
+    "text": "Kriteria penyumbatan (plugging) tube heat exchanger umumnya diputuskan berdasarkan...",
+    "options": [
+      "jumlah warna cat di bagian luar shell yang terlihat dari bawah",
+      "preferensi pribadi operator shift yang bertugas saat itu",
+      "tekanan atmosfer pada hari pelaksanaan pekerjaan inspeksi",
+      "hasil eddy current testing dan batas penipisan dinding serta jumlah tube yang boleh diplug"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "Gasket blow-out pada flange bertekanan tinggi umumnya disebabkan oleh...",
+    "options": [
+      "torsi yang terlalu besar tetapi merata di seluruh baut flange",
+      "beban baut tidak memadai atau tidak merata sehingga gasket terdorong keluar",
+      "gasket yang sangat tebal pada flange tipe RTJ berlapis logam",
+      "permukaan flange yang terlalu bersih dan rata sebelum pemasangan"
+    ],
+    "correct": "B"
+  },
+  {
+    "text": "Pada perencanaan turnaround, aktivitas yang menentukan durasi total proyek adalah...",
+    "options": [
+      "pekerjaan yang paling murah",
+      "pekerjaan dengan jumlah pekerja paling sedikit",
+      "pekerjaan non-prioritas",
+      "jalur kritis (critical path) pekerjaan"
+    ],
+    "correct": "D"
+  },
+  {
+    "text": "Pada pemasangan rupture disc di bawah PSV, pressure gauge pada ruang di antara keduanya berfungsi untuk...",
+    "options": [
+      "menaikkan tekanan set PSV secara otomatis saat disc pecah",
+      "mengukur laju alir fluida yang dibuang ke flare header",
+      "mendeteksi kebocoran (pinhole) disc yang dapat mengubah tekanan buka PSV",
+      "menyaring partikel padat dari fluida proses sebelum masuk PSV"
+    ],
+    "correct": "C"
+  }
+]

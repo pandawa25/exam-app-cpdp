@@ -18,11 +18,12 @@ export type UserInput = {
 
 type Option = { readonly value: string; readonly label: string };
 
-const normalize = (s: string) => s.trim().toLowerCase().replace(/[\s-]+/g, "_");
+const normalize = (s: string) =>
+  s.trim().toLowerCase().replace(/[\s.-]+/g, "_").replace(/^_+|_+$/g, "");
 
 /**
- * Cocokkan input bebas ke value enum: terima value ("TEKNISI_SENIOR"), label
- * ("Teknisi Senior"), atau variasi huruf besar/kecil. Berguna untuk import CSV
+ * Cocokkan input bebas ke value enum: terima value ("SR_TECHNICIAN_I"), label
+ * ("Sr. Technician I", "Sr.Technician I"), atau variasi huruf besar/kecil. Berguna untuk import CSV
  * yang diketik manual di Excel.
  */
 export function matchOption(raw: unknown, options: readonly Option[]): string | null {

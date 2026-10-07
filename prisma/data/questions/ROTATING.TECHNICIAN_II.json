@@ -1,0 +1,302 @@
+[
+{
+"text":"Spektrum vibrasi yang paling khas untuk unbalance pada rotor adalah ...",
+"options":[
+"Puncak dominan 1× rpm radial dengan fase stabil",
+"Puncak dominan 2× rpm pada arah aksial",
+"Banyak harmonik dengan sub-harmonik 0,5× rpm",
+"Puncak pada 0,4–0,48× rpm journal bearing"
+],
+"correct":"A"
+},
+{
+"text":"Misalignment kopling antara motor dan pompa biasanya terlihat pada spektrum sebagai ...",
+"options":[
+"Hanya puncak 1× radial yang rendah",
+"Noise lantai tinggi pada frekuensi sangat tinggi tanpa puncak",
+"Puncak 2× rpm yang tinggi disertai 1× dan vibrasi aksial yang besar",
+"Puncak tunggal pada frekuensi line 50 Hz"
+],
+"correct":"C"
+},
+{
+"text":"Mechanical looseness (kelonggaran struktur atau bearing) pada spektrum umumnya ditandai oleh ...",
+"options":[
+"Satu puncak 1× yang bersih dan fase stabil",
+"Deretan harmonik 1×, 2×, 3×, kadang sub-harmonik 0,5×",
+"Puncak tunggal pada frekuensi blade pass saja",
+"Puncak pada frekuensi gear mesh saja tanpa harmonik"
+],
+"correct":"B"
+},
+{
+"text":"Oil whirl pada journal bearing muncul di spektrum pada frekuensi sekitar ...",
+"options":[
+"1× rpm tepat",
+"2× rpm",
+"Frekuensi blade pass",
+"0,40–0,48× rpm"
+],
+"correct":"D"
+},
+{
+"text":"Pompa dengan 6 vane impeller berputar pada 2980 rpm. Frekuensi blade pass-nya adalah ...",
+"options":[
+"298 Hz",
+"49,7 Hz",
+"149 Hz",
+"596 Hz"
+],
+"correct":"A"
+},
+{
+"text":"Pompa pada 1480 rpm menyerap daya 15 kW. Jika putaran dinaikkan menjadi 1776 rpm (1,2×) dengan affinity laws, daya yang diserap menjadi ...",
+"options":[
+"18,0 kW",
+"25,9 kW",
+"21,6 kW",
+"31,1 kW"
+],
+"correct":"B"
+},
+{
+"text":"Pompa memompa air (ρ ≈ 1000 kg/m³) dari tangki terbuka. Tekanan atmosfer 100 kPa, tekanan uap 5 kPa, level cairan 3 m di atas suction pompa, rugi gesek suction 1 m, g = 9,81 m/s². NPSHa adalah ...",
+"options":[
+"13,7 m",
+"7,7 m",
+"9,7 m",
+"11,7 m"
+],
+"correct":"D"
+},
+{
+"text":"Gejala kavitasi pada pompa yang paling tepat adalah ...",
+"options":[
+"Suara halus dan stabil disertai kenaikan head pompa",
+"Arus motor turun menjadi nol tanpa suara apa pun",
+"Suara kerikil, vibrasi broadband acak, dan head turun",
+"Suhu bearing turun drastis tanpa sebab yang jelas"
+],
+"correct":"C"
+},
+{
+"text":"Pada commissioning pompa baru, pemeriksaan arah putaran motor dilakukan dengan ...",
+"options":[
+"Motor dijalankan sesaat dengan kopling dilepas (uncoupled)",
+"Pompa dijalankan penuh dengan kopling terpasang tanpa pengecekan",
+"Hanya melihat panah pada nameplate",
+"Menunggu tekanan discharge naik"
+],
+"correct":"A"
+},
+{
+"text":"Pompa memompa air dengan kapasitas 100 m³/jam, head 40 m, efisiensi pompa 70%, ρ = 1000 kg/m³, g = 9,81 m/s². Daya poros yang dibutuhkan adalah ...",
+"options":[
+"10,9 kW",
+"7,6 kW",
+"21,8 kW",
+"15,6 kW"
+],
+"correct":"D"
+},
+{
+"text":"Pada unbalance statik, perbedaan fase vibrasi radial antara bearing kiri dan kanan rotor mendekati ...",
+"options":[
+"180°",
+"0° (sefase)",
+"90° dengan pergeseran acak",
+"Tidak ada hubungan sama sekali"
+],
+"correct":"B"
+},
+{
+"text":"Teknik envelope (demodulation) pada analisis vibrasi terutama berguna untuk mendeteksi ...",
+"options":[
+"Unbalance rotor yang berukuran besar",
+"Misalignment kopling jenis kaku",
+"Cacat awal bearing rolling, mis. BPFO",
+"Resonansi pada struktur dan pipa"
+],
+"correct":"C"
+},
+{
+"text":"Pompa bergetar tinggi hanya ketika dioperasikan pada flow rendah (di bawah sekitar 50% BEP). Penyebab yang paling mungkin adalah ...",
+"options":[
+"Resirkulasi internal akibat operasi jauh dari BEP",
+"Kopling terlalu bagus alignment-nya",
+"Impeller terlalu bersih",
+"Tegangan suplai terlalu stabil"
+],
+"correct":"A"
+},
+{
+"text":"Vibrasi aksial 1× dan 2× naik setelah pipa suction disambung kembali ke pompa. Pemeriksaan yang paling tepat adalah ...",
+"options":[
+"Mengganti seluruh bearing motor dan pompa sekaligus",
+"Menambah grease pada semua bearing sampai penuh",
+"Memeriksa pipe strain: kendurkan flange sambil pantau dial",
+"Menaikkan putaran pompa untuk melihat perubahan"
+],
+"correct":"C"
+},
+{
+"text":"Kecepatan kritis (critical speed) rotor adalah ...",
+"options":[
+"Kecepatan maksimum yang diizinkan oleh pabrikan motor",
+"Kecepatan saat bearing mencapai suhu operasi maksimum",
+"Kecepatan saat pompa mulai menghisap udara ke impeller",
+"Kecepatan saat frekuensi putar mendekati frekuensi natural rotor"
+],
+"correct":"D"
+},
+{
+"text":"Impeller pompa dipotong (trimming) dari 300 mm menjadi 270 mm pada rpm tetap. Jika head semula 60 m, head setelah trimming (pendekatan affinity laws) adalah ...",
+"options":[
+"54,0 m",
+"48,6 m",
+"43,7 m",
+"39,4 m"
+],
+"correct":"B"
+},
+{
+"text":"Surge pada kompresor sentrifugal dicirikan oleh ...",
+"options":[
+"Aliran balik periodik, pulsasi tekanan, vibrasi tinggi",
+"Peningkatan efisiensi mendadak pada beban rendah",
+"Suara kompresor menjadi senyap dan arus turun",
+"Kenaikan flow di atas kapasitas desain kompresor"
+],
+"correct":"A"
+},
+{
+"text":"Fungsi sistem anti-surge pada kompresor sentrifugal adalah ...",
+"options":[
+"Menaikkan tekanan suction secara permanen",
+"Mengurangi suhu pendingin interstage saja",
+"Menutup katup discharge secara penuh",
+"Membuka katup recycle agar flow tetap di atas garis surge"
+],
+"correct":"D"
+},
+{
+"text":"Parameter yang sebaiknya dicatat selama run-in test pompa setelah overhaul adalah ...",
+"options":[
+"Hanya suara motor saat pompa dijalankan penuh",
+"Hanya warna cat bearing housing dan base plate",
+"Vibrasi, suhu bearing, tekanan, arus, dan kebocoran seal",
+"Hanya jumlah baut yang terpasang pada casing"
+],
+"correct":"C"
+},
+{
+"text":"Motor pompa menarik arus di atas FLA saat discharge valve terbuka penuh dan flow jauh melebihi rating. Penjelasan yang paling tepat adalah ...",
+"options":[
+"Impeller berdiameter kurang dari desain pompa",
+"Pompa di ujung kurva (run-out), daya dan NPSHr naik",
+"Suhu fluida terlalu rendah dari kondisi desain",
+"Bearing kekurangan grease pada kedua housing"
+],
+"correct":"B"
+},
+{
+"text":"Titik operasi pompa pada sistem perpipaan ditentukan oleh ...",
+"options":[
+"Suhu ruangan tempat pompa dan motor berada",
+"Putaran motor saja tanpa melihat kurva",
+"Diameter poros pompa dan motor",
+"Perpotongan kurva pompa dan kurva sistem"
+],
+"correct":"D"
+},
+{
+"text":"Suhu discharge naik pada satu silinder kompresor reciprocating, sedangkan silinder lain normal. Penyebab yang paling mungkin adalah ...",
+"options":[
+"Kebocoran valve yang membuat gas panas bersirkulasi",
+"Oli crankcase terlalu bersih dan baru",
+"Kecepatan kompresor terlalu stabil",
+"Cooling water terlalu dingin pada seluruh unit"
+],
+"correct":"A"
+},
+{
+"text":"Dua pompa identik dioperasikan paralel pada sistem dengan kurva gesekan. Flow total dibanding satu pompa adalah ...",
+"options":[
+"Tepat dua kali flow satu pompa",
+"Kurang dari dua kali flow satu pompa",
+"Sama dengan flow satu pompa",
+"Lebih dari dua kali flow satu pompa"
+],
+"correct":"B"
+},
+{
+"text":"Pada pengukuran thermography, pengaturan yang wajib diperhatikan agar suhu terbaca akurat adalah ...",
+"options":[
+"Jumlah baut yang terlihat pada objek",
+"Warna jaket yang dipakai teknisi",
+"Emissivitas sesuai material dan permukaan",
+"Panjang kabel pada kamera termal"
+],
+"correct":"C"
+},
+{
+"text":"Motor induksi 4 kutub, 50 Hz, berputar pada 1480 rpm (kecepatan sinkron 1500 rpm). Slip motor adalah ...",
+"options":[
+"0,67%",
+"2,67%",
+"4,00%",
+"1,33%"
+],
+"correct":"D"
+},
+{
+"text":"Syarat dasar agar pompa tidak mengalami kavitasi adalah ...",
+"options":[
+"NPSHa lebih besar dari NPSHr dengan margin memadai",
+"NPSHa sama dengan nol saat pompa operasi",
+"NPSHr lebih besar dari NPSHa pada suction",
+"NPSHa tidak perlu dihitung pada tahap desain"
+],
+"correct":"A"
+},
+{
+"text":"Pinion gearbox berjumlah 20 gigi berputar pada 1500 rpm. Frekuensi gear mesh (GMF) adalah ...",
+"options":[
+"25 Hz",
+"300 Hz",
+"500 Hz",
+"750 Hz"
+],
+"correct":"C"
+},
+{
+"text":"Pada single-plane balancing dengan metode trial weight, tujuan pemasangan trial weight adalah ...",
+"options":[
+"Menambah berat rotor secara permanen di rim",
+"Mendapatkan perubahan amplitudo dan fase untuk koreksi",
+"Mengukur kenaikan suhu bearing saat uji putar",
+"Menurunkan putaran kerja selama proses balancing"
+],
+"correct":"B"
+},
+{
+"text":"Hasil analisis oli bearing menunjukkan kenaikan kandungan silikon (Si) yang tajam. Indikasi yang paling mungkin adalah ...",
+"options":[
+"Keausan roda gigi baja pada gearbox",
+"Oli terlalu panas pada sump bearing",
+"Penurunan viskositas oli akibat geser",
+"Masuknya debu atau pasir dari luar"
+],
+"correct":"D"
+},
+{
+"text":"Setelah start, pompa tidak menghasilkan flow, tekanan discharge sangat rendah, dan arus motor rendah. Dugaan yang paling tepat adalah ...",
+"options":[
+"Pompa tidak terprime (air lock) atau suction tertutup",
+"Impeller berdiameter terlalu besar dari desain",
+"Bearing kelebihan grease pada housing",
+"Toleransi kopling terlalu longgar dari spesifikasi"
+],
+"correct":"A"
+}
+]

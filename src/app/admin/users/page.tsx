@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
-import { ROLES, disciplineLabel, positionLabel, roleLabel } from "@/lib/constants";
+import { ROLES, jobTitle, roleLabel } from "@/lib/constants";
 import { matchOption } from "@/lib/users";
 
 export const dynamic = "force-dynamic";
@@ -120,9 +120,7 @@ export default async function UsersPage({
                 </td>
                 <td className="py-3 px-4">{roleLabel(u.role)}</td>
                 <td className="py-3 px-4 text-ink-soft">
-                  {u.discipline && u.position
-                    ? `${disciplineLabel(u.discipline)} / ${positionLabel(u.position)}`
-                    : "-"}
+                  {u.discipline && u.position ? jobTitle(u.discipline, u.position) : "-"}
                 </td>
                 <td className="py-3 px-4 text-ink-soft">{u.department ?? "-"}</td>
                 <td className="py-3 px-4">
